@@ -106,5 +106,3 @@ Estudar Pygame - Duda, Marcelo, Isaac
 Pixel Arts - Belle
  . Juliano - Frente, Trás, Perfil;
 Mapa - Milk
-
-git
