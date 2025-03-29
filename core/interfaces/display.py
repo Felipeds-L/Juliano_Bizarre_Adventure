@@ -11,9 +11,6 @@ from sys import exit
 pygame.init()
 
 class Tela():
-    def __init__(self):
-        self.area = None
-    
     def setArea(self, largura, altura):
         pygame.display.set_mode((largura, altura))
     
