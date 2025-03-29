@@ -7,30 +7,36 @@
 # personagem.setAtaques("ataque") (str) --> Adiciona um ataque a lista de ataques do personagem
 # personagem.curar() --> Cura o personagem em um de vida
 # personagem.sprite("sprite") (str) --> Define a sprite atual do personagem
-# personagem.oculos() --> Seta o uso do óculos do personagem para True
+# personagem.setOculos() --> Seta o uso do óculos do personagem para True
 #
 # >Somente< Juliano terá uma lista de ataques e opção de usar óculos, por padrão Juliano começará apenas com "Bicada" na lista
 # até que o "Óculos" e a "Pomba Laser" sejam adquiridos, adicionando os ataques "Intimidar" e "Pomba Laser" respectivamente.
 
+from configs.configuracoes import *
+
 class Personagem():
     def __init__(self):
         self.nome = None
-        self.vida = None
+        self.vidaCheia = None
+        self.vidaAtual = self.vidaCheia
         self.ataques = ["Bicada"]
         self.sprite = None
-        self.oculos - False
+        self.oculos = False
 
     def setNome(self, nome):
         self.nome = nome
     
     def setVida(self, vida):
-        self.vida = vida
+        self.vidaCheia = vida
     
     def sofrerDano(self, dano):
-        self.vida -= dano
+        self.vidaAtual -= dano
     
     def curar(self):
-        self.vida += 1
+        if self.vidaAtual < self.vidaCheia:
+            self.vidaAtual += 1
+        else:
+            self.vidaAtual == self.vidaCheia
 
     def setAtaques(self, ataque):
         self.ataques.append(ataque)
