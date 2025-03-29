@@ -1,4 +1,6 @@
 import pygame
+from pygame.locals import *
+
 from configs.configuracoes import *
 
 class Jogo():
@@ -21,7 +23,7 @@ class Jogo():
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:
                     sair = True
-                    
+
             pygame.display.update()
 
         ######### COMANDOS DE ANDAR #########
