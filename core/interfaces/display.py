@@ -11,8 +11,11 @@ from sys import exit
 pygame.init()
 
 class Tela():
+    def __init__(self):
+        self.display = None
+    
     def setArea(self, largura, altura):
-        pygame.display.set_mode((largura, altura))
+        self.display = pygame.display.set_mode((largura, altura))
     
     def setNome(self, nome):
         pygame.display.set_caption(nome)
