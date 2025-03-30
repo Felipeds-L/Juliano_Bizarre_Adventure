@@ -8,9 +8,12 @@ CAMADA_PLAYER = 1
 TAMANHO_PLAYER = 32
 VELOCIDADE_PLAYER = 6
 
-############ CONFIGURAÇÕES OBSTÁCULOS ###############
+############ CONFIGURAÇÕES MAPA ###############
 CAMADA_OBSTACULOS = 2
 TAMANHO_ARVORE = 64
+CAMADA_MAPA = 0
+LARGURA_MAPA = 80000
+ALTURA_MAPA = 60000
 
 ############# CORES ###################
 VERMELHO = (255, 0, 0)

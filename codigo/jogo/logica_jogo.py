@@ -12,6 +12,7 @@ class Jogo:
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
         self.running = True
+        self.mapa = pygame.image.load('graficos/mapa/mapa.png')
     
     ################### INICIA O JOGO E SEUS ELEMENTOS ###################
     def iniciar_jogo(self):
@@ -29,7 +30,7 @@ class Jogo:
     
     ################### ATUALIZA O MAPA EM TODOS CICLOS ###################
     def update_mapa(self):
-        self.display.fill(PRETO)
+        self.display.blit(self.mapa, (0,0))
         self.todas_sprites.draw(self.display)
         self.fps.tick(FPS)
 

@@ -101,3 +101,21 @@ class PombaLaser(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
 
+############ SPRITE MAPA ##################
+class Mapa(pygame.sprite.Sprite):
+    def __init__(self, jogo):
+        self.jogo = jogo
+        self._camada = CAMADA_MAPA
+        self.grupo_sprites = self.jogo.todas_sprites
+        pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
+
+        self.x = 0
+        self.y = 0
+        self.largura = LARGURA_MAPA
+        self.altura = ALTURA_MAPA
+
+        self.image = pygame.Surface([self.largura, self.altura]) 
+
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
