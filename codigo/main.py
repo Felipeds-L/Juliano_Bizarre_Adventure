@@ -1,7 +1,8 @@
-from jogo import Jogo
+from jogo.logica_jogo import *
+
+jogo = Jogo()
 
 if __name__ == '__main__':
-    jogo = Jogo()
-    
-    jogo.importar_sprites()
+    jogo.tela_introducao()
+    jogo.iniciar_jogo()
     jogo.run()
