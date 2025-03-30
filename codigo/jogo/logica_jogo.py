@@ -21,7 +21,7 @@ class Jogo:
 
         ########## CRIA JULIANO E DEFINE SUA SPRITE #############
         juliano = Personagem()
-        juliano.setSprite = Player(self, 990, 540)
+        juliano.setSprite(Player(self, 400, 300))
 
     ################### ATUALIZA AS SPRITES DO JOGO EM TODOS CICLOS ###################
     def update_sprites(self):

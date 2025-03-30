@@ -1,5 +1,5 @@
 ################ CONFIGURAÇÕES DA JANELA ##################
-JANELA_LARGURA, JANELA_ALTURA = 1980, 1080
+JANELA_LARGURA, JANELA_ALTURA = 800, 600
 JANELA_NOME = "Juliano Bizarre Adventure"
 FPS = 60
 
