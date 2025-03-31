@@ -3,6 +3,7 @@ from pygame.locals import *
 from jogo.sprites import *
 from configs.configuracoes import *
 from classes.personagens import Personagem
+import sys
 
 class Jogo:
     ################### CONFIGURAÇÃO DA TELA AO INICIAR JOGO ####################
@@ -50,11 +51,12 @@ class Jogo:
     ################### JOGO RODANDO ATÉ SER FECHADO ###################
     def run(self):
         while self.running:
+            botao = pygame.key.get_pressed()
             for evento in pygame.event.get():
-                if evento.type == pygame.QUIT:
+                if evento.type == pygame.QUIT or botao[pygame.K_ESCAPE]:
                     self.running = False
                     self.jogando = False
-            
+
             if self.jogando:
                 self.update_sprites()
                 self.desenhar()

@@ -121,7 +121,8 @@ class Mapa(pygame.sprite.Sprite):
                 for x, y, gid in camada:
                     tile = self.mapa.get_tile_image_by_gid(gid)
                     if tile:
-                        self.image.blit(tile, (x * self.mapa.tilewidth, y * self.mapa.tileheight))
+                        tile_redimensionado = pygame.transform.scale(tile, (self.mapa.tilewidth * ESCALA, self.mapa.tileheight * ESCALA))
+                        self.image.blit(tile_redimensionado, (x * self.mapa.tilewidth * ESCALA, y * self.mapa.tileheight * ESCALA))
 
     ################## ATUALIZA A POSIÇÃO DO PLAYER PÓS MOVIMENTO ##################
     def update(self):
