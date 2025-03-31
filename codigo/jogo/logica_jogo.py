@@ -12,17 +12,19 @@ class Jogo:
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
         self.running = True
-        self.mapa = pygame.image.load('graficos/mapa/mapa.png')
-    
+
     ################### INICIA O JOGO E SEUS ELEMENTOS ###################
     def iniciar_jogo(self):
         self.jogando = True
         self.todas_sprites = pygame.sprite.LayeredUpdates()
         self.sprite_arvore = pygame.sprite.LayeredUpdates()
+        
+        ######### CRIA O MAPA ###########
+        self.mapa = Mapa(self)
 
         ########## CRIA JULIANO E DEFINE SUA SPRITE #############
         juliano = Personagem()
-        juliano.setSprite(Player(self, 400, 300))
+        juliano.setSprite(Player(self, JANELA_LARGURA/2, JANELA_ALTURA/2))
 
     ################### ATUALIZA AS SPRITES DO JOGO EM TODOS CICLOS ###################
     def update_sprites(self):
@@ -30,7 +32,8 @@ class Jogo:
     
     ################### ATUALIZA O MAPA EM TODOS CICLOS ###################
     def update_mapa(self):
-        self.display.blit(self.mapa, (0,0))
+        self.display.fill((0, 0, 0))
+        self.display.blit(self.mapa.image, (self.mapa.rect.x, self.mapa.rect.y))
         self.todas_sprites.draw(self.display)
         self.fps.tick(FPS)
 
