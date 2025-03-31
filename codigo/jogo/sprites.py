@@ -4,6 +4,7 @@
 import pygame
 from pygame.locals import *
 from configs.configuracoes import *
+from pygame.locals import *
 
 ##################################### SPRITE DO PLAYER ###########################################
 class Player(pygame.sprite.Sprite):

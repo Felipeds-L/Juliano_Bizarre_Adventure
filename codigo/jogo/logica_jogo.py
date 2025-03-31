@@ -36,7 +36,8 @@ class Jogo:
         self.display.blit(self.mapa.image, (self.mapa.rect.x, self.mapa.rect.y))
         self.todas_sprites.draw(self.display)
         self.fps.tick(FPS)
-
+        pygame.display.update()
+    
     ################### FIM DE JOGO ###################
     def game_over(self):
         pass
@@ -47,14 +48,12 @@ class Jogo:
     
     ################### JOGO RODANDO ATÉ SER FECHADO ###################
     def run(self):
-        while self.jogando:
-
-            ################# FECHA O JOGO #################
+        while self.running:
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:
-                    self.jogando = False
                     self.running = False
-
-            self.update_sprites()
-            self.update_mapa()
-            pygame.display.update()
+                    self.jogando = False
+            
+            if self.jogando:
+                self.update_sprites()
+                self.update_mapa()
