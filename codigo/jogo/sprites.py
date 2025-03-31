@@ -2,6 +2,7 @@
 # NESTE ARQUIVO TAMBÉM TERÁ AS SPRITES DE CADA PARTE DO MAPA!!!!
 
 import pygame
+import pytmx
 from pygame.locals import *
 from configs.configuracoes import *
 from pygame.locals import *
@@ -11,7 +12,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
         self._camada = CAMADA_PLAYER
-        self.grupo_sprites = self.jogo.todas_sprites
+        self.grupo_sprites = self.jogo.sprite_player
         pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
 
         ########## VARIÁVEIS DE CONTAGEM DE FRAME PARA ANIMAÇÃO ##############
@@ -70,28 +71,10 @@ class Player(pygame.sprite.Sprite):
 class Arvore(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
-        self._camada = CAMADA_OBSTACULOS
-        self.grupo_sprites = self.jogo.todas_sprites
-        pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
-
-        self.x = x
-        self.y = y
-        self.largura = TAMANHO_ARVORE
-        self.altura = TAMANHO_ARVORE
-
-        self.image = pygame.Surface([self.largura, self.altura]) 
-        self.image.fill(AZUL)
-
-        self.rect = self.image.get_rect()
-        self.rect.x = self.x
-        self.rect.y = self.y
 
 class Arbusto(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
-        self._camada = CAMADA_OBSTACULOS
-        self.grupo_sprites = self.jogo.todas_sprites, self.jogo.sprite_arvore 
-        pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
 
 class Semente(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
@@ -114,8 +97,7 @@ class PombaLaser(pygame.sprite.Sprite):
 class Mapa(pygame.sprite.Sprite):
     def __init__(self, jogo):
         self.jogo = jogo
-        self._camada = CAMADA_MAPA
-        self.grupo_sprites = self.jogo.todas_sprites
+        self.grupo_sprites = self.jogo.sprites_mapa
         pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
 
         self.x = 0
@@ -124,14 +106,22 @@ class Mapa(pygame.sprite.Sprite):
         self.x_andar = 0
         self.y_andar = 0
         
-        self.image = pygame.image.load('graficos/mapa/mapa.png').convert_alpha()
-        self.largura = self.image.get_width()*2
-        self.altura = self.image.get_height()*2
-        self.image = pygame.transform.scale(self.image, (self.largura, self.altura))
+        self.mapa = pytmx.load_pygame('graficos/mapa/game_mapa.tmx')
+        self.largura = self.mapa.width * self.mapa.tilewidth
+        self.altura = self.mapa.height * self.mapa.tileheight
+        self.image = pygame.Surface((self.largura, self.altura))
         
+        self.carregar_mapa()
         self.rect = self.image.get_rect()
-
-        self.update()
+    
+    ################ SERVE PARA CARREGAR O MAPA COMO BACKGROUND ##############
+    def carregar_mapa(self):
+        for camada in self.mapa.visible_layers:
+            if isinstance(camada, pytmx.TiledTileLayer):
+                for x, y, gid in camada:
+                    tile = self.mapa.get_tile_image_by_gid(gid)
+                    if tile:
+                        self.image.blit(tile, (x * self.mapa.tilewidth, y * self.mapa.tileheight))
 
     ################## ATUALIZA A POSIÇÃO DO PLAYER PÓS MOVIMENTO ##################
     def update(self):

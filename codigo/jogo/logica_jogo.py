@@ -16,8 +16,8 @@ class Jogo:
     ################### INICIA O JOGO E SEUS ELEMENTOS ###################
     def iniciar_jogo(self):
         self.jogando = True
-        self.todas_sprites = pygame.sprite.LayeredUpdates()
-        self.sprite_arvore = pygame.sprite.LayeredUpdates()
+        self.sprites_mapa = pygame.sprite.LayeredUpdates()
+        self.sprite_player = pygame.sprite.LayeredUpdates()
         
         ######### CRIA O MAPA ###########
         self.mapa = Mapa(self)
@@ -28,13 +28,14 @@ class Jogo:
 
     ################### ATUALIZA AS SPRITES DO JOGO EM TODOS CICLOS ###################
     def update_sprites(self):
-        self.todas_sprites.update()
+        self.sprites_mapa.update()
+        self.sprite_player.update()
     
     ################### ATUALIZA O MAPA EM TODOS CICLOS ###################
-    def update_mapa(self):
+    def desenhar(self):
         self.display.fill((0, 0, 0))
-        self.display.blit(self.mapa.image, (self.mapa.rect.x, self.mapa.rect.y))
-        self.todas_sprites.draw(self.display)
+        self.sprites_mapa.draw(self.display)
+        self.sprite_player.draw(self.display)
         self.fps.tick(FPS)
         pygame.display.update()
     
@@ -56,4 +57,4 @@ class Jogo:
             
             if self.jogando:
                 self.update_sprites()
-                self.update_mapa()
+                self.desenhar()
