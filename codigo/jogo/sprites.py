@@ -5,6 +5,7 @@ import pygame
 import math
 import random
 from configs.configuracoes import *
+from pygame.locals import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
@@ -13,49 +14,60 @@ class Player(pygame.sprite.Sprite):
         self.grupo_sprites = self.jogo.todas_sprites
         pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
 
-        self.x = x - TAMANHO_PLAYER/2
-        self.y = y - TAMANHO_PLAYER/2
+        self.x = x - TAMANHO_PLAYER//2
+        self.y = y - TAMANHO_PLAYER//2
         self.largura = TAMANHO_PLAYER
         self.altura = TAMANHO_PLAYER
 
-        self.x_andar = 0
-        self.y_andar = 0
-
         self.direcao = 'baixo'
 
-        self.image = pygame.Surface([self.largura, self.altura]) 
+        self.image = pygame.Surface([self.largura, self.altura])
         self.image.fill(VERMELHO)
-
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y
 
     ################## ATUALIZA A POSIÇÃO DO PLAYER PÓS MOVIMENTO ##################
-    def update(self):
-        self.movimento()
+    def update(self, *args):
+        """Atualiza apenas a direção do personagem"""
+        botao = pygame.key.get_pressed()
+        
+        if botao[K_LEFT] or botao[K_a]:
+            self.direcao = 'esquerda'
+        elif botao[K_RIGHT] or botao[K_d]:
+            self.direcao = 'direita'
+        elif botao[K_UP] or botao[K_w]:
+            self.direcao = 'cima'
+        elif botao[K_DOWN] or botao[K_s]:
+            self.direcao = 'baixo'
 
-        self.rect.x += self.x_andar
-        self.rect.y += self.y_andar
-
+    ################ TECLAS PARA MOVIMENTAR O MAPA ###############
+def movimento(self):
+        botao = pygame.key.get_pressed()
+        
         self.x_andar = 0
         self.y_andar = 0
-
-    ################ TECLAS PARA MOVIMENTAR O PLAYER ###############
-    def movimento(self):
-        botao = pygame.key.get_pressed()
-
+        
         if botao[pygame.K_a]:
-            self.x_andar -= VELOCIDADE_PLAYER
+            for sprite in self.grupo_sprites:
+                if sprite != self:
+                    sprite.rect.x += self.velocidade
             self.direcao = 'esquerda'
-        elif botao[pygame.K_w]:
-            self.y_andar -= VELOCIDADE_PLAYER
+        elif botao[pygame.K_d]:
+            for sprite in self.grupo_sprites:
+                if sprite != self:
+                    sprite.rect.x -= self.velocidade
+            self.direcao = 'direita'
+        elif botao[pygame.K_w]: 
+            for sprite in self.grupo_sprites:
+                if sprite != self:
+                    sprite.rect.y += self.velocidade
             self.direcao = 'cima'
         elif botao[pygame.K_s]:
-            self.y_andar += VELOCIDADE_PLAYER
+            for sprite in self.grupo_sprites:
+                if sprite != self:
+                    sprite.rect.y -= self.velocidade
             self.direcao = 'baixo'
-        elif botao[pygame.K_d]:
-            self.x_andar += VELOCIDADE_PLAYER
-            self.direcao = 'direita'
 
 ############# SPRITES DOS ELEMENTOS DO MAPA #################
 class Arvore(pygame.sprite.Sprite):
