@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="88" height="52" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="1510">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="88" height="52" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="1528">
  <tileset firstgid="1" name="world" tilewidth="64" tileheight="64" tilecount="210" columns="10">
   <image source="../objetos/world.png" width="640" height="1344"/>
  </tileset>
@@ -13,25 +13,37 @@
   <image source="../objetos/trees_formated.png" width="256" height="64"/>
  </tileset>
  <tileset firstgid="508" name="Rich_House" tilewidth="192" tileheight="192" tilecount="1" columns="1">
-  <image source="../objetos/Rich_House.png" width="192" height="192"/>
+  <image source="../objetos/Rich_House.png" width="256" height="256"/>
  </tileset>
  <tileset firstgid="509" name="Luminarias" tilewidth="64" tileheight="64" tilecount="2" columns="2">
   <image source="../objetos/Luminarias.png" width="128" height="64"/>
  </tileset>
- <tileset firstgid="511" name="Ponte" tilewidth="256" tileheight="128" tilecount="1" columns="1">
-  <image source="../objetos/Ponte.png" width="256" height="128"/>
- </tileset>
- <tileset firstgid="512" name="Final House" tilewidth="192" tileheight="192" tilecount="1" columns="1">
-  <image source="../objetos/Final House.png" width="192" height="192"/>
- </tileset>
- <tileset firstgid="513" name="morros" tilewidth="192" tileheight="192" tilecount="6" columns="6">
+ <tileset firstgid="511" name="morros" tilewidth="192" tileheight="192" tilecount="6" columns="6">
   <image source="../objetos/morros.png" width="1152" height="192"/>
  </tileset>
- <tileset firstgid="519" name="group_tree" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+ <tileset firstgid="517" name="group_tree" tilewidth="256" tileheight="256" tilecount="1" columns="1">
   <image source="../objetos/group_tree.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="520" name="green_house_large" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+ <tileset firstgid="518" name="green_house_large" tilewidth="256" tileheight="256" tilecount="1" columns="1">
   <image source="../objetos/green_house_large.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="519" name="green_house_small" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/green_house_small.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="520" name="hospital_large" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/hospital_large.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="521" name="purple_house_large" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/purple_house_large.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="522" name="purple_house_small" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/purple_house_small.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="523" name="final_house" tilewidth="256" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/final_house.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="524" name="Ponte" tilewidth="512" tileheight="256" tilecount="1" columns="1">
+  <image source="../objetos/Ponte.png" width="512" height="256"/>
  </tileset>
  <layer id="1" name="Terrenos" width="88" height="52">
   <data encoding="csv">
@@ -102,7 +114,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,511,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -132,7 +143,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,511,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -146,36 +158,36 @@
 </data>
  </layer>
  <objectgroup id="8" name="Camada de Objetos 5">
-  <object id="1477" name="conjunto_arvores" gid="519" x="328" y="256" width="256" height="256"/>
-  <object id="1478" name="conjunto_arvores" gid="519" x="582" y="259" width="256" height="256"/>
-  <object id="1480" name="conjunto_arvores" gid="519" x="834" y="257" width="256" height="256"/>
-  <object id="1481" name="conjunto_arvores" gid="519" x="932" y="393" width="256" height="256"/>
-  <object id="1482" name="conjunto_arvores" gid="519" x="1080" y="254" width="256" height="256"/>
-  <object id="1483" name="conjunto_arvores" gid="519" x="1279" y="259" width="256" height="256"/>
-  <object id="1484" name="conjunto_arvores" gid="519" x="1605" y="259" width="256" height="256"/>
-  <object id="1485" name="conjunto_arvores" gid="519" x="1860" y="255" width="256" height="256"/>
-  <object id="1486" name="conjunto_arvores" gid="519" x="2078" y="259" width="256" height="256"/>
-  <object id="1487" name="conjunto_arvores" gid="519" x="2302" y="257" width="256" height="256"/>
-  <object id="1489" name="conjunto_arvores" gid="519" x="22" y="632" width="256" height="256"/>
-  <object id="1490" name="conjunto_arvores" gid="519" x="16" y="885" width="256" height="256"/>
-  <object id="1491" name="conjunto_arvores" gid="519" x="32" y="1124" width="256" height="256"/>
-  <object id="1492" name="conjunto_arvores" gid="519" x="40" y="1343" width="256" height="256"/>
-  <object id="1493" name="conjunto_arvores" gid="519" x="43" y="1547" width="256" height="256"/>
-  <object id="1494" name="conjunto_arvores" gid="519" x="47" y="1781" width="256" height="256"/>
-  <object id="1495" name="conjunto_arvores" gid="519" x="36" y="1906" width="256" height="256"/>
-  <object id="1496" name="conjunto_arvores" gid="519" x="-63" y="405" width="256" height="256"/>
-  <object id="1497" name="conjunto_arvores" gid="519" x="-2" y="158" width="256" height="256"/>
-  <object id="1498" name="conjunto_arvores" gid="519" x="1435.64" y="928" width="256" height="256"/>
-  <object id="1499" name="conjunto_arvores" gid="519" x="1529.58" y="1028" width="256" height="256"/>
-  <object id="1500" name="conjunto_arvores" gid="519" x="1659.88" y="931.03" width="256" height="256"/>
-  <object id="1501" name="conjunto_arvores" gid="519" x="1838.67" y="873.455" width="256" height="256"/>
-  <object id="1502" name="conjunto_arvores" gid="519" x="1896.24" y="1000.73" width="256" height="256"/>
-  <object id="1503" name="conjunto_arvores" gid="519" x="1717.45" y="1064.36" width="256" height="256"/>
-  <object id="1504" name="conjunto_arvores" gid="519" x="1247.76" y="1015.88" width="256" height="256"/>
-  <object id="1505" name="conjunto_arvores" gid="519" x="1462.91" y="982.545" width="256" height="256"/>
-  <object id="1506" name="conjunto_arvores" gid="519" x="1972" y="894.667" width="256" height="256"/>
-  <object id="1507" name="conjunto_arvores" gid="519" x="659.879" y="1188.61" width="256" height="256"/>
-  <object id="1508" name="conjunto_arvores" gid="519" x="826.545" y="1794.67" width="256" height="256"/>
+  <object id="1477" name="conjunto_arvores" gid="517" x="328" y="256" width="256" height="256"/>
+  <object id="1478" name="conjunto_arvores" gid="517" x="582" y="259" width="256" height="256"/>
+  <object id="1480" name="conjunto_arvores" gid="517" x="834" y="257" width="256" height="256"/>
+  <object id="1481" name="conjunto_arvores" gid="517" x="932" y="393" width="256" height="256"/>
+  <object id="1482" name="conjunto_arvores" gid="517" x="1080" y="254" width="256" height="256"/>
+  <object id="1483" name="conjunto_arvores" gid="517" x="1279" y="259" width="256" height="256"/>
+  <object id="1484" name="conjunto_arvores" gid="517" x="1605" y="259" width="256" height="256"/>
+  <object id="1485" name="conjunto_arvores" gid="517" x="1860" y="255" width="256" height="256"/>
+  <object id="1486" name="conjunto_arvores" gid="517" x="2078" y="259" width="256" height="256"/>
+  <object id="1487" name="conjunto_arvores" gid="517" x="2302" y="257" width="256" height="256"/>
+  <object id="1489" name="conjunto_arvores" gid="517" x="22" y="632" width="256" height="256"/>
+  <object id="1490" name="conjunto_arvores" gid="517" x="16" y="885" width="256" height="256"/>
+  <object id="1491" name="conjunto_arvores" gid="517" x="32" y="1124" width="256" height="256"/>
+  <object id="1492" name="conjunto_arvores" gid="517" x="40" y="1343" width="256" height="256"/>
+  <object id="1493" name="conjunto_arvores" gid="517" x="43" y="1547" width="256" height="256"/>
+  <object id="1494" name="conjunto_arvores" gid="517" x="47" y="1781" width="256" height="256"/>
+  <object id="1495" name="conjunto_arvores" gid="517" x="36" y="1906" width="256" height="256"/>
+  <object id="1496" name="conjunto_arvores" gid="517" x="-63" y="405" width="256" height="256"/>
+  <object id="1497" name="conjunto_arvores" gid="517" x="-2" y="158" width="256" height="256"/>
+  <object id="1498" name="conjunto_arvores" gid="517" x="1435.64" y="928" width="256" height="256"/>
+  <object id="1499" name="conjunto_arvores" gid="517" x="1529.58" y="1028" width="256" height="256"/>
+  <object id="1500" name="conjunto_arvores" gid="517" x="1659.88" y="931.03" width="256" height="256"/>
+  <object id="1501" name="conjunto_arvores" gid="517" x="1838.67" y="873.455" width="256" height="256"/>
+  <object id="1502" name="conjunto_arvores" gid="517" x="1896.24" y="1000.73" width="256" height="256"/>
+  <object id="1503" name="conjunto_arvores" gid="517" x="1717.45" y="1064.36" width="256" height="256"/>
+  <object id="1504" name="conjunto_arvores" gid="517" x="1247.76" y="1015.88" width="256" height="256"/>
+  <object id="1505" name="conjunto_arvores" gid="517" x="1462.91" y="982.545" width="256" height="256"/>
+  <object id="1506" name="conjunto_arvores" gid="517" x="1972" y="894.667" width="256" height="256"/>
+  <object id="1507" name="conjunto_arvores" gid="517" x="659.879" y="1188.61" width="256" height="256"/>
+  <object id="1508" name="conjunto_arvores" gid="517" x="826.545" y="1794.67" width="256" height="256"/>
  </objectgroup>
  <objectgroup id="6" name="Divisorias_Mapas">
   <object id="44" gid="98" x="3074.67" y="1981.33" width="64" height="64"/>
@@ -628,23 +640,37 @@
   <object id="670" gid="502" x="3761.58" y="1402.06" width="192" height="192"/>
   <object id="671" gid="508" x="4544.67" y="1022.67" width="192" height="192"/>
   <object id="672" gid="508" x="4737.33" y="1024" width="192" height="192"/>
-  <object id="673" gid="512" x="5345.33" y="2508" width="192" height="192" rotation="90"/>
-  <object id="674" gid="499" x="1151.88" y="1472.52" width="192" height="192" rotation="-90"/>
   <object id="675" gid="502" x="1603.5" y="1280" width="192" height="192"/>
   <object id="676" gid="502" x="1796.5" y="1279.5" width="192" height="192"/>
   <object id="677" gid="503" x="1988.5" y="1280" width="192" height="192"/>
   <object id="678" gid="503" x="2178.5" y="1278.5" width="192" height="192"/>
-  <object id="1509" name="green_house" gid="520" x="100.864" y="254.621" width="256" height="256"/>
+  <object id="1509" name="green_house" gid="518" x="100.864" y="254.621" width="256" height="256"/>
+  <object id="1510" gid="518" x="256.5" y="1599" width="256" height="256"/>
+  <object id="1511" gid="519" x="412" y="646" width="256" height="256"/>
+  <object id="1512" gid="520" x="758" y="1476" width="256" height="256"/>
+  <object id="1513" gid="523" x="5228" y="2602" width="256" height="256"/>
+  <object id="1514" gid="518" x="4542" y="1020" width="256" height="256"/>
+  <object id="1515" gid="519" x="4798" y="1666" width="256" height="256"/>
+  <object id="1516" gid="519" x="3714" y="1408" width="256" height="256"/>
+  <object id="1517" gid="522" x="1216.67" y="1280.67" width="256" height="256"/>
+  <object id="1518" gid="519" x="1470" y="1280.67" width="256" height="256"/>
+  <object id="1519" gid="519" x="1726" y="1280" width="256" height="256"/>
+  <object id="1520" gid="522" x="1981.33" y="1280.67" width="256" height="256"/>
+  <object id="1522" gid="522" x="895" y="1215" width="256" height="256"/>
+  <object id="1523" gid="521" x="1664" y="512" width="256" height="256"/>
+  <object id="1524" gid="521" x="3290.33" y="640.333" width="256" height="256"/>
+  <object id="1525" gid="518" x="3039" y="640.5" width="256" height="256"/>
+  <object id="1526" gid="518" x="2783" y="640" width="256" height="256"/>
+  <object id="1527" name="ponte" gid="524" x="2371.27" y="855.273" width="512" height="256"/>
  </objectgroup>
  <objectgroup id="7" name="Morros">
-  <object id="1468" gid="515" x="2176.67" y="1728" width="192" height="192"/>
-  <object id="1469" gid="516" x="769.5" y="1473.5" width="192" height="192"/>
-  <object id="1470" gid="516" x="192" y="576" width="192" height="192"/>
-  <object id="1471" gid="516" x="448.5" y="2305" width="192" height="192"/>
-  <object id="1472" gid="516" x="448" y="2814.5" width="192" height="192"/>
-  <object id="1473" gid="516" x="2112.33" y="3009" width="192" height="192"/>
-  <object id="1474" gid="515" x="1662" y="2369.33" width="192" height="192"/>
-  <object id="1475" gid="515" x="1470" y="2431" width="192" height="192"/>
-  <object id="1476" gid="515" x="1279.67" y="2432.67" width="192" height="192"/>
+  <object id="1468" gid="513" x="2176.67" y="1728" width="192" height="192"/>
+  <object id="1470" gid="514" x="192" y="576" width="192" height="192"/>
+  <object id="1471" gid="514" x="448.5" y="2305" width="192" height="192"/>
+  <object id="1472" gid="514" x="448" y="2814.5" width="192" height="192"/>
+  <object id="1473" gid="514" x="2112.33" y="3009" width="192" height="192"/>
+  <object id="1474" gid="513" x="1662" y="2369.33" width="192" height="192"/>
+  <object id="1475" gid="513" x="1470" y="2431" width="192" height="192"/>
+  <object id="1476" gid="513" x="1279.67" y="2432.67" width="192" height="192"/>
  </objectgroup>
 </map>
