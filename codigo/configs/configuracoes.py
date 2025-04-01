@@ -19,3 +19,8 @@ CAMADA_MAPA = 0
 VERMELHO = (255, 0, 0)
 PRETO = (0, 0, 0)
 AZUL = (0, 0, 255)
+
+camadas_mundo = {
+    'jogador' : 1,
+    'mapa' : 0,
+}

@@ -169,3 +169,17 @@ class Mapa(pygame.sprite.Sprite):
             self.y_andar -= VELOCIDADE_PLAYER
         if botao[pygame.K_d]:
             self.x_andar -= VELOCIDADE_PLAYER
+
+    # def colisao(self, tiles):
+    #     hits = []
+    #     for tile in tiles:
+    #         if self.rect.colliderect(tile):
+    #             hits.append(tile)
+    #     return hits
+    
+    # def checar_colisao(self, tiles):
+    #     colisoes = self.get_hits(tiles)
+    #     for tile in colisoes:
+    #         if self.x_andar > 0: #colide na direita
+    #             self.pos_x = tile.rect.left - self.rect.w
+                
