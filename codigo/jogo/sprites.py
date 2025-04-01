@@ -75,19 +75,13 @@ class Arvore(pygame.sprite.Sprite):
         self.jogo = jogo
         pygame.sprite.Sprite.__init__(self, self.jogo.sprites_objetos)
         
-        self.image = pygame.image.load('graficos/objetos/tree_01.png')
-        self.image = pygame.transform.scale(self.image, (160, 250))
+        self.image = pygame.image.load('graficos/objetos/group_tree.png')
+        self.image = pygame.transform.scale(self.image, (200, 300))
 
         self.pos_original = pygame.Vector2(x, y) 
         self.rect = self.image.get_rect(topleft=(x, y))
 
-    def update(self):
-        mapa_rect = self.jogo.mapa.rect
-        if self.rect.colliderect(mapa_rect):
-            self.visible = 1
-        else:
-            self.visible = 0
-            
+    def update(self):   
         if self.rect.topleft != self.pos_original + self.jogo.mapa.rect.topleft:
             self.rect.topleft = self.pos_original + self.jogo.mapa.rect.topleft
 
@@ -144,7 +138,7 @@ class Mapa(pygame.sprite.Sprite):
 
             elif isinstance(camada, pytmx.TiledObjectGroup):
                 for obj in camada:
-                    if obj.name == 'Trees':
+                    if obj.name == 'conjunto_arvores':
                         Arvore(self.jogo, obj.x, obj.y)
 
     ################## ATUALIZA A POSIÇÃO DO PLAYER PÓS MOVIMENTO ##################
@@ -170,16 +164,16 @@ class Mapa(pygame.sprite.Sprite):
         if botao[pygame.K_d]:
             self.x_andar -= VELOCIDADE_PLAYER
 
-    # def colisao(self, tiles):
-    #     hits = []
-    #     for tile in tiles:
-    #         if self.rect.colliderect(tile):
-    #             hits.append(tile)
-    #     return hits
+    def colisao(self, tiles):
+        hits = []
+        for tile in tiles:
+            if self.rect.colliderect(tile):
+                hits.append(tile)
+        return hits
     
-    # def checar_colisao(self, tiles):
-    #     colisoes = self.get_hits(tiles)
-    #     for tile in colisoes:
-    #         if self.x_andar > 0: #colide na direita
-    #             self.pos_x = tile.rect.left - self.rect.w
+    def checar_colisao(self, tiles):
+        colisoes = self.get_hits(tiles)
+        for tile in colisoes:
+            if self.x_andar > 0: #colide na direita
+                self.pos_x = tile.rect.left - self.rect.w
                 
