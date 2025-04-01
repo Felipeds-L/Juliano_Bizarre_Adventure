@@ -61,6 +61,8 @@ class Player(pygame.sprite.Sprite):
             if self.contador_frame > self.velocidade_animacao:
                 self.contador_frame = 0
                 self.frame_atual = (self.frame_atual+1)%2
+        else:
+            self.frame_atual = 0
 
         if botao[pygame.K_a]:
             self.direcao = 'esquerda'
@@ -71,6 +73,23 @@ class Player(pygame.sprite.Sprite):
 class Arvore(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
+        pygame.sprite.Sprite.__init__(self, self.jogo.sprites_objetos)
+        
+        self.image = pygame.image.load('graficos/objetos/tree_01.png')
+        self.image = pygame.transform.scale(self.image, (160, 250))
+
+        self.pos_original = pygame.Vector2(x, y) 
+        self.rect = self.image.get_rect(topleft=(x, y))
+
+    def update(self):
+        mapa_rect = self.jogo.mapa.rect
+        if self.rect.colliderect(mapa_rect):
+            self.visible = 1
+        else:
+            self.visible = 0
+            
+        if self.rect.topleft != self.pos_original + self.jogo.mapa.rect.topleft:
+            self.rect.topleft = self.pos_original + self.jogo.mapa.rect.topleft
 
 class Arbusto(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
@@ -122,6 +141,11 @@ class Mapa(pygame.sprite.Sprite):
                     tile = self.mapa.get_tile_image_by_gid(gid)
                     if tile:
                         self.image.blit(tile, (x * self.mapa.tilewidth, y * self.mapa.tileheight))
+
+            elif isinstance(camada, pytmx.TiledObjectGroup):
+                for obj in camada:
+                    if obj.name == 'Trees':
+                        Arvore(self.jogo, obj.x, obj.y)
 
     ################## ATUALIZA A POSIÇÃO DO PLAYER PÓS MOVIMENTO ##################
     def update(self):
