@@ -174,6 +174,6 @@ class Mapa(pygame.sprite.Sprite):
     def checar_colisao(self, tiles):
         colisoes = self.get_hits(tiles)
         for tile in colisoes:
-            if self.x_andar > 0: #colide na direita
+            if self.x_andar > 0:
                 self.pos_x = tile.rect.left - self.rect.w
                 
