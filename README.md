@@ -15,34 +15,32 @@ Ze-carcará (gavião) boss poderoso;
 
 Aveia - Item de vida;
 Pomba Laser - Arma;
-Laço - Para Narcisa;
 *---- BUFFS ----*
 Óculos - nerf de força dos inimigos;
 
 *------------------------------------------------------------------------------ MAPAS------------------------------------------------------------------------------*
 
-Mapa 1:
-  - Laço de Narcisa;
+Quadrante 1:
   - Objetivo:
      . Derrotar o Gato que guarda a saida da casa ruim;
     
-Mapa 2:
+Quadrante 2:
   - Aveia;
   - Pomba Laser;
   - Objetivo:
     . Derrotar Narcisa (Lutam por uma semente de girassol ao final do mapa 2)
       . Opcional: Cativar Narcisa caso Juliano tenha pego o laço no Mapa 1;
     
-Mapa 3:
+Quadrante 3:
   - Aveia;
   - Oculos;
   - Objetivo:
     . Derrotar o gavião e chegar na casa;
 
 *------------------------------------------------------------------------------ FINAIS ------------------------------------------------------------------------------*
-MAPA 1: Juliano morre e nem sai da casa (tururu juliano triste);
-MAPA 2: Juliano morre, seus pares são malvados;
-MAPA 3: Juliano morre, a vida selvagem é implacável;
+Apenas um mapa com 3 quadrantes
+
+GAMEOVER: quando Juliano perder para algum adversário
 
 CONQUISTOU A FELICIDADE:
 Felicidade 1: Com Narcisa e Jeffinho
