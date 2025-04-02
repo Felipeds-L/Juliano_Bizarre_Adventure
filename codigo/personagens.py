@@ -12,7 +12,7 @@
 # >Somente< Juliano terá uma lista de ataques e opção de usar óculos, por padrão Juliano começará apenas com "Bicada" na lista
 # até que o "Óculos" e a "Pomba Laser" sejam adquiridos, adicionando os ataques "Intimidar" e "Pomba Laser" respectivamente.
 
-from configs.configuracoes import *
+from codigo.configuracoes import *
 
 class Personagem():
     def __init__(self):
