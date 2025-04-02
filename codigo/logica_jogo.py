@@ -1,12 +1,6 @@
-from pygame.locals import *
-from pytmx.util_pygame import load_pygame
-from codigo.sprites import *
-from codigo.configuracoes import *
-from codigo.personagens import Personagem
-import sys
+from configuracoes import *
 
 class Jogo:
-    ################### CONFIGURAÇÃO DA TELA AO INICIAR JOGO ####################
     def __init__(self):
         pygame.init()
         self.display = pygame.display.set_mode((JANELA_LARGURA, JANELA_ALTURA))
@@ -25,7 +19,7 @@ class Jogo:
     def iniciar(self, mapa_tmx, posicao_inicial_player):
         for x, y, superficie in mapa_tmx.get_layer_by_name('Terrenos').tiles():
             Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites)
-    
+        
     def desenhar(self):
         self.todas_sprites.draw(self.display)
 

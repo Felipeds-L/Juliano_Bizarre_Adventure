@@ -1,4 +1,10 @@
 import pygame
+import pytmx
+from pygame.locals import *
+from pytmx.util_pygame import load_pygame
+from sprites import Sprite
+from entidades import Player
+import sys
 
 ################ CONFIGURAÇÕES DA JANELA ##################
 JANELA_LARGURA, JANELA_ALTURA = 1440, 960
@@ -19,8 +25,3 @@ TAMANHO_TILE = 64
 VERMELHO = (255, 0, 0)
 PRETO = (0, 0, 0)
 AZUL = (0, 0, 255)
-
-camadas_mundo = {
-    'jogador' : 1,
-    'mapa' : 0,
-}

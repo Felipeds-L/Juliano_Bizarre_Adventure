@@ -1,4 +1,4 @@
-from codigo.logica_jogo import *
+from logica_jogo import *
 
 jogo = Jogo()
 
