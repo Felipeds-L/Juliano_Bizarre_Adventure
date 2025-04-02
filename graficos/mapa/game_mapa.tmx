@@ -674,6 +674,11 @@
   <object id="1476" gid="513" x="1279.67" y="2432.67" width="192" height="192"/>
  </objectgroup>
  <objectgroup id="9" name="Entidades">
-  <object id="1528" name="player" type="player" x="341.333" y="321.333"/>
+  <object id="1528" name="player" type="player" x="341.333" y="321.333">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="pos" value="house"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
