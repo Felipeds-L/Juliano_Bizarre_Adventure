@@ -1,17 +1,19 @@
+import pygame
+
 ################ CONFIGURAÇÕES DA JANELA ##################
 JANELA_LARGURA, JANELA_ALTURA = 1440, 960
 JANELA_NOME = "Juliano Bizarre Adventure"
 FPS = 60
 
-############# CONFIGURAÇÕES PLAYER ##################
-CAMADA_PLAYER = 1
-LARGURA_PLAYER = 125
-ALTURA_PLAYER = 149
+############# CONFIGURAÇÕES PLAYER #################
+VELOCIDADE_ANIMACAO = 10
+LARGURA_PLAYER = 62
+ALTURA_PLAYER = 74
 VELOCIDADE_PLAYER = 6
 
 ############ CONFIGURAÇÕES MAPA ###############
 LARGURA_MAPA, ALTURA_MAPA = 2880, 5760
-ESCALA = 2
+TAMANHO_TILE = 64
 
 ############# CORES ###################
 VERMELHO = (255, 0, 0)

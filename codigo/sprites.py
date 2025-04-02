@@ -4,19 +4,17 @@
 import pygame
 import pytmx
 from pygame.locals import *
-from configs.configuracoes import *
+from codigo.configuracoes import *
 from pygame.locals import *
 
 ##################################### SPRITE DO PLAYER ###########################################
 class Player(pygame.sprite.Sprite):
     def __init__(self, jogo, x, y):
         self.jogo = jogo
-        self._camada = CAMADA_PLAYER
         self.grupo_sprites = self.jogo.sprite_player
         pygame.sprite.Sprite.__init__(self, self.grupo_sprites)
 
         ########## VARIÁVEIS DE CONTAGEM DE FRAME PARA ANIMAÇÃO ##############
-        self.velocidade_animacao = 10
         self.contador_frame = 0
         self.frame_atual = 0
 
@@ -30,6 +28,7 @@ class Player(pygame.sprite.Sprite):
         self.direcao = 'direita'
 
         modelsheet = pygame.image.load('graficos/personagens/juliano_spritesheet.png').convert_alpha()
+        modelsheet = pygame.transform.scale(modelsheet, (LARGURA_PLAYER*2, ALTURA_PLAYER*2))
 
         ##################### SPRITES DO PLAYER QUE ESTÃO DENTRO DO PNG #########################
         self.sprites = [[modelsheet.subsurface((0, 0, self.largura, self.altura)), modelsheet.subsurface((self.largura, 0, self.largura, self.altura))],
@@ -58,7 +57,7 @@ class Player(pygame.sprite.Sprite):
 
         self.contador_frame += 1
         if voando:
-            if self.contador_frame > self.velocidade_animacao:
+            if self.contador_frame > VELOCIDADE_ANIMACAO:
                 self.contador_frame = 0
                 self.frame_atual = (self.frame_atual+1)%2
         else:
@@ -76,7 +75,7 @@ class Arvore(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self, self.jogo.sprites_objetos)
         
         self.image = pygame.image.load('graficos/objetos/group_tree.png')
-        self.image = pygame.transform.scale(self.image, (200, 300))
+        self.image = pygame.transform.scale(self.image, (600, 900))
 
         self.pos_original = pygame.Vector2(x, y) 
         self.rect = self.image.get_rect(topleft=(x, y))
@@ -177,3 +176,8 @@ class Mapa(pygame.sprite.Sprite):
             if self.x_andar > 0:
                 self.pos_x = tile.rect.left - self.rect.w
                 
+class Sprite(pygame.sprite.Sprite):
+    def __init__(self, posicao, superficie, grupos):
+        super().__init__(grupos)
+        self.image = superficie
+        self.rect = self.image.get_frect(topleft = posicao)
