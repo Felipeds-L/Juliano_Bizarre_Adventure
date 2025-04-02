@@ -1,5 +1,6 @@
 import pygame
 import pytmx
+from pygame.math import Vector2 as vector 
 from pygame.locals import *
 from pytmx.util_pygame import load_pygame
 from sprites import Sprite

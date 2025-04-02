@@ -11,7 +11,7 @@ class Jogo:
         self.todas_sprites = pygame.sprite.Group()
 
         self.importar_graficos()
-        self.iniciar(self.mapa_tmx['mundo'], 'casa')
+        self.iniciar(self.mapa_tmx['mundo'], 'house')
     
     def importar_graficos(self):
         self.mapa_tmx = {'mundo': load_pygame('graficos/mapa/game_mapa.tmx')}
@@ -20,6 +20,13 @@ class Jogo:
         for x, y, superficie in mapa_tmx.get_layer_by_name('Terrenos').tiles():
             Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites)
         
+        for obj in mapa_tmx.get_layer_by_name('Entidades'):
+            if obj.name == 'player' and obj.properties['pos'] == posicao_inicial_player:
+                Player((obj.x, obj.y), self.todas_sprites)
+    
+    def update(self):
+        self.todas_sprites.update()
+
     def desenhar(self):
         self.todas_sprites.draw(self.display)
 
@@ -31,5 +38,6 @@ class Jogo:
                     pygame.quit()
                     sys.exit()
 
+                self.update()
                 self.desenhar()
                 pygame.display.update()
