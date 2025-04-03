@@ -1,3 +1,11 @@
+import pygame
+import pytmx
+from pygame.locals import *
+from pytmx.util_pygame import load_pygame
+from sprites import Sprite
+from entidades import Player
+import sys
+
 from configuracoes import *
 
 class Jogo:
@@ -6,7 +14,6 @@ class Jogo:
         self.display = pygame.display.set_mode((JANELA_LARGURA, JANELA_ALTURA))
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
-        self.running = True
 
         self.todas_sprites = pygame.sprite.Group()
 
@@ -24,20 +31,22 @@ class Jogo:
             if obj.name == 'player' and obj.properties['pos'] == posicao_inicial_player:
                 Player((obj.x, obj.y), self.todas_sprites)
     
-    def update(self):
-        self.todas_sprites.update()
+    def update(self, dt):
+        self.todas_sprites.update(dt)
 
     def desenhar(self):
         self.todas_sprites.draw(self.display)
 
     def run(self):
         while True:
+            dt = self.fps.tick()/1000
             botao = pygame.key.get_pressed()
+            
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT or botao[pygame.K_ESCAPE]:
                     pygame.quit()
                     sys.exit()
 
-                self.update()
+                self.update(dt)
                 self.desenhar()
                 pygame.display.update()

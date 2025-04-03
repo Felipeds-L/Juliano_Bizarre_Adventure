@@ -1,3 +1,5 @@
+import pygame
+
 from configuracoes import *
 
 class Sprite(pygame.sprite.Sprite):

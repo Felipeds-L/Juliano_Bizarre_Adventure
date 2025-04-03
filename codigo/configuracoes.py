@@ -1,12 +1,3 @@
-import pygame
-import pytmx
-from pygame.math import Vector2 as vector 
-from pygame.locals import *
-from pytmx.util_pygame import load_pygame
-from sprites import Sprite
-from entidades import Player
-import sys
-
 ################ CONFIGURAÇÕES DA JANELA ##################
 JANELA_LARGURA, JANELA_ALTURA = 1440, 960
 JANELA_NOME = "Juliano Bizarre Adventure"
@@ -16,7 +7,7 @@ FPS = 60
 VELOCIDADE_ANIMACAO = 10
 LARGURA_PLAYER = 62
 ALTURA_PLAYER = 74
-VELOCIDADE_PLAYER = 6
+VELOCIDADE_PLAYER = 250
 
 ############ CONFIGURAÇÕES MAPA ###############
 LARGURA_MAPA, ALTURA_MAPA = 2880, 5760
