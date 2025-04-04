@@ -1,6 +1,4 @@
 import pygame
-import pytmx
-from pygame.math import Vector2 as vector 
 from pygame.locals import *
 
 from configuracoes import *
@@ -8,6 +6,8 @@ from configuracoes import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, posicao, grupos):
         super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
+        
         self.spritesheet = pygame.image.load("graficos/personagens/juliano_spritesheet.png").convert_alpha()
         self.spritesheet = [
                         [self.spritesheet.subsurface(0, 0, LARGURA_PLAYER, ALTURA_PLAYER), self.spritesheet.subsurface(LARGURA_PLAYER, 0, LARGURA_PLAYER, ALTURA_PLAYER)],
@@ -21,12 +21,14 @@ class Player(pygame.sprite.Sprite):
         self.sprite_atual = 0
 
         self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery
         self.rect.x = posicao[0]
         self.rect.y = posicao[1]
 
         self.update()
 
     def update(self, *args):
+        self.y_ordenar = self.rect.centery
         self.movimento()
         self.virar_player()
 
