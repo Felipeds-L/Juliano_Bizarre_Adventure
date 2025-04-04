@@ -4,8 +4,9 @@ from pygame.locals import *
 from configuracoes import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, posicao, grupos):
+    def __init__(self, posicao, grupos, jogo):
         super().__init__(grupos)
+        self.jogo = jogo
         self.z = CAMADAS_MAPA['main']
         
         self.spritesheet = pygame.image.load("graficos/personagens/juliano_spritesheet.png").convert_alpha()
@@ -20,11 +21,13 @@ class Player(pygame.sprite.Sprite):
         self.contador_frame = 0
         self.sprite_atual = 0
 
-        self.rect = self.image.get_frect(center = posicao)
+        self.rect = self.image.get_rect(center = posicao)
         self.y_ordenar = self.rect.centery
         self.rect.x = posicao[0]
         self.rect.y = posicao[1]
 
+
+        self.hitbox = self.rect.copy()
         self.update()
 
     def update(self, *args):
@@ -33,23 +36,51 @@ class Player(pygame.sprite.Sprite):
         self.virar_player()
 
     def movimento(self):
-        self.novo_x = 0
-        self.novo_y = 0
+        x_original, y_original = self.hitbox.x, self.hitbox.y
+
+        self.novo_x, self.novo_y = 0, 0
         botao = pygame.key.get_pressed()
 
         if botao[pygame.K_a]:
-            self.novo_x += VELOCIDADE_PLAYER
+            self.novo_x = -VELOCIDADE_PLAYER  
             self.direcao = 'esquerda'
-        if botao[pygame.K_w]:
-            self.novo_y += VELOCIDADE_PLAYER
-        if botao[pygame.K_s]:
-            self.novo_y -= VELOCIDADE_PLAYER
         if botao[pygame.K_d]:
-            self.novo_x -= VELOCIDADE_PLAYER
+            self.novo_x = VELOCIDADE_PLAYER  
             self.direcao = 'direita'
+        if botao[pygame.K_w]:
+            self.novo_y = -VELOCIDADE_PLAYER  
+        if botao[pygame.K_s]:
+            self.novo_y = VELOCIDADE_PLAYER  
 
-        self.rect.x -= self.novo_x
-        self.rect.y -= self.novo_y
+        self.hitbox.x += self.novo_x
+        if self.jogo.verificar_colisao(self.hitbox):  
+            self.hitbox.x = x_original
+        
+        self.hitbox.y += self.novo_y
+        if self.jogo.verificar_colisao(self.hitbox):  
+            self.hitbox.y = y_original
+        
+        self.rect.center = self.hitbox.center
+
+    def verificar_colisao(self, rect):
+        if not hasattr(self, 'jogo') or not hasattr(self.jogo, 'mapa_colisao'):
+            return False
+            
+        pontos = [
+            (rect.left, rect.top),
+            (rect.right, rect.top),
+            (rect.left, rect.bottom),
+            (rect.right, rect.bottom)
+        ]
+        
+        for px, py in pontos:
+            tile_x = px // TAMANHO_TILE
+            tile_y = py // TAMANHO_TILE
+            
+            if 0 <= tile_x < len(self.jogo.mapa_colisao) and 0 <= tile_y < len(self.jogo.mapa_colisao[0]):
+                if self.jogo.mapa_colisao[tile_x][tile_y]:
+                    return True
+        return False
     
     def virar_player(self):
         botao = pygame.key.get_pressed()
