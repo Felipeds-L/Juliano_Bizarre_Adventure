@@ -64,7 +64,7 @@ class Jogo:
                 if evento.type == pygame.QUIT or botao[pygame.K_ESCAPE]:
                     pygame.quit()
                     sys.exit()
-                    
+            
             self.update()
             self.desenhar()
             pygame.display.update()
