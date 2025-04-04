@@ -30,10 +30,13 @@ class Jogo:
     def iniciar(self, mapa_tmx, posicao_inicial_player):
         for camada in ['Agua', 'Terra']:
             for x, y, superficie in mapa_tmx.get_layer_by_name(camada).tiles():
-                Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites)
+                Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites, CAMADAS_MAPA['background'])
         
         for obj in mapa_tmx.get_layer_by_name('Objetos'):
-            Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
+            if obj.name == 'Ponte':
+                Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
+            else:
+                Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
         
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:

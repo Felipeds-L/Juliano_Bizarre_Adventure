@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="45" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="8" nextobjectid="706">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="45" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="706">
  <tileset firstgid="1" name="coast" tilewidth="64" tileheight="64" tilecount="288" columns="24">
   <image source="../objetos/coast.png" width="1536" height="768"/>
  </tileset>
@@ -229,7 +229,6 @@
   <object id="370" name="casa_roxa_larga" gid="294" x="1938.94" y="4856.28" width="256" height="256"/>
   <object id="372" name="casa_verde" gid="293" x="1713.94" y="4414.28" width="256" height="256"/>
   <object id="373" name="casa_roxa" gid="292" x="980.606" y="4409.61" width="256" height="256"/>
-  <object id="445" name="ponte" gid="506" x="1420" y="3914.67" width="256" height="512"/>
   <object id="446" name="Árvore" gid="514" x="664" y="3900" width="180" height="180"/>
   <object id="447" name="Árvore" gid="514" x="724" y="3958" width="180" height="180"/>
   <object id="448" name="Árvore" gid="514" x="630" y="3974" width="180" height="180"/>
@@ -431,6 +430,7 @@
   <object id="703" name="Árvore" gid="514" x="358" y="3486" width="180" height="180"/>
   <object id="704" name="Árvore" gid="514" x="372" y="3364" width="180" height="180"/>
   <object id="705" name="Árvore" gid="514" x="376" y="3572" width="180" height="180"/>
+  <object id="445" name="Ponte" gid="506" x="1420" y="3914.67" width="256" height="512"/>
  </objectgroup>
  <objectgroup id="7" name="Colisões">
   <object id="423" name="Colisão" x="972" y="4188" width="259" height="223"/>

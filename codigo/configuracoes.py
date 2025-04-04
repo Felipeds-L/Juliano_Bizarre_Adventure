@@ -15,7 +15,8 @@ TAMANHO_TILE = 64
 
 CAMADAS_MAPA = {
     'agua': 0,
-    'terra': 1
+    'background': 1,
+    'main': 2,
 }
 
 ############# CORES ###################
