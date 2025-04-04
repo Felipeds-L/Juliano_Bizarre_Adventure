@@ -5,11 +5,10 @@ from pytmx.util_pygame import load_pygame
 
 from configuracoes import *
 from sprites.sprites import *
-from entidades import Player
+from entidades import *
 from sprites.grupos import TodasSprites
 
 import sys
-
 
 
 class Jogo:
@@ -65,31 +64,18 @@ class Jogo:
             else:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
         
+        for obj in mapa_tmx.get_layer_by_name('Coletáveis'):
+            Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
+        
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
-                self.player = Player((obj.x, obj.y), self.todas_sprites, self)
+                self.player = Player((obj.x, obj.y), self.todas_sprites)
 
-    def verificar_colisao(self, rect):
-        if not hasattr(self, 'mapa_colisao'):
-            return False
-            
-        
-        pontos = [
-            (rect.left, rect.top),     
-            (rect.right, rect.top),     
-            (rect.left, rect.bottom),   
-            (rect.right, rect.bottom),  
-            (rect.centerx, rect.centery) 
-        ]
-        
-        for px, py in pontos:
-            tile_x = px // TAMANHO_TILE
-            tile_y = py // TAMANHO_TILE
-            
-            if 0 <= tile_x < len(self.mapa_colisao) and 0 <= tile_y < len(self.mapa_colisao[0]):
-                if self.mapa_colisao[tile_x][tile_y]:
-                    return True
-        return False
+            if obj.name == 'Narcisa':
+                Narcisa((obj.x, obj.y), self.todas_sprites)
+                
+            if obj.name == 'Teobaldo':
+                Teobaldo((obj.x, obj.y), self.todas_sprites)
     
     def update(self):
         self.fps.tick(FPS)
