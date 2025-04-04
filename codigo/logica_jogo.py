@@ -5,11 +5,10 @@ from pytmx.util_pygame import load_pygame
 
 from configuracoes import *
 from sprites.sprites import *
-from entidades import Player
+from entidades import *
 from sprites.grupos import TodasSprites
 
 import sys
-
 
 
 class Jogo:
@@ -38,9 +37,14 @@ class Jogo:
             else:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
         
+        for obj in mapa_tmx.get_layer_by_name('Coletáveis'):
+            Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
+        
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
                 self.player = Player((obj.x, obj.y), self.todas_sprites)
+            if obj.name == 'Narcisa':
+                Narcisa((obj.x, obj.y), self.todas_sprites)
     
     def update(self):
         self.fps.tick(FPS)
