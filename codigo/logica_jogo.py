@@ -43,8 +43,12 @@ class Jogo:
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
                 self.player = Player((obj.x, obj.y), self.todas_sprites)
+
             if obj.name == 'Narcisa':
                 Narcisa((obj.x, obj.y), self.todas_sprites)
+                
+            if obj.name == 'Teobaldo':
+                Teobaldo((obj.x, obj.y), self.todas_sprites)
     
     def update(self):
         self.fps.tick(FPS)

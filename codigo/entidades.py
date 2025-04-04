@@ -80,3 +80,15 @@ class Narcisa(pygame.sprite.Sprite):
         self.y_ordenar = self.rect.centery +40
         self.rect.x = posicao[0]
         self.rect.y = posicao[1]
+
+class Teobaldo(pygame.sprite.Sprite):
+    def __init__(self, posicao, grupos):
+        super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
+
+        self.image = pygame.image.load('graficos/personagens/teobaldo.png').convert_alpha()
+
+        self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery +40
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
