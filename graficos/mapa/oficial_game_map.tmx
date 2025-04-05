@@ -664,8 +664,8 @@
   <object id="425" name="Colisão" x="1469" y="5420" width="265" height="204"/>
   <object id="427" name="Colisão" x="2502" y="5287" width="287" height="211"/>
   <object id="428" name="Colisão" x="2285" y="4819" width="261" height="235"/>
-  <object id="429" name="Colisão" x="2171" y="4037" width="77" height="518"/>
-  <object id="430" name="Colisão" x="2002" y="4040" width="76" height="512"/>
+  <object id="429" name="Colisão" x="2187" y="4037" width="61" height="518"/>
+  <object id="430" name="Colisão" x="2002" y="4040" width="64" height="512"/>
   <object id="432" name="Colisão" x="812.364" y="4200.61" width="293.939" height="57.5758"/>
   <object id="433" name="Colisão" x="1088.12" y="4161.21" width="612.121" height="51.5152"/>
   <object id="435" name="Colisão" x="1685.09" y="4212.73" width="242.424" height="45.4545"/>
@@ -762,7 +762,7 @@
   <object id="991" name="Colisão" x="1921.33" y="1000" width="164" height="80"/>
   <object id="992" name="Colisão" x="1052" y="753.333" width="93.3333" height="230.667"/>
   <object id="994" name="Colisão" x="2190" y="5647" width="73" height="83"/>
-  <object id="995" x="2283" y="5699" width="61" height="39"/>
+  <object id="995" name="Colisão" x="2283" y="5699" width="61" height="39"/>
  </objectgroup>
  <objectgroup id="8" name="Coletáveis" visible="0">
   <object id="952" gid="531" x="1430" y="2731" width="16" height="10"/>
