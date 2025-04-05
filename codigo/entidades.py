@@ -63,9 +63,6 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = self.hitbox.center
 
     def verificar_colisao(self, rect):
-        if not hasattr(self, 'jogo') or not hasattr(self.jogo, 'mapa_colisao'):
-            return False
-            
         pontos = [
             (rect.left, rect.top),
             (rect.right, rect.top),
