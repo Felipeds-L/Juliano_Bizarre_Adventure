@@ -27,7 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y = posicao[1]
 
 
-        self.hitbox = self.rect.copy()
+        self.hitbox = self.rect.copy().inflate( -LARGURA_PLAYER, -ALTURA_PLAYER)
         self.update()
 
     def update(self, *args):
@@ -53,11 +53,11 @@ class Player(pygame.sprite.Sprite):
             self.novo_y = VELOCIDADE_PLAYER  
 
         self.hitbox.x += self.novo_x
-        if self.jogo.verificar_colisao(self.hitbox):  
+        if self.verificar_colisao(self.hitbox):  
             self.hitbox.x = x_original
         
         self.hitbox.y += self.novo_y
-        if self.jogo.verificar_colisao(self.hitbox):  
+        if self.verificar_colisao(self.hitbox):  
             self.hitbox.y = y_original
         
         self.rect.center = self.hitbox.center

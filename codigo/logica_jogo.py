@@ -31,22 +31,43 @@ class Jogo:
         ]
         
         colisao_layer = mapa_tmx.get_layer_by_name('Colisões')
-        if colisao_layer and hasattr(colisao_layer, 'objects'):
-            print(f"Camada 'Colisões' encontrada com {len(colisao_layer.objects)} objetos")
-            for obj in colisao_layer.objects:
-                print(f"Objeto: x={obj.x}, y={obj.y}, width={obj.width}, height={obj.height}")
+        for obj in colisao_layer:
+            if obj.name == "Colisão":
                 start_x = int(obj.x // TAMANHO_TILE)
                 start_y = int(obj.y // TAMANHO_TILE)
-                end_x = int((obj.x + obj.width) // TAMANHO_TILE) + 1
-                end_y = int((obj.y + obj.height) // TAMANHO_TILE) + 1
-                
-                for x in range(max(0, start_x), min(end_x, len(self.mapa_colisao))):
-                    for y in range(max(0, start_y), min(end_y, len(self.mapa_colisao[0]))):
-                        self.mapa_colisao[x][y] = True
-        else:
-            print("Erro: Camada 'Colisões' não encontrada ou não contém objetos!")
+                # Se o objeto tiver largura e altura, marque uma área
+                if hasattr(obj, 'width') and hasattr(obj, 'height'):
+                    end_x = int((obj.x + obj.width) // TAMANHO_TILE) + 1
+                    end_y = int((obj.y + obj.height) // TAMANHO_TILE) + 1
+                    for x in range(max(0, start_x), min(end_x, len(self.mapa_colisao))):
+                        for y in range(max(0, start_y), min(end_y, len(self.mapa_colisao[0]))):
+                            self.mapa_colisao[x][y] = True
+                else:
+                    # Se for um ponto, marque apenas uma posição
+                    if 0 <= start_x < mapa_tmx.width and 0 <= start_y < mapa_tmx.height:
+                        self.mapa_colisao[start_x][start_y] = True
         
         print("Mapa de colisão carregado:", self.mapa_colisao)
+
+    def verificar_colisao(self, rect):
+        if not hasattr(self, 'jogo') or not hasattr(self.jogo, 'mapa_colisao'):
+            return False
+            
+        pontos = [
+            (rect.left, rect.top),
+            (rect.right, rect.top),
+            (rect.left, rect.bottom),
+            (rect.right, rect.bottom)
+        ]
+        
+        for px, py in pontos:
+            tile_x = px // TAMANHO_TILE
+            tile_y = py // TAMANHO_TILE
+            
+            if 0 <= tile_x < len(self.jogo.mapa_colisao) and 0 <= tile_y < len(self.jogo.mapa_colisao[0]):
+                if self.jogo.mapa_colisao[tile_x][tile_y]:
+                    return True
+        return False
 
     def importar_graficos(self):
         self.mapa_tmx = load_pygame('graficos/mapa/oficial_game_map.tmx')
@@ -69,7 +90,7 @@ class Jogo:
         
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
-                self.player = Player((obj.x, obj.y), self.todas_sprites)
+                self.player = Player((obj.x, obj.y), self.todas_sprites, self)
 
             if obj.name == 'Narcisa':
                 Narcisa((obj.x, obj.y), self.todas_sprites)

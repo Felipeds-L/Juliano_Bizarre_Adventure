@@ -249,7 +249,7 @@
 </data>
  </layer>
  <objectgroup id="6" name="Entidades">
-  <object id="359" name="Player" x="1542" y="5566.67">
+  <object id="359" name="Player" x="1944" y="5503.67">
    <properties>
     <property name="pos" value="casa"/>
    </properties>
@@ -659,7 +659,7 @@
   <object id="942" name="Árvore" gid="514" x="2919.33" y="2752.67" width="180" height="180"/>
   <object id="943" name="Árvore" gid="514" x="2958" y="2838" width="180" height="180"/>
  </objectgroup>
- <objectgroup id="7" name="Colisões">
+ <objectgroup id="7" name="Colisões" visible="0">
   <object id="423" name="Colisão" x="1548" y="4828" width="259" height="223"/>
   <object id="425" name="Colisão" x="1469" y="5420" width="265" height="204"/>
   <object id="427" name="Colisão" x="2502" y="5287" width="287" height="211"/>
@@ -751,7 +751,7 @@
   <object id="949" name="Colisão" x="2968" y="2536" width="214" height="268"/>
   <object id="950" name="Colisão" x="2826" y="2620" width="208" height="46"/>
  </objectgroup>
- <objectgroup id="8" name="Coletáveis">
+ <objectgroup id="8" name="Coletáveis" visible="0">
   <object id="952" gid="531" x="1430" y="2731" width="16" height="10"/>
   <object id="953" gid="531" x="1422.67" y="2737.67" width="16" height="10"/>
   <object id="954" gid="531" x="1420.33" y="2724.67" width="16" height="10"/>
