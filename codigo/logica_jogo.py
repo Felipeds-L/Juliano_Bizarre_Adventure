@@ -17,10 +17,13 @@ class Jogo:
         self.display = pygame.display.set_mode((JANELA_LARGURA, JANELA_ALTURA))
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
+
         self.todas_sprites = TodasSprites()
+
         self.tela_inicial_obj = None
-        self.importar_graficos()
         self.estado = 'tela_inicial'
+
+        self.importar_graficos()
         self.tocar_musica()
         self.iniciar(self.mapa_tmx, 'casa')
 

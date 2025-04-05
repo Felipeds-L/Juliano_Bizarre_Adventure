@@ -6,9 +6,12 @@ class TelaInicial:
         self.jogo = jogo
         self.fundo_intro = pygame.image.load('graficos/tela/introbackground.png').convert_alpha()
         self.fundo_intro = pygame.transform.scale(self.fundo_intro, (JANELA_LARGURA, JANELA_ALTURA))
+        
         self.titulo = pygame.image.load('codigo/tela_inicial/titulo_jogo.png').convert_alpha()
         self.titulo_rect = self.titulo.get_rect(center=(JANELA_LARGURA // 2, JANELA_ALTURA // 4))
+
         self.botao_jogar = Botao(JANELA_LARGURA/2, JANELA_ALTURA/2)
+
         self.desenhar()
 
     def desenhar(self):
