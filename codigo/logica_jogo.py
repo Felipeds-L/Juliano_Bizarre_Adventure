@@ -7,7 +7,7 @@ from configuracoes import *
 from sprites.sprites import *
 from tela_inicial.tela_introdução import *
 from entidades import *
-from audios.musicas import musicaJojo
+from audios.musicas import Musica
 from sprites.grupos import TodasSprites
 
 import sys
@@ -21,10 +21,10 @@ class Jogo:
         self.fps = pygame.time.Clock()
 
         self.todas_sprites = TodasSprites()
-        self.musica = musicaJojo('audios/jojo.mp3', 0.5, -1)
 
         self.importar_graficos()
         self.estado = 'jogando'
+        self.tocar_musica()
         self.iniciar(self.mapa_tmx, 'casa')
 
     def carregar_colisao(self, mapa_tmx):
@@ -65,7 +65,7 @@ class Jogo:
         
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
-                self.player = Player((obj.x, obj.y), self.todas_sprites, self)
+                self.player = Player((obj.x - LARGURA_PLAYER/2, obj.y - ALTURA_PLAYER/2), self.todas_sprites, self)
 
             if obj.name == 'Narcisa':
                 Narcisa((obj.x, obj.y), self.todas_sprites)
@@ -84,6 +84,10 @@ class Jogo:
         elif self.estado == 'jogando':
             self.display.fill(PRETO) 
             self.todas_sprites.desenhar(self.player.rect.center)
+    
+    def tocar_musica(self):
+        if self.estado == 'jogando':
+            self.musica = Musica('codigo/audios/jojo.mp3', 0.1, -1)
 
     def tela_inicial(self, *args):
         TelaInicial(self)
