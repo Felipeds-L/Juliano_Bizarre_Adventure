@@ -327,7 +327,7 @@
   <object id="512" name="Árvore" gid="514" x="1464" y="5926" width="180" height="180"/>
   <object id="513" name="Árvore" gid="514" x="1838" y="6036" width="180" height="180"/>
   <object id="514" name="Árvore" gid="514" x="1838" y="5926" width="180" height="180"/>
-  <object id="515" name="Árvore" gid="514" x="1312" y="5754" width="180" height="180"/>
+  <object id="515" name="Árvore" gid="514" x="1305" y="5766" width="180" height="180"/>
   <object id="516" name="Árvore" gid="514" x="1936" y="5862" width="180" height="180"/>
   <object id="517" name="Árvore" gid="514" x="1982" y="5946" width="180" height="180"/>
   <object id="518" name="Árvore" gid="514" x="2086" y="5954" width="180" height="180"/>
@@ -660,12 +660,12 @@
   <object id="943" name="Árvore" gid="514" x="2958" y="2838" width="180" height="180"/>
  </objectgroup>
  <objectgroup id="7" name="Colisões">
-  <object id="423" name="Colisão" x="1548" y="4828" width="259" height="223"/>
-  <object id="425" name="Colisão" x="1469" y="5420" width="265" height="204"/>
-  <object id="427" name="Colisão" x="2502" y="5287" width="287" height="211"/>
+  <object id="423" name="Colisão" x="1548" y="4884" width="259" height="167"/>
+  <object id="425" name="Colisão" x="1469" y="5482.67" width="265" height="141.333"/>
+  <object id="427" name="Colisão" x="2502" y="5361.67" width="287" height="136.333"/>
   <object id="428" name="Colisão" x="2285" y="4819" width="261" height="235"/>
-  <object id="429" name="Colisão" x="2171" y="4037" width="77" height="518"/>
-  <object id="430" name="Colisão" x="2002" y="4040" width="76" height="512"/>
+  <object id="429" name="Colisão" x="2191" y="4037" width="57" height="518"/>
+  <object id="430" name="Colisão" x="1984.5" y="4040" width="69.5" height="512"/>
   <object id="432" name="Colisão" x="812.364" y="4200.61" width="293.939" height="57.5758"/>
   <object id="433" name="Colisão" x="1088.12" y="4161.21" width="612.121" height="51.5152"/>
   <object id="435" name="Colisão" x="1685.09" y="4212.73" width="242.424" height="45.4545"/>
@@ -693,12 +693,12 @@
   <object id="642" name="Colisão" x="890" y="2820" width="84" height="828"/>
   <object id="643" name="Colisão" x="782" y="3612" width="136" height="54"/>
   <object id="644" name="Colisão" x="780" y="3648" width="78" height="568"/>
-  <object id="645" name="Colisão" x="1223" y="3460" width="250" height="249"/>
-  <object id="646" name="Colisão" x="1791" y="3452" width="252" height="258"/>
-  <object id="648" name="Colisão" x="2242" y="3480" width="195" height="156"/>
-  <object id="650" name="Colisão" x="2662" y="3503.33" width="190" height="121.667"/>
-  <object id="651" name="Colisão" x="2622" y="3003" width="256" height="259"/>
-  <object id="652" name="Colisão" x="1408.67" y="2881.33" width="259.333" height="252.667"/>
+  <object id="645" name="Colisão" x="1223" y="3558" width="250" height="151"/>
+  <object id="646" name="Colisão" x="1791" y="3555" width="252" height="155"/>
+  <object id="648" name="Colisão" x="2242" y="3533" width="195" height="69"/>
+  <object id="650" name="Colisão" x="2662" y="3517.33" width="190" height="67.667"/>
+  <object id="651" name="Colisão" x="2622" y="3130" width="256" height="132"/>
+  <object id="652" name="Colisão" x="1408.67" y="2990.33" width="259.333" height="143.667"/>
   <object id="863" name="Colisão" x="1530.55" y="2346.06" width="1639.39" height="66.6667"/>
   <object id="864" name="Colisão" x="3136.61" y="2218.79" width="109.091" height="163.636"/>
   <object id="865" name="Colisão" x="3194.18" y="652.121" width="57.5758" height="1600"/>
@@ -707,60 +707,60 @@
   <object id="868" name="Colisão" x="709.333" y="1573.33" width="60.6061" height="533.333"/>
   <object id="869" name="Colisão" x="739.636" y="2046.06" width="106.061" height="321.212"/>
   <object id="870" name="Colisão" x="791.152" y="2297.58" width="533.333" height="115.152"/>
-  <object id="872" name="Colisão" x="854.788" y="630.909" width="183.878" height="1696.97"/>
-  <object id="874" name="Colisão" x="1212" y="1181.33" width="892" height="91.9997"/>
-  <object id="875" name="Colisão" x="1970.67" y="892" width="777.333" height="138.667"/>
-  <object id="876" name="Colisão" x="2334.67" y="1013.33" width="353.333" height="594.667"/>
-  <object id="877" name="Colisão" x="2194.67" y="1448" width="537.333" height="209.333"/>
-  <object id="878" name="Colisão" x="1597.67" y="1666.67" width="646.333" height="136.333"/>
+  <object id="872" name="Colisão" x="854.788" y="630.909" width="139.878" height="1696.97"/>
+  <object id="874" name="Colisão" x="1212" y="1181.33" width="860" height="69.333"/>
+  <object id="875" name="Colisão" x="1970.67" y="892" width="733.333" height="140"/>
+  <object id="876" name="Colisão" x="2382.67" y="1013.33" width="241.333" height="594.667"/>
+  <object id="877" name="Colisão" x="2194.67" y="1448" width="490.666" height="166.666"/>
+  <object id="878" name="Colisão" x="1597.67" y="1666.67" width="617" height="112.333"/>
   <object id="879" name="Colisão" x="1196" y="1982" width="137" height="225"/>
-  <object id="880" name="Colisão" x="1584" y="2010.67" width="432" height="134.667"/>
+  <object id="880" name="Colisão" x="1638.67" y="2073.34" width="377.333" height="72.0003"/>
   <object id="881" name="Colisão" x="1636" y="2120" width="361.333" height="121.333"/>
   <object id="882" name="Colisão" x="1718.67" y="2229.33" width="282.667" height="141.333"/>
   <object id="883" name="Colisão" x="2028" y="2262.67" width="926.667" height="89.3333"/>
-  <object id="885" name="Colisão" x="2232" y="1960" width="248" height="144"/>
-  <object id="886" name="Colisão" x="2908" y="1352" width="276" height="940"/>
-  <object id="887" name="Colisão" x="2890" y="728" width="306" height="628"/>
+  <object id="885" name="Colisão" x="2232" y="1990.67" width="248" height="81.3333"/>
+  <object id="886" name="Colisão" x="2968" y="1352" width="216" height="940"/>
+  <object id="887" name="Colisão" x="2920.67" y="728" width="275.333" height="608"/>
   <object id="888" name="Colisão" x="2948" y="620" width="166" height="108"/>
   <object id="889" name="Colisão" x="1557.82" y="600.606" width="1427.27" height="54.5455"/>
-  <object id="891" name="Colisão" x="2358" y="2543" width="496" height="274"/>
-  <object id="892" name="Colisão " x="2432.67" y="3012.33" width="149.333" height="203.333"/>
-  <object id="893" name="Colisão" x="1760" y="3172" width="232" height="249.334"/>
+  <object id="891" name="Colisão" x="2430" y="2543" width="372" height="172"/>
+  <object id="892" name="Colisão " x="2450.67" y="3012.33" width="105.333" height="113.333"/>
+  <object id="893" name="Colisão" x="1760" y="3204" width="177" height="217.334"/>
   <object id="894" name="Colisão" x="1496" y="3274.67" width="274.667" height="436"/>
   <object id="895" name="Colisão" x="984" y="3326.67" width="617.333" height="128"/>
   <object id="896" name="Colisão" x="1034.67" y="3444" width="181.333" height="53.3333"/>
-  <object id="897" name="Colisão" x="837.333" y="3692" width="189.333" height="504"/>
-  <object id="898" name="Colisão" x="987.333" y="3940.66" width="238.666" height="220.667"/>
-  <object id="899" name="Colisão" x="1513.33" y="4016.66" width="392" height="198"/>
-  <object id="900" name="Colisão" x="2577.33" y="3961.33" width="496" height="190.667"/>
-  <object id="901" name="Colisão" x="2672" y="3890.66" width="440" height="90.6667"/>
+  <object id="897" name="Colisão" x="837.333" y="3692" width="206.333" height="504"/>
+  <object id="898" name="Colisão" x="987.333" y="3989.66" width="208.666" height="171.667"/>
+  <object id="899" name="Colisão" x="1513.33" y="4076.66" width="392" height="138"/>
+  <object id="900" name="Colisão" x="2611.33" y="4065.33" width="462" height="86.667"/>
+  <object id="901" name="Colisão" x="2703" y="3987.66" width="414" height="62.6667"/>
   <object id="902" name="Colisão" x="2192" y="5732" width="640" height="286"/>
-  <object id="903" name="Colisão" x="2772" y="4420" width="272" height="1262"/>
-  <object id="904" name="Colisão" x="2246" y="4398" width="690" height="396"/>
+  <object id="903" name="Colisão" x="2801" y="4420" width="243" height="1321"/>
+  <object id="904" name="Colisão" x="2293" y="4398" width="643" height="330"/>
   <object id="905" name="Colisão" x="2794" y="5652" width="214" height="268"/>
-  <object id="908" name="Colisão" x="1120" y="4392" width="910" height="312"/>
-  <object id="909" name="Colisão" x="1064" y="4650" width="398" height="220"/>
-  <object id="910" name="Colisão" x="1086" y="4838" width="350" height="1130"/>
-  <object id="911" name="Colisão" x="1412" y="5738" width="814" height="268"/>
-  <object id="912" name="Colisão" x="1295.27" y="640" width="323.273" height="305.94"/>
+  <object id="908" name="Colisão" x="1120" y="4392" width="888.5" height="219"/>
+  <object id="909" name="Colisão" x="1064" y="4650" width="350" height="220"/>
+  <object id="910" name="Colisão" x="1086" y="4838" width="266" height="1130"/>
+  <object id="911" name="Colisão" x="1351" y="5776" width="875" height="230"/>
+  <object id="912" name="Colisão" x="1295.27" y="794.667" width="323.273" height="100.607"/>
   <object id="944" name="Colisão" x="970" y="2878" width="196" height="428"/>
   <object id="945" name="Colisão" x="890" y="2518" width="308.667" height="408"/>
-  <object id="946" name="Colisão" x="948" y="3498" width="188" height="322"/>
+  <object id="946" name="Colisão" x="948" y="3498" width="109" height="306"/>
   <object id="947" name="Colisão" x="1080" y="3520" width="134" height="136"/>
-  <object id="948" name="Colisão" x="2994" y="3096" width="182" height="792.667"/>
+  <object id="948" name="Colisão" x="3023" y="3096" width="153" height="792.667"/>
   <object id="949" name="Colisão" x="2968" y="2536" width="214" height="268"/>
-  <object id="950" name="Colisão" x="2826" y="2620" width="208" height="46"/>
+  <object id="950" name="Colisão" x="2954" y="2620" width="80" height="31"/>
   <object id="972" name="Colisão" x="1169.33" y="3169.33" width="61.3333" height="152"/>
-  <object id="976" name="Colisão" x="1488" y="1426.67" width="104" height="296"/>
-  <object id="978" name="Colisão" x="1644" y="1441.33" width="157.333" height="220"/>
-  <object id="980" name="Colisão" x="1802.67" y="1524" width="260" height="129.333"/>
+  <object id="976" name="Colisão" x="1520" y="1426.67" width="72" height="286.667"/>
+  <object id="978" name="Colisão" x="1644" y="1498.66" width="157.333" height="162.667"/>
+  <object id="980" name="Colisão" x="1802.67" y="1570.67" width="260" height="82.6663"/>
   <object id="981" name="Colisão" x="2074.67" y="1620" width="120" height="52"/>
   <object id="983" name="Colisão" x="2236" y="1366.67" width="85.3333" height="69.3333"/>
   <object id="985" name="Colisão" x="1224" y="1078.67" width="878.667" height="92"/>
-  <object id="988" name="Colisão" x="1042.67" y="1201.33" width="161.333" height="145.333"/>
-  <object id="990" name="Colisão" x="1058.67" y="1629.33" width="153.333" height="181.333"/>
+  <object id="988" name="Colisão" x="1042.67" y="1201.33" width="121.333" height="128"/>
+  <object id="990" name="Colisão" x="1058.67" y="1629.33" width="121.333" height="134.666"/>
   <object id="991" name="Colisão" x="1921.33" y="1000" width="164" height="80"/>
-  <object id="992" name="Colisão" x="1052" y="753.333" width="93.3333" height="230.667"/>
+  <object id="992" name="Colisão" x="1052" y="753.333" width="77.3333" height="208"/>
   <object id="994" name="Colisão" x="2190" y="5647" width="73" height="83"/>
   <object id="995" x="2283" y="5699" width="61" height="39"/>
  </objectgroup>
