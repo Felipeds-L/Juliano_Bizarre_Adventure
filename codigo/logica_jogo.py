@@ -7,6 +7,7 @@ from configuracoes import *
 from sprites.sprites import *
 from tela_inicial.tela_introdução import *
 from entidades import *
+from audios.musicas import musicaJojo
 from sprites.grupos import TodasSprites
 
 import sys
@@ -14,11 +15,13 @@ import sys
 class Jogo:
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
         self.display = pygame.display.set_mode((JANELA_LARGURA, JANELA_ALTURA))
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
 
         self.todas_sprites = TodasSprites()
+        self.musica = musicaJojo('audios/jojo.mp3', 0.5, -1)
 
         self.importar_graficos()
         self.estado = 'jogando'
