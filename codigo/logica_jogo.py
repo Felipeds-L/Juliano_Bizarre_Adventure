@@ -121,8 +121,8 @@ class Jogo:
         if self.estado in ['jogando', 'batalha']:
             self.musica = Musica('codigo/audios/jojo.mp3', 0.1, -1)
     
-    def comecar_batalha(self):
-        self.batalha_obj = Batalha(self, self.juliano, self.carcara)
+    def comecar_batalha(self, player, oponente):
+        self.batalha_obj = Batalha(self, player, oponente)
 
     def tela_inicial(self):
         self.tela_inicial_obj = TelaInicial(self)
@@ -146,7 +146,7 @@ class Jogo:
 
                 elif self.estado == 'jogando' and evento.type == pygame.KEYDOWN and evento.key == pygame.K_b:
                     self.estado = 'batalha'
-                    self.comecar_batalha()
+                    self.comecar_batalha(self.juliano, self.carcara)
 
                 elif self.estado == 'batalha' and self.batalha_obj:
                     self.batalha_obj.tratar_eventos(evento)
