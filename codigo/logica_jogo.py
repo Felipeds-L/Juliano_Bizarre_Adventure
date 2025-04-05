@@ -23,7 +23,7 @@ class Jogo:
         self.todas_sprites = TodasSprites()
 
         self.importar_graficos()
-        self.estado = 'jogando'
+        self.estado = 'tela_inicial'
         self.tocar_musica()
         self.iniciar(self.mapa_tmx, 'casa')
 
