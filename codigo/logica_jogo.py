@@ -29,12 +29,14 @@ class Jogo:
 
     def carregar_colisao(self, mapa_tmx):
         self.mapa_colisao = [[False for _ in range(mapa_tmx.height)] for _ in range(mapa_tmx.width)]
+        
         for obj in mapa_tmx.get_layer_by_name('Colisões'):
             if obj.name == "Colisão":
                 start_x = int(obj.x // TAMANHO_TILE)
                 start_y = int(obj.y // TAMANHO_TILE)
                 end_x = int((obj.x + obj.width) // TAMANHO_TILE) + 1
                 end_y = int((obj.y + obj.height) // TAMANHO_TILE) + 1
+
                 for x in range(max(0, start_x), min(end_x, len(self.mapa_colisao))):
                     for y in range(max(0, start_y), min(end_y, len(self.mapa_colisao[0]))):
                         self.mapa_colisao[x][y] = True
@@ -50,6 +52,7 @@ class Jogo:
         for camada in ['Agua', 'Terra']:
             for x, y, superficie in mapa_tmx.get_layer_by_name(camada).tiles():
                 Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites, CAMADAS_MAPA['background'])
+
         for obj in mapa_tmx.get_layer_by_name('Objetos'):
             if obj.name == 'Ponte':
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
@@ -57,6 +60,7 @@ class Jogo:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
         for obj in mapa_tmx.get_layer_by_name('Coletáveis'):
             Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
+
         for obj in mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
                 self.player = Player((obj.x - LARGURA_PLAYER/2, obj.y - ALTURA_PLAYER/2), self.todas_sprites, self)
@@ -90,10 +94,12 @@ class Jogo:
     def run(self):
         while True:
             teclas = pygame.key.get_pressed()
+
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT or teclas[pygame.K_ESCAPE]:
                     pygame.quit()
                     sys.exit()
+
                 if self.estado == 'tela_inicial' and self.tela_inicial_obj:
                     self.tela_inicial_obj.verificar_clique(evento)
 
