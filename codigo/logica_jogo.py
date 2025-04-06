@@ -79,7 +79,7 @@ class Jogo:
     def iniciar(self, posicao_inicial_player):
         self.mapa_tmx = load_pygame('graficos/mapa/oficial_game_map.tmx')
         self.carregar_colisao(self.mapa_tmx)
-        
+
         for camada in ['Agua', 'Terra']:
             for x, y, superficie in self.mapa_tmx.get_layer_by_name(camada).tiles():
                 Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites, CAMADAS_MAPA['background'])
@@ -149,7 +149,7 @@ class Jogo:
 
     def tocar_musica(self):
         if self.estado == 'jogando':
-            self.musica = Musica('codigo/audios/jojo.mp3', 0.1, -1)
+            self.musica = Musica('codigo/audios/jojo.mp3', 1, -1)
 
     def tela_inicial(self):
         self.tela_inicial_obj = TelaInicial(self)
