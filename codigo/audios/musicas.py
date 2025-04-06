@@ -5,7 +5,6 @@ class Musica():
         super().__init__()
         self.tocar_musica(musica, volume, loop)
         
-
     def tocar_musica(self, musica, volume, loop):
         pygame.mixer.music.load(musica)
         pygame.mixer.music.set_volume(volume)          
