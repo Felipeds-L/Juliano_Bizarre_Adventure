@@ -31,6 +31,7 @@ class Jogo:
         self.estado = 'tela_inicial'
 
         self.npcs = pygame.sprite.Group()
+        self.coletaveis = pygame.sprite.Group()
         
         ################################ CRIAÇÃO DE PERSONAGENS #############################
         # Criar Juliano
@@ -116,12 +117,22 @@ class Jogo:
             self.batalha.update()
 
         self.verificar_colisao_npcs()
+        #self.verificar_colisao_coletaveis()
 
     def verificar_colisao_npcs(self):
         colisoes = pygame.sprite.spritecollide(self.player, self.npcs, False)
         if colisoes and self.estado == 'jogando':
             npc = colisoes[-1] 
             self.comecar_batalha(npc)
+
+
+    #----------------isso vai virar as colisões com coletaveis-----------------------
+    # def verificar_colisao_coletaveis(self):
+    #     colisoes = pygame.sprite.spritecollide(self.player, self.coletaveis, False)
+    #      coletavel = colisoes[-1] 
+    #     if coletavel == "aveia":
+    #         self.player.setVida(X)
+    #         
 
     def comecar_batalha(self, npc):
         self.estado = 'batalha'
