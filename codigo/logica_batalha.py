@@ -18,15 +18,9 @@ class Batalha:
         self.vida_oponente = oponente.vidaAtual
         self.oponente = oponente
         self.player = player
-
-        self.iniciar_batalha()
+        
         self.update()
         self.desenhar()
-
-    def iniciar_batalha(self):
-
-        self.cont_rodada = 0
-        self.opcao_selecionada = 0
 
     def update(self):
         self.vida_player = self.player.vidaAtual

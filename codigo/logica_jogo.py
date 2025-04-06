@@ -57,9 +57,8 @@ class Jogo:
         self.carcara.setDano(5)
         self.carcara.setNome('Zé Carcará')
 
-        self.importar_graficos()
         self.tocar_musica()
-        self.iniciar(self.mapa_tmx, 'casa')
+        self.iniciar('casa')
 
     def carregar_colisao(self, mapa_tmx):
         self.mapa_colisao = [[False for _ in range(mapa_tmx.height)] for _ in range(mapa_tmx.width)]
@@ -78,25 +77,24 @@ class Jogo:
                 if 0 <= start_x < mapa_tmx.width and 0 <= start_y < mapa_tmx.height:
                     self.mapa_colisao[start_x][start_y] = True
 
-    def importar_graficos(self):
+    def iniciar(self, posicao_inicial_player):
         self.mapa_tmx = load_pygame('graficos/mapa/oficial_game_map.tmx')
+        self.carregar_colisao(self.mapa_tmx)
 
-    def iniciar(self, mapa_tmx, posicao_inicial_player):
-        self.carregar_colisao(mapa_tmx)
         for camada in ['Agua', 'Terra']:
-            for x, y, superficie in mapa_tmx.get_layer_by_name(camada).tiles():
+            for x, y, superficie in self.mapa_tmx.get_layer_by_name(camada).tiles():
                 Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites, CAMADAS_MAPA['background'])
 
-        for obj in mapa_tmx.get_layer_by_name('Objetos'):
+        for obj in self.mapa_tmx.get_layer_by_name('Objetos'):
             if obj.name == 'Ponte':
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
             else:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
 
-        for obj in mapa_tmx.get_layer_by_name('Coletáveis'):
+        for obj in self.mapa_tmx.get_layer_by_name('Coletáveis'):
             Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
 
-        for obj in mapa_tmx.get_layer_by_name('Entidades'):
+        for obj in self.mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
                 self.player = Player((obj.x - LARGURA_PLAYER/2, obj.y - ALTURA_PLAYER/2), self.todas_sprites, self)
 
@@ -162,7 +160,7 @@ class Jogo:
 
     def tocar_musica(self):
         if self.estado == 'jogando':
-            self.musica = Musica('codigo/audios/jojo.mp3', 0.1, -1)
+            self.musica = Musica('codigo/audios/jojo.mp3', 1, -1)
 
     def tela_inicial(self):
         self.tela_inicial_obj = TelaInicial(self)
