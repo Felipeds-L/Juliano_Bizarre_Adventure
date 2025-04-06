@@ -1,12 +1,12 @@
 class Personagem:
     def __init__(self):
-        self.nome = ''
         self.vidaCheia = 0
         self.vidaAtual = 0
         self.dano = 0
         self.hitbox = ''
         self.pombaLaser = False
         self.oculos = False
+        self.nome = ''
         self.listaAtaques = {'Bicada': 5}
 
     def setVida(self, vida):

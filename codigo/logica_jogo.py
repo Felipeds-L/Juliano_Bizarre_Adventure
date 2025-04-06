@@ -26,7 +26,8 @@ class Jogo:
         self.todas_sprites = TodasSprites()
 
         self.tela_inicial_obj = None
-        self.batalha_obj = None
+
+        self.batalha = None
         self.estado = 'tela_inicial'
 
         self.npcs = pygame.sprite.Group()
@@ -34,26 +35,26 @@ class Jogo:
         ################################ CRIAÇÃO DE PERSONAGENS #############################
         # Criar Juliano
         self.juliano = Personagem()
-        self.juliano.setNome('Juliano')
         self.juliano.setVida(20)
+        self.juliano.setNome('Juliano')
 
         # Criar Teobaldo
         self.teobaldo = Personagem()
-        self.teobaldo.setNome('Teobaldo')
         self.teobaldo.setVida(20)
         self.teobaldo.setDano(5)
+        self.teobaldo.setNome('Teobaldo')
 
         # Criar Narcisa
         self.narcisa = Personagem()
-        self.narcisa.setNome('Narcisa')
         self.narcisa.setVida(20)
         self.narcisa.setDano(5)
+        self.narcisa.setNome('Narcisa')
 
         # Criar Zé Carcará
         self.carcara = Personagem()
-        self.carcara.setNome('Zé Carcará')
         self.carcara.setVida(20)
         self.carcara.setDano(5)
+        self.carcara.setNome('Zé Carcará')
 
         self.importar_graficos()
         self.tocar_musica()
@@ -106,24 +107,25 @@ class Jogo:
                 teobaldo = Teobaldo((obj.x, obj.y), self.todas_sprites)
                 self.npcs.add(teobaldo)
 
+
     def update(self):
         self.fps.tick(FPS)
         if self.estado == 'jogando':
             self.todas_sprites.update()
-        elif self.estado == 'batalha' and self.batalha_obj:
-            self.batalha_obj.update()
+        elif self.estado == 'batalha':
+            self.batalha.update()
 
         self.verificar_colisao_npcs()
-
 
     def verificar_colisao_npcs(self):
         colisoes = pygame.sprite.spritecollide(self.player, self.npcs, False)
         if colisoes and self.estado == 'jogando':
             npc = colisoes[-1] 
-            self.iniciar_batalha_com_npc(npc)
+            self.comecar_batalha(npc)
 
-    def iniciar_batalha_com_npc(self, npc):
+    def comecar_batalha(self, npc):
         self.estado = 'batalha'
+
         if isinstance(npc, Narcisa):
             oponente = self.narcisa
         elif isinstance(npc, Teobaldo):
@@ -131,7 +133,7 @@ class Jogo:
         else:
             oponente = self.carcara
     
-        self.batalha_obj = Batalha(self, self.juliano, oponente)
+        self.batalha = Batalha(self, self.juliano, oponente)
 
     def desenhar(self):
         if self.estado == 'tela_inicial':
@@ -141,23 +143,15 @@ class Jogo:
             self.display.fill(PRETO)
             self.todas_sprites.desenhar(self.player.rect.center)
             
-        elif self.estado == 'batalha' and self.batalha_obj:
-            self.batalha_obj.desenhar()
+        elif self.estado == 'batalha' and self.batalha:
+            self.batalha.desenhar()
             
         elif self.estado == 'game_over':
             self.tela_game_over()
 
     def tocar_musica(self):
-        if self.estado in ['jogando', 'batalha']:
+        if self.estado == 'jogando':
             self.musica = Musica('codigo/audios/jojo.mp3', 0.1, -1)
-    
-<<<<<<< HEAD
-    def comecar_batalha(self, oponente):
-        self.batalha_obj = Batalha(self, self.juliano, oponente)
-=======
-    def comecar_batalha(self, player, oponente):
-        self.batalha_obj = Batalha(self, player, oponente)
->>>>>>> 648b255083a2b6a878f1d82d87bc86a1ddea003d
 
     def tela_inicial(self):
         self.tela_inicial_obj = TelaInicial(self)
@@ -166,6 +160,18 @@ class Jogo:
         self.display.fill(PRETO)
         texto = pygame.font.Font(None, 36).render("Game Over", True, (255, 255, 255))
         self.display.blit(texto, (JANELA_LARGURA // 2 - texto.get_width() // 2, JANELA_ALTURA // 2))
+
+    def remover_npc(self, nome_npc):
+        for npc in self.npcs:
+            if hasattr(npc, "nome") and npc.nome == nome_npc:
+                pos_x = int(npc.rect.x // TAMANHO_TILE)
+                pos_y = int(npc.rect.y // TAMANHO_TILE)
+
+                if 0 <= pos_x < len(self.mapa_colisao) and 0 <= pos_y < len(self.mapa_colisao[0]):
+                    self.mapa_colisao[pos_x][pos_y] = False
+
+                npc.kill()
+                break
 
     def run(self):
         while True:
@@ -179,12 +185,8 @@ class Jogo:
                 if self.estado == 'tela_inicial' and self.tela_inicial_obj:
                     self.tela_inicial_obj.verificar_clique(evento)
 
-                elif self.estado == 'jogando' and evento.type == pygame.KEYDOWN and evento.key == pygame.K_b:
-                    self.estado = 'batalha'
-                    self.comecar_batalha(self.juliano, self.carcara)
-
-                elif self.estado == 'batalha' and self.batalha_obj:
-                    self.batalha_obj.tratar_eventos(evento)
+                elif self.estado == 'batalha' and self.batalha:
+                    self.batalha.tratar_eventos(evento)
 
             if self.estado == 'tela_inicial' and self.tela_inicial_obj:
                 if self.tela_inicial_obj.mouse_sobre_botao():

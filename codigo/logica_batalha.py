@@ -8,6 +8,8 @@ class Batalha:
         self.jogo = jogo
         self.display = jogo.display
         self.font = pygame.font.Font(None, 36)
+        self.background = pygame.image.load('graficos/backgrounds_batalha/forest.png').convert_alpha()
+        self.rect = self.background.get_rect()
 
         self.cont_rodada = 0
         self.opcao_selecionada = 0
@@ -18,9 +20,10 @@ class Batalha:
         self.player = player
 
         self.iniciar_batalha()
+        self.update()
+        self.desenhar()
 
     def iniciar_batalha(self):
-        self.monstro_atual = self.oponente
 
         self.cont_rodada = 0
         self.opcao_selecionada = 0
@@ -33,15 +36,17 @@ class Batalha:
             self.jogo.estado = 'game_over'
 
         elif self.vida_oponente <= 0:
+            self.jogo.remover_npc(self.oponente.nome)
+            self.jogo.batalha = None
             self.jogo.estado = 'jogando'
 
     def desenhar(self):
-        self.display.fill((50, 50, 50)) 
+        self.display.blit(self.background, self.rect)
 
         vida_player_texto = self.font.render(f"Vida Player: {self.vida_player}", True, (255, 255, 255))
-        vida_monstro_texto = self.font.render(f"Vida {self.oponente.nome}: {self.oponente.vidaAtual}", True, (255, 255, 255))
+        vida_oponente_texto = self.font.render(f"Vida {self.oponente.nome}: {self.oponente.vidaAtual}", True, (255, 255, 255))
         self.display.blit(vida_player_texto, (10, 10))
-        self.display.blit(vida_monstro_texto, (10, 40))
+        self.display.blit(vida_oponente_texto, (10, 40))
 
         if self.cont_rodada % 2 == 0:
             opcoes_ataque = self.player.listaAtaques
@@ -52,8 +57,8 @@ class Batalha:
                 texto = self.font.render(opcao, True, cor)
                 self.display.blit(texto, (JANELA_LARGURA // 2 - texto.get_width() // 2, JANELA_ALTURA // 2 + i * 50))  
         else:
-            vez_monstro_texto = self.font.render(f"Vez de {self.oponente.nome}", True, (255, 0, 0))
-            self.display.blit(vez_monstro_texto, (JANELA_LARGURA // 2 - vez_monstro_texto.get_width() // 2, JANELA_ALTURA // 2))
+            vez_oponente_texto = self.font.render(f"Vez de {self.oponente.nome}", True, (255, 0, 0))
+            self.display.blit(vez_oponente_texto, (JANELA_LARGURA // 2 - vez_oponente_texto.get_width() // 2, JANELA_ALTURA // 2))
 
     def tratar_eventos(self, evento):
         if evento.type == pygame.KEYDOWN:
