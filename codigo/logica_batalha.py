@@ -14,23 +14,22 @@ class Batalha:
         self.cont_rodada = 0
         self.opcao_selecionada = 0
 
-        self.vida_player = player.vidaAtual
-        self.vida_oponente = oponente.vidaAtual
-        self.oponente = oponente
         self.player = player
+        self.oponente = oponente
+        self.vida_player = self.player.getVida()
+        self.vida_oponente = self.oponente.getVida()
         
-        self.update()
         self.desenhar()
 
     def update(self):
-        self.vida_player = self.player.vidaAtual
-        self.vida_oponente = self.oponente.vidaAtual
+        self.vida_player = self.player.getVida()
+        self.vida_oponente = self.oponente.getVida()
 
         if self.vida_player <= 0:
             self.jogo.estado = 'game_over'
-
+            self.jogo.batalha = None
         elif self.vida_oponente <= 0:
-            self.jogo.remover_npc(self.oponente.nome)
+            self.jogo.remover_npc(self.oponente.getNome())
             self.jogo.batalha = None
             self.jogo.estado = 'jogando'
 
@@ -38,7 +37,7 @@ class Batalha:
         self.display.blit(self.background, self.rect)
 
         vida_player_texto = self.font.render(f"Vida Player: {self.vida_player}", True, (255, 255, 255))
-        vida_oponente_texto = self.font.render(f"Vida {self.oponente.nome}: {self.oponente.vidaAtual}", True, (255, 255, 255))
+        vida_oponente_texto = self.font.render(f"Vida {self.oponente.getNome()}: {self.vida_oponente}", True, (255, 255, 255))
         self.display.blit(vida_player_texto, (10, 10))
         self.display.blit(vida_oponente_texto, (10, 40))
 
@@ -51,7 +50,7 @@ class Batalha:
                 texto = self.font.render(opcao, True, cor)
                 self.display.blit(texto, (JANELA_LARGURA // 2 - texto.get_width() // 2, JANELA_ALTURA // 2 + i * 50))  
         else:
-            vez_oponente_texto = self.font.render(f"Vez de {self.oponente.nome}", True, (255, 0, 0))
+            vez_oponente_texto = self.font.render(f"Vez de {self.oponente.getNome()}", True, (255, 0, 0))
             self.display.blit(vez_oponente_texto, (JANELA_LARGURA // 2 - vez_oponente_texto.get_width() // 2, JANELA_ALTURA // 2))
 
     def tratar_eventos(self, evento):
@@ -65,10 +64,11 @@ class Batalha:
                 elif evento.key == pygame.K_DOWN:
                     self.opcao_selecionada = min(len(opcoes_lista) - 1, self.opcao_selecionada + 1)
                 elif evento.key == pygame.K_RETURN:
-                    ataque = opcoes_ataque[opcoes_lista[self.opcao_selecionada]]
-                    self.oponente.sofrerDano(ataque)
+                    ataque_selecionado = opcoes_lista[self.opcao_selecionada]
+                    dano = opcoes_ataque[ataque_selecionado]
+                    self.oponente.sofrerDano(dano)
                     self.cont_rodada += 1
 
             elif self.cont_rodada % 2 == 1:  
-                self.player.sofrerDano(self.oponente.dano)
+                self.player.sofrerDano(self.oponente.getDano())
                 self.cont_rodada += 1

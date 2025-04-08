@@ -13,6 +13,9 @@ class Personagem:
         self.vidaCheia = vida
         self.vidaAtual = vida
     
+    def getVida(self):
+        return self.vidaAtual
+    
     def curar(self):
         if self.vidaAtual < self.vidaCheia:
             self.vidaAtual += 1
@@ -25,13 +28,20 @@ class Personagem:
     def setNome(self, nome):
         self.nome = nome
     
+    def getNome(self):
+        return self.nome
+    
     def setDano(self, dano):
         self.dano = dano
     
-    def pegarPombaLaser(self):
-        self.pombaLaser = True
-        self.listaAtaques.append('Pomba Laser')
+    def getDano(self):
+        return self.dano
     
     def pegarOculos(self):
         self.oculos = True
         self.listaAtaques.append('Intimidar')
+
+    def pegarPombaLaser(self):
+        self.pombaLaser = True
+        self.listaAtaques.append('Pomba Laser')
+    

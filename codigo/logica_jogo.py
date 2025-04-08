@@ -8,6 +8,7 @@ from sprites.sprites import *
 from entidades import *
 
 from tela_inicial.tela_introdução import TelaInicial
+from tela_gameover.tela_gameover import TelaGameover
 from logica_batalha import Batalha
 from audios.musicas import Musica
 from sprites.grupos import TodasSprites
@@ -26,6 +27,7 @@ class Jogo:
         self.todas_sprites = TodasSprites()
 
         self.tela_inicial_obj = None
+        self.tela_gameover = None
 
         self.batalha = None
         self.estado = 'tela_inicial'
@@ -106,12 +108,26 @@ class Jogo:
                 teobaldo = Teobaldo((obj.x, obj.y), self.todas_sprites)
                 self.npcs.add(teobaldo)
 
+    def resetar_jogo(self):
+        self.juliano.setVida(20)
+        self.teobaldo.setVida(20)
+        self.narcisa.setVida(20)
+        self.carcara.setVida(20)
+
+        self.todas_sprites.empty()
+        self.npcs.empty()
+        self.coletaveis.empty()
+
+        self.batalha = None
+        self.iniciar('casa')
 
     def update(self):
         self.fps.tick(FPS)
         if self.estado == 'jogando':
             self.todas_sprites.update()
-        elif self.estado == 'batalha':
+            if self.juliano.getVida() <= 0:
+                self.estado = 'game_over'
+        elif self.estado == 'batalha' and self.batalha:
             self.batalha.update()
 
         self.verificar_colisao_npcs()
@@ -122,15 +138,6 @@ class Jogo:
         if colisoes and self.estado == 'jogando':
             npc = colisoes[-1] 
             self.comecar_batalha(npc)
-
-
-    #----------------isso vai virar as colisões com coletaveis-----------------------
-    # def verificar_colisao_coletaveis(self):
-    #     colisoes = pygame.sprite.spritecollide(self.player, self.coletaveis, False)
-    #      coletavel = colisoes[-1] 
-    #     if coletavel == "aveia":
-    #         self.player.setVida(X)
-    #         
 
     def comecar_batalha(self, npc):
         self.estado = 'batalha'
@@ -163,13 +170,15 @@ class Jogo:
             self.musica = Musica('codigo/audios/jojo.mp3', 1, -1)
 
     def tela_inicial(self):
-        self.tela_inicial_obj = TelaInicial(self)
+        if self.tela_inicial_obj is None:  
+            self.tela_inicial_obj = TelaInicial(self)
+        self.tela_inicial_obj.desenhar()
 
     def tela_game_over(self):
-        self.display.fill(PRETO)
-        texto = pygame.font.Font(None, 36).render("Game Over", True, (255, 255, 255))
-        self.display.blit(texto, (JANELA_LARGURA // 2 - texto.get_width() // 2, JANELA_ALTURA // 2))
-
+        if self.tela_gameover is None:
+            self.tela_gameover = TelaGameover(self)
+        self.tela_gameover.desenhar()
+    
     def remover_npc(self, nome_npc):
         for npc in self.npcs:
             if hasattr(npc, "nome") and npc.nome == nome_npc:
@@ -190,15 +199,24 @@ class Jogo:
                 if evento.type == pygame.QUIT or teclas[pygame.K_ESCAPE]:
                     pygame.quit()
                     sys.exit()
-                    
+                
                 if self.estado == 'tela_inicial' and self.tela_inicial_obj:
                     self.tela_inicial_obj.verificar_clique(evento)
+
+                elif self.estado == 'game_over' and self.tela_gameover:
+                    self.tela_gameover.verificar_clique(evento)
 
                 elif self.estado == 'batalha' and self.batalha:
                     self.batalha.tratar_eventos(evento)
 
             if self.estado == 'tela_inicial' and self.tela_inicial_obj:
                 if self.tela_inicial_obj.mouse_sobre_botao():
+                    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+                else:
+                    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
+            elif self.estado == 'game_over' and self.tela_gameover:
+                if self.tela_gameover.mouse_sobre_botao():
                     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
                 else:
                     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
