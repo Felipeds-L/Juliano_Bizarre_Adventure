@@ -1,12 +1,13 @@
 class Personagem:
     def __init__(self):
-        self.nome = ''
         self.vidaCheia = 0
         self.vidaAtual = 0
+        self.dano = 0
         self.hitbox = ''
         self.pombaLaser = False
         self.oculos = False
-        self.listaAtaques = []
+        self.nome = ''
+        self.listaAtaques = {'Bicada': 5}
 
     def setVida(self, vida):
         self.vidaCheia = vida
@@ -21,6 +22,12 @@ class Personagem:
     def sofrerDano(self, dano):
         self.vidaAtual -= dano
     
+    def setNome(self, nome):
+        self.nome = nome
+    
+    def setDano(self, dano):
+        self.dano = dano
+    
     def pegarPombaLaser(self):
         self.pombaLaser = True
         self.listaAtaques.append('Pomba Laser')
@@ -28,6 +35,3 @@ class Personagem:
     def pegarOculos(self):
         self.oculos = True
         self.listaAtaques.append('Intimidar')
-    
-    def setHitbox(self, hitbox):
-        self.hitbox = hitbox
