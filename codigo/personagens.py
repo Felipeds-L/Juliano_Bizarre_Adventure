@@ -6,42 +6,46 @@ class Personagem:
         self.hitbox = ''
         self.pombaLaser = False
         self.oculos = False
+        self.aveia = 0
         self.nome = ''
         self.listaAtaques = {'Bicada': 5}
 
-    def setVida(self, vida):
+    def setVida(self, vida): #set_vida
         self.vidaCheia = vida
         self.vidaAtual = vida
     
-    def getVida(self):
+    def getVida(self): #get_vida
         return self.vidaAtual
     
-    def curar(self):
+    def curar(self): 
         if self.vidaAtual < self.vidaCheia:
             self.vidaAtual += 1
         else:
             self.vidaAtual = self.vidaCheia
     
-    def sofrerDano(self, dano):
+    def sofrerDano(self, dano): #sofrer_dano
         self.vidaAtual -= dano
     
-    def setNome(self, nome):
+    def setNome(self, nome): #set_nome
         self.nome = nome
     
-    def getNome(self):
+    def getNome(self): #get_nome
         return self.nome
     
-    def setDano(self, dano):
+    def setDano(self, dano): #set_dano
         self.dano = dano
     
-    def getDano(self):
+    def getDano(self): #get_dano
         return self.dano
     
-    def pegarOculos(self):
+    def pegarOculos(self): #pegar_oculos
         self.oculos = True
         self.listaAtaques.append('Intimidar')
 
-    def pegarPombaLaser(self):
+    def pegarPombaLaser(self): #pegar_pomba_laser
         self.pombaLaser = True
         self.listaAtaques.append('Pomba Laser')
+    #Será interessante por na tela quantas aveia coletamos, dentro dos colecionaveis
+    def pegar_aveia(self):
+        self.aveia += 1
     

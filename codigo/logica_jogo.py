@@ -93,6 +93,7 @@ class Jogo:
             else:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
 
+        #Coletaveis devem ser instanciados como as entidades
         for obj in self.mapa_tmx.get_layer_by_name('Coletáveis'):
             Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
 
@@ -130,7 +131,7 @@ class Jogo:
         elif self.estado == 'batalha' and self.batalha:
             self.batalha.update()
 
-        self.verificar_colisao_npcs()
+        self.verificar_colisao_npcs() #Ao inves de fazer assim, fazer uma função verificar_colisão, como é feito abaixo
         #self.verificar_colisao_coletaveis()
 
     def verificar_colisao_npcs(self):
@@ -190,7 +191,7 @@ class Jogo:
 
                 npc.kill()
                 break
-
+    #Similarmente, haverá um remover_coletavel, que irá retirar do mapa a sprite
     def run(self):
         while True:
             teclas = pygame.key.get_pressed()

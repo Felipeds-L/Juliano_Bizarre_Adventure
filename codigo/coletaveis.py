@@ -6,11 +6,11 @@ class Coletaveis():
         self.quantidadeDano = quantidadeDano
         self.dano = dano
 
-    def coletarItem(self):
+    def coletarItem(self): #Alterar nome para coletar_item e seguir o snake_case
         if self.quantidade < self.maximo:
             self.quantidade += 1
     
-    def definirDano(self):
+    def definirDano(self): #definir_dano
         self.dano = self.quantidadeDano * self.diminuirDano
 
 class Aveia(Coletaveis):
