@@ -43,25 +43,25 @@ class Jogo:
         ################################ CRIAÇÃO DE PERSONAGENS #############################
         # Criar Juliano
         self.juliano = Personagem()
-        self.juliano.setVida(20)
+        self.juliano.setVida(5)
         self.juliano.setNome('Juliano')
 
         # Criar Teobaldo
         self.teobaldo = Personagem()
-        self.teobaldo.setVida(20)
-        self.teobaldo.setDano(5)
+        self.teobaldo.setVida(5)
+        self.teobaldo.setDano(1)
         self.teobaldo.setNome('Teobaldo')
 
         # Criar Narcisa
         self.narcisa = Personagem()
-        self.narcisa.setVida(20)
-        self.narcisa.setDano(5)
+        self.narcisa.setVida(5)
+        self.narcisa.setDano(1)
         self.narcisa.setNome('Narcisa')
 
         # Criar Zé Carcará
         self.carcara = Personagem()
-        self.carcara.setVida(20)
-        self.carcara.setDano(5)
+        self.carcara.setVida(6)
+        self.carcara.setDano(2)
         self.carcara.setNome('Zé Carcará')
         
         self.iniciar('casa')
@@ -92,7 +92,7 @@ class Jogo:
                 Sprite((x * TAMANHO_TILE, y * TAMANHO_TILE), superficie, self.todas_sprites, CAMADAS_MAPA['background'])
 
         for obj in self.mapa_tmx.get_layer_by_name('Objetos'):
-            if obj.name == 'Ponte':
+            if obj.name == 'Ponte' or obj.name == 'Girassol':
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
             else:
                 Sprite((obj.x, obj.y), obj.image, self.todas_sprites)
@@ -123,11 +123,15 @@ class Jogo:
                 teobaldo = Teobaldo((obj.x, obj.y), self.todas_sprites)
                 self.npcs.add(teobaldo)
 
+            if obj.name == 'Carcará':
+                carcara = Carcara((obj.x, obj.y), self.todas_sprites)
+                self.npcs.add(carcara)
+
     def resetar_jogo(self):
-        self.juliano.setVida(20)
-        self.teobaldo.setVida(20)
-        self.narcisa.setVida(20)
-        self.carcara.setVida(20)
+        self.juliano.setVida(self.juliano.vidaCheia)
+        self.teobaldo.setVida(self.teobaldo.vidaCheia)
+        self.narcisa.setVida(self.narcisa.vidaCheia)
+        self.carcara.setVida(self.carcara.vidaCheia)
 
         self.todas_sprites.empty()
         self.npcs.empty()

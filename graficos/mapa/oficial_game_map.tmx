@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="63" height="100" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="1063">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="63" height="100" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="1080">
  <tileset firstgid="1" name="coast" tilewidth="64" tileheight="64" tilecount="288" columns="24">
   <image source="../objetos/coast.png" width="1536" height="768"/>
  </tileset>
@@ -31,13 +31,16 @@
  <tileset firstgid="515" name="ground_forest" tilewidth="64" tileheight="64" tilecount="15" columns="3">
   <image source="../objetos/ground_forest.png" width="192" height="320"/>
  </tileset>
- <tileset firstgid="530" name="Coletáveis" tilewidth="50" tileheight="28" tilecount="2" columns="0">
+ <tileset firstgid="530" name="Coletáveis" tilewidth="512" tileheight="512" tilecount="3" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
    <image source="../objetos/girassol.png" width="16" height="10"/>
   </tile>
   <tile id="2">
    <image source="../objetos/aveia.png" width="50" height="28"/>
+  </tile>
+  <tile id="3">
+   <image source="../objetos/final_house.png" width="512" height="512"/>
   </tile>
  </tileset>
  <layer id="1" name="Agua" width="63" height="100">
@@ -575,7 +578,6 @@
   <object id="809" name="Árvore" gid="514" x="2814" y="918" width="180" height="180"/>
   <object id="810" name="Árvore" gid="514" x="2854" y="1002" width="180" height="180"/>
   <object id="811" name="Árvore" gid="514" x="2950" y="718" width="180" height="180"/>
-  <object id="812" name="casa_juliano" gid="290" x="1278.67" y="1021.33" width="384" height="384"/>
   <object id="813" name="casa_bonita" gid="291" x="2204" y="2214.67" width="320" height="320"/>
   <object id="814" name="Árvore" gid="514" x="1187" y="1207" width="180" height="180"/>
   <object id="815" name="Árvore" gid="514" x="1782" y="1280" width="180" height="180"/>
@@ -701,6 +703,16 @@
   <object id="1047" name="Árvore" gid="514" x="1876.67" y="5028.67" width="180" height="180"/>
   <object id="1049" name="Árvore" gid="514" x="1892.67" y="4939.33" width="180" height="180"/>
   <object id="1051" name="Árvore" gid="514" x="1982" y="4983.33" width="180" height="180"/>
+  <object id="1064" name="Girassol" gid="531" x="1446.84" y="2745.17" width="16" height="10"/>
+  <object id="1065" name="Girassol" gid="531" x="1439.51" y="2751.84" width="16" height="10"/>
+  <object id="1066" name="Girassol" gid="531" x="1437.16" y="2738.84" width="16" height="10"/>
+  <object id="1067" name="Girassol" gid="531" x="1451.84" y="2739.5" width="16" height="10"/>
+  <object id="1068" name="Girassol" gid="531" x="1455.16" y="2753.17" width="16" height="10"/>
+  <object id="1069" name="Girassol" gid="531" x="1463.16" y="2749.17" width="16" height="10"/>
+  <object id="1070" name="Girassol" gid="531" x="1428.84" y="2746.17" width="16" height="10"/>
+  <object id="1071" name="Girassol" gid="531" x="1447.51" y="2732.5" width="16" height="10"/>
+  <object id="1072" name="Girassol" gid="531" x="1444.51" y="2761.5" width="16" height="10"/>
+  <object id="1079" gid="533" x="1248" y="1030" width="512" height="512"/>
  </objectgroup>
  <objectgroup id="7" name="Colisões">
   <object id="423" name="Colisão" x="1548" y="4884" width="259" height="167"/>
@@ -784,7 +796,7 @@
   <object id="909" name="Colisão" x="1064" y="4650" width="350" height="220"/>
   <object id="910" name="Colisão" x="1086" y="4838" width="266" height="1130"/>
   <object id="911" name="Colisão" x="1351" y="5776" width="875" height="230"/>
-  <object id="912" name="Colisão" x="1295.27" y="794.667" width="323.273" height="100.607"/>
+  <object id="912" name="Colisão" x="1267.27" y="594.667" width="419.273" height="248.607"/>
   <object id="944" name="Colisão" x="970" y="2878" width="196" height="428"/>
   <object id="945" name="Colisão" x="890" y="2518" width="308.667" height="408"/>
   <object id="946" name="Colisão" x="948" y="3498" width="109" height="306"/>
@@ -813,21 +825,31 @@
   <object id="1060" name="Colisão" x="1002" y="552" width="373.333" height="151.333"/>
  </objectgroup>
  <objectgroup id="8" name="Coletáveis">
-  <object id="952" gid="531" x="1430" y="2731" width="16" height="10"/>
-  <object id="953" gid="531" x="1422.67" y="2737.67" width="16" height="10"/>
-  <object id="954" gid="531" x="1420.33" y="2724.67" width="16" height="10"/>
-  <object id="955" gid="531" x="1435" y="2725.33" width="16" height="10"/>
-  <object id="956" gid="531" x="1438.33" y="2739" width="16" height="10"/>
-  <object id="957" gid="531" x="1446.33" y="2735" width="16" height="10"/>
-  <object id="958" gid="531" x="1412" y="2732" width="16" height="10"/>
-  <object id="959" gid="531" x="1430.67" y="2718.33" width="16" height="10"/>
-  <object id="960" gid="531" x="1427.67" y="2747.33" width="16" height="10"/>
-  <object id="963" gid="532" x="1233.67" y="3758" width="50" height="28"/>
-  <object id="964" gid="532" x="2828.33" y="3760.67" width="50" height="28"/>
   <object id="1061" name="Aveia" x="2187.03" y="2762.12">
    <point/>
   </object>
-  <object id="1062" name="Aveia" x="2093.09" y="5531.81">
+  <object id="1062" name="Aveia" x="1227.09" y="3779.81">
+   <point/>
+  </object>
+  <object id="1063" name="Aveia" x="2816" y="3766">
+   <point/>
+  </object>
+  <object id="1073" name="Pomba Laser" x="2766" y="3348">
+   <point/>
+  </object>
+  <object id="1074" name="Aveia" x="1166" y="1890">
+   <point/>
+  </object>
+  <object id="1075" name="Aveia" x="2828" y="1750">
+   <point/>
+  </object>
+  <object id="1076" name="Aveia" x="1102" y="1428">
+   <point/>
+  </object>
+  <object id="1077" name="Óculos" x="2180" y="1154">
+   <point/>
+  </object>
+  <object id="1078" name="Aveia" x="2792" y="740">
    <point/>
   </object>
  </objectgroup>

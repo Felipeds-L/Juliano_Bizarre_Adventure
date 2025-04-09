@@ -21,6 +21,7 @@ class Batalha:
         ######### VARIÁVEIS DA BATALHA #############
         self.cont_rodada = 0
         self.opcao_selecionada = 0
+        self.contador_pomba = 0
 
         ########## DADOS DO PLAYER E OPONENTE #############
         self.player = player
@@ -73,8 +74,7 @@ class Batalha:
         self.display.blit(vida_oponente_texto, (10, 40))
 
         if self.cont_rodada % 2 == 0:
-            opcoes_ataque = self.player.listaAtaques
-            opcoes_lista = list(opcoes_ataque.keys())
+            opcoes_lista = self.player.listaAtaques
 
             for i, opcao in enumerate(opcoes_lista):
                 cor = (255, 255, 0) if i == self.opcao_selecionada else (255, 255, 255)
@@ -89,18 +89,36 @@ class Batalha:
             return
         if evento.type == pygame.KEYDOWN:
             if self.cont_rodada % 2 == 0:  
-                opcoes_ataque = self.player.listaAtaques
-                opcoes_lista = list(opcoes_ataque.keys())
+                opcoes_lista = self.player.listaAtaques
                 
                 if evento.key == pygame.K_UP:
                     self.opcao_selecionada = max(0, self.opcao_selecionada - 1)
+
                 elif evento.key == pygame.K_DOWN:
                     self.opcao_selecionada = min(len(opcoes_lista) - 1, self.opcao_selecionada + 1)
+                    
                 elif evento.key == pygame.K_RETURN:
                     ataque_selecionado = opcoes_lista[self.opcao_selecionada]
-                    dano = opcoes_ataque[ataque_selecionado]
-                    self.oponente.sofrerDano(dano)
-                    self.cont_rodada += 1
+
+                    ########## BICADA É ATAQUE BÁSICO E PODE SER USADO SEMPRE ############
+                    if ataque_selecionado == 'Bicada':
+                        self.oponente.sofrerDano(1)
+                        self.cont_rodada += 1
+
+                    ########### POMBA LASER SÓ PODE SER USADO 2X POR BATALHA, PRECISA DE UM POP-UP AVISANDO QUE NÃO HÁ MAIS MUNIÇÃO E NÃO PASSA A VEZ PARA O OPONENTE AINDA #################
+                    elif ataque_selecionado == 'Pomba Laser' and self.contador_pomba < 2:
+                        self.oponente.sofrerDano(2)
+                        self.contador_pomba += 1
+                        self.cont_rodada += 1
+
+                    elif ataque_selecionado == 'Pomba Laser' and self.contador_pomba >= 2:
+                        self.oponente.sofrerDano(0)
+
+                    elif ataque_selecionado == 'Intimidar':
+                        if self.oponente.dano > 1:
+                            self.oponente.dano -= 1
+
+                        self.cont_rodada += 1
 
             elif self.cont_rodada % 2 == 1:  
                 self.player.sofrerDano(self.oponente.getDano())

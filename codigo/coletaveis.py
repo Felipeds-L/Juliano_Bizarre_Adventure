@@ -24,9 +24,10 @@ class PombaLaser(pygame.sprite.Sprite):
         super().__init__(grupos)
         self.z = CAMADAS_MAPA['main']
 
-        self.nome = "pomba laser"
+        self.nome = "Pomba Laser"
 
         self.image = pygame.image.load('graficos/objetos/pomba_laser.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (86, 66))
 
         self.rect = self.image.get_frect(center = posicao)
         self.y_ordenar = self.rect.centery +40
@@ -40,9 +41,10 @@ class Oculos(pygame.sprite.Sprite):
         super().__init__(grupos)
         self.z = CAMADAS_MAPA['main']
 
-        self.nome = "oculos"
+        self.nome = "Óculos"
 
         self.image = pygame.image.load('graficos/objetos/óculos.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (108, 128))
 
         self.rect = self.image.get_frect(center = posicao)
         self.y_ordenar = self.rect.centery +40

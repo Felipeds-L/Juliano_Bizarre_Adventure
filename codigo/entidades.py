@@ -120,7 +120,24 @@ class Teobaldo(pygame.sprite.Sprite):
 
         self.nome = "Teobaldo"
 
-        self.image = pygame.image.load('graficos/personagens/teobaldo.png').convert_alpha()
+        self.image = pygame.image.load('graficos/personagens/teobaldo_mapa.png').convert_alpha()
+
+        self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery +40
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
+
+        self.hitbox = self.rect.inflate(-20, -20)
+
+class Carcara(pygame.sprite.Sprite):
+    def __init__(self, posicao, grupos):
+        super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
+
+        self.nome = "Zé Carcará"
+
+        self.image = pygame.image.load('graficos/personagens/carcara_mapa.png').convert_alpha()
+        self.image = pygame.transform.flip(self.image, True, False)
 
         self.rect = self.image.get_frect(center = posicao)
         self.y_ordenar = self.rect.centery +40

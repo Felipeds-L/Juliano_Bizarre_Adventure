@@ -8,7 +8,7 @@ class Personagem:
         self.oculos = False
         self.aveia = 0
         self.nome = ''
-        self.listaAtaques = {'Bicada': 5}
+        self.listaAtaques = ['Bicada']
 
     def setVida(self, vida): #set_vida
         self.vidaCheia = vida
