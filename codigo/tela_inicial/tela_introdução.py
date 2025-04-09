@@ -23,7 +23,6 @@ class TelaInicial:
         if evento.type == pygame.MOUSEBUTTONDOWN:
             if self.botao_jogar.esta_pressionado(pygame.mouse.get_pos(), pygame.mouse.get_pressed()):
                 self.jogo.estado = 'jogando'
-                self.jogo.tocar_musica()
 
     def mouse_sobre_botao(self):
         pos_mouse = pygame.mouse.get_pos()

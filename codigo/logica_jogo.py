@@ -30,10 +30,14 @@ class Jogo:
         self.tela_gameover = None
 
         self.batalha = None
+        self.estado_anterior = None
         self.estado = 'tela_inicial'
 
         self.npcs = pygame.sprite.Group()
         self.coletaveis = pygame.sprite.Group()
+
+        self.musica = Musica('codigo/audios/jojo.ogg', 1, -1)
+        self.musica_batalha = Musica('codigo/audios/jojo_epico.ogg', 1, -1)
         
         ################################ CRIAÇÃO DE PERSONAGENS #############################
         # Criar Juliano
@@ -58,8 +62,7 @@ class Jogo:
         self.carcara.setVida(20)
         self.carcara.setDano(5)
         self.carcara.setNome('Zé Carcará')
-
-        self.tocar_musica()
+        
         self.iniciar('casa')
 
     def carregar_colisao(self, mapa_tmx):
@@ -124,8 +127,14 @@ class Jogo:
 
     def update(self):
         self.fps.tick(FPS)
+
+        if self.estado != self.estado_anterior:
+            self.tocar_musica()
+            self.estado_anterior = self.estado
+
         if self.estado == 'jogando':
             self.todas_sprites.update()
+            
             if self.juliano.getVida() <= 0:
                 self.estado = 'game_over'
         elif self.estado == 'batalha' and self.batalha:
@@ -168,7 +177,14 @@ class Jogo:
 
     def tocar_musica(self):
         if self.estado == 'jogando':
-            self.musica = Musica('codigo/audios/jojo.mp3', 1, -1)
+            if self.estado_anterior == 'batalha':
+                self.musica.retomar_musica()
+            else:
+                self.musica.tocar_musica()
+
+        elif self.estado == 'batalha':
+            self.musica.pausar_musica()
+            self.musica_batalha.tocar_musica()
 
     def tela_inicial(self):
         if self.tela_inicial_obj is None:  

@@ -4,17 +4,16 @@ from configuracoes import *
 class TelaGameover:
     def __init__(self, jogo):
         self.jogo = jogo
-        self.jogo.display.fill(PRETO)
 
-        self.titulo = pygame.image.load('codigo/tela_gameover/titulo_jogo.png').convert_alpha()
-        self.titulo_rect = self.titulo.get_rect(center=((JANELA_LARGURA // 2) - 400, JANELA_ALTURA // 4))
+        self.fundo = pygame.image.load('codigo/tela_gameover/tela_gameover_juliano.png').convert_alpha()
+        self.fundo_rect = self.fundo.get_rect()
 
-        self.botao_jogar = Botao(JANELA_LARGURA/2, (JANELA_ALTURA/2) + 50)
+        self.botao_jogar = Botao((JANELA_LARGURA/2)-325, (JANELA_ALTURA/2) + 50)
 
         self.desenhar()
 
     def desenhar(self):
-        self.jogo.display.blit(self.titulo, self.titulo_rect)
+        self.jogo.display.blit(self.fundo, self.fundo_rect)
         self.jogo.display.blit(self.botao_jogar.imagem, self.botao_jogar.rect)
 
     def verificar_clique(self, evento):
@@ -24,7 +23,7 @@ class TelaGameover:
                 self.jogo.tela_inicial_obj = None
                 self.jogo.tela_gameover = None 
                 self.jogo.resetar_jogo()  
-                self.jogo.tocar_musica()
+                pygame.mixer.music.stop()
 
     def mouse_sobre_botao(self):
         pos_mouse = pygame.mouse.get_pos()
@@ -32,7 +31,8 @@ class TelaGameover:
 
 class Botao:
     def __init__(self, x, y):
-        self.imagem = pygame.image.load('codigo/tela_gameover/botao_tela_gameover.png.png').convert_alpha()
+        self.imagem = pygame.image.load('codigo/tela_gameover/Botao_playagain.png').convert_alpha()
+        self.imagem = pygame.transform.scale(self.imagem, (500, 500))
         self.rect = self.imagem.get_rect(center=(x, y))
         self.mascara = pygame.mask.from_surface(self.imagem)
 
