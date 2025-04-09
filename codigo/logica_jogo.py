@@ -35,7 +35,7 @@ class Jogo:
         self.estado = 'tela_inicial'
 
         self.npcs = pygame.sprite.Group()
-        self.coletaveis = pygame.sprite.Group()
+        self.coletaveis_grupo = pygame.sprite.Group()
 
         self.musica = Musica('codigo/audios/jojo.ogg', 1, -1)
         self.musica_batalha = Musica('codigo/audios/jojo_epico.ogg', 1, -1)
@@ -101,12 +101,15 @@ class Jogo:
         for obj in self.mapa_tmx.get_layer_by_name('Coletáveis'):
             if obj.name == 'Aveia':
                 aveia = Aveia((obj.x, obj.y), self.todas_sprites)
+                self.coletaveis_grupo.add(aveia)
             
             if obj.name == 'Óculos':
                 oculos = Oculos((obj.x, obj.y), self.todas_sprites)
+                self.coletaveis_grupo.add(oculos)
             
             if obj.name == 'Pomba Laser':
                 pomba_laser = PombaLaser((obj.x, obj.y), self.todas_sprites)
+                self.coletaveis_grupo.add(pomba_laser)
 
         for obj in self.mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
@@ -128,7 +131,7 @@ class Jogo:
 
         self.todas_sprites.empty()
         self.npcs.empty()
-        self.coletaveis.empty()
+        self.coletaveis_grupo.empty()
 
         self.batalha = None
         self.iniciar('casa')
@@ -148,14 +151,31 @@ class Jogo:
         elif self.estado == 'batalha' and self.batalha:
             self.batalha.update()
 
-        self.verificar_colisao_npcs() #Ao inves de fazer assim, fazer uma função verificar_colisão, como é feito abaixo
-        #self.verificar_colisao_coletaveis()
+        self.verificar_colisao_npcs() 
+        self.verificar_colisao_coletaveis()
 
     def verificar_colisao_npcs(self):
         colisoes = pygame.sprite.spritecollide(self.player, self.npcs, False)
         if colisoes and self.estado == 'jogando':
             npc = colisoes[-1] 
             self.comecar_batalha(npc)
+
+    def verificar_colisao_coletaveis(self):
+        colisao_coletaveis = pygame.sprite.spritecollide(self.player, self.coletaveis_grupo, False)
+        if colisao_coletaveis and self.estado == 'jogando':
+            coletou = colisao_coletaveis[-1]
+            if isinstance(coletou, Aveia):
+                self.juliano.pegar_aveia()
+                self.juliano.curar()
+                #remover do mapa
+
+            elif isinstance(coletou, Oculos):
+                self.juliano.pegarOculos()
+                #remover do mapa
+            
+            elif isinstance(coletou, PombaLaser):
+                self.juliano.pegarPombaLaser()
+                #remover do mapa
 
     def comecar_batalha(self, npc):
         self.estado = 'batalha'
