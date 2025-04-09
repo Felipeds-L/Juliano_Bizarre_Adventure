@@ -176,6 +176,7 @@ class Jogo:
             elif isinstance(coletou, Oculos):
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
+                self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
                 self.juliano.pegarPombaLaser()
