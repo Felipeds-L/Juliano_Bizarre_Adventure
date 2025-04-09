@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="63" height="100" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="1080">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="63" height="100" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="1083">
  <tileset firstgid="1" name="coast" tilewidth="64" tileheight="64" tilecount="288" columns="24">
   <image source="../objetos/coast.png" width="1536" height="768"/>
  </tileset>
@@ -712,7 +712,6 @@
   <object id="1070" name="Girassol" gid="531" x="1428.84" y="2746.17" width="16" height="10"/>
   <object id="1071" name="Girassol" gid="531" x="1447.51" y="2732.5" width="16" height="10"/>
   <object id="1072" name="Girassol" gid="531" x="1444.51" y="2761.5" width="16" height="10"/>
-  <object id="1079" gid="533" x="1248" y="1030" width="512" height="512"/>
  </objectgroup>
  <objectgroup id="7" name="Colisões">
   <object id="423" name="Colisão" x="1548" y="4884" width="259" height="167"/>
@@ -850,6 +849,9 @@
    <point/>
   </object>
   <object id="1078" name="Aveia" x="2792" y="740">
+   <point/>
+  </object>
+  <object id="1082" name="Final" x="1208.5" y="603.5">
    <point/>
   </object>
  </objectgroup>

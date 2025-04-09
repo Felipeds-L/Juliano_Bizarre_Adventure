@@ -117,6 +117,10 @@ class Jogo:
             if obj.name == 'Pomba Laser':
                 pomba_laser = PombaLaser((obj.x, obj.y), self.todas_sprites)
                 self.coletaveis_grupo.add(pomba_laser)
+            
+            if obj.name == 'Final':
+                final = Final((obj.x, obj.y), self.todas_sprites)
+                self.coletaveis_grupo.add(final)
 
         for obj in self.mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:
@@ -194,6 +198,9 @@ class Jogo:
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 
+            elif isinstance(coletou, Final):
+                self.estado = 'final'
+
     def comecar_batalha(self, npc):
         self.estado = 'batalha'
 
@@ -225,10 +232,10 @@ class Jogo:
             self.tela_game_over()
         
         elif self.estado == 'final' and self.romance == True:
-            self.tela_final_feliz()
+            self.final_feliz()
         
         elif self.estado == 'final' and self.romance == False:
-            self.tela_final_triste()
+            self.final_triste()
 
     def tocar_musica(self):
         if self.estado == 'jogando':
@@ -283,6 +290,7 @@ class Jogo:
         coletavel.kill()
     
     def desenhar_score(self):
+        ############# VIDA, CHECK POMBA, CHECK OCULOS ##########
         pass
 
     def run(self):
