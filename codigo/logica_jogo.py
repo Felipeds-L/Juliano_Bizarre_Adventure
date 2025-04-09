@@ -6,6 +6,7 @@ from pygame.locals import *
 from configuracoes import *
 from sprites.sprites import *
 from entidades import *
+from coletaveis import *
 
 from tela_inicial.tela_introdução import TelaInicial
 from tela_gameover.tela_gameover import TelaGameover
@@ -98,7 +99,14 @@ class Jogo:
 
         #Coletaveis devem ser instanciados como as entidades
         for obj in self.mapa_tmx.get_layer_by_name('Coletáveis'):
-            Sprite((obj.x, obj.y), obj.image, self.todas_sprites, CAMADAS_MAPA['background'])
+            if obj.name == 'Aveia':
+                aveia = Aveia((obj.x, obj.y), self.todas_sprites)
+            
+            if obj.name == 'Óculos':
+                oculos = Oculos((obj.x, obj.y), self.todas_sprites)
+            
+            if obj.name == 'Pomba Laser':
+                pomba_laser = PombaLaser((obj.x, obj.y), self.todas_sprites)
 
         for obj in self.mapa_tmx.get_layer_by_name('Entidades'):
             if obj.name == 'Player' and obj.properties['pos'] == posicao_inicial_player:

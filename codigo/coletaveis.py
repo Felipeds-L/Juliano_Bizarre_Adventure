@@ -1,62 +1,52 @@
-class Coletaveis():
-    def __init__(self, quantidade, diminuirDano, maximo, quantidadeDano, dano):
-        self.quantidade = quantidade
-        self.diminuirDano = diminuirDano
-        self.maximo = maximo
-        self.quantidadeDano = quantidadeDano
-        self.dano = dano
 
-    def coletarItem(self): #Alterar nome para coletar_item e seguir o snake_case
-        if self.quantidade < self.maximo:
-            self.quantidade += 1
-    
-    def definirDano(self): #definir_dano
-        self.dano = self.quantidadeDano * self.diminuirDano
+import pygame
 
-class Aveia(Coletaveis):
-    def __init__(self, quantidade, diminuirDano, maximo, quantidadeDano, dano):
-        super().__init__(quantidade, diminuirDano, maximo, quantidadeDano, dano)
-        
-        self.quantidade = 0
-        self.diminuirDano = 0
-        self.maximo = 0
-        self.quantidadeDano = 0
-        self.dano = 0
+from configuracoes import *
 
-class Girassol(Coletaveis):
-    def __init__(self, quantidade, diminuirDano, maximo, quantidadeDano, dano):
-        super().__init__(quantidade, diminuirDano, maximo, quantidadeDano, dano)
+class Aveia():
+    def __init__(self, posicao, grupos):
+        super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
 
-        self.quantidade = 0
-        self.diminuirDano = 0
-        self.maximo = 0
-        self.quantidadeDano = 0
-        self.dano = 0
+        self.nome = "Aveia"
 
-class PombaLaser(Coletaveis):
-    def __init__(self, quantidade, diminuirDano, maximo, quantidadeDano, dano):
-        super().__init__(quantidade, diminuirDano, maximo, quantidadeDano, dano)
+        self.image = pygame.image.load('graficos/objetos/aveia.png').convert_alpha()
 
-        self.quantidade = 0
-        self.diminuirDano = 0
-        self.maximo = 0
-        self.quantidadeDano = 0
-        self.dano = 0
+        self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
 
-class Oculos(Coletaveis):
-    def __init__(self, quantidade, diminuirDano, maximo, quantidadeDano, dano):
-        super().__init__(quantidade, diminuirDano, maximo, quantidadeDano, dano)
+        self.hitbox = self.rect.inflate(-20, -20)
 
-        self.quantidade = 0
-        self.diminuirDano = 0
-        self.maximo = 0
-        self.quantidadeDano = 0
-        self.dano = 0
+class PombaLaser():
+    def __init__(self, posicao, grupos):
+        super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
 
-aveia = Aveia(0, 0, 0, 0, 0)
+        self.nome = "pomba laser"
 
-girassol = Girassol(0, 0, 0, 0, 0)
+        self.image = pygame.image.load('graficos/objetos/pomba_laser.png').convert_alpha()
 
-pombaLaser = PombaLaser(0, 0, 0, 0, 0)
+        self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery +40
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
 
-oculos = Oculos(0, 0, 0, 0, 0)
+        self.hitbox = self.rect.inflate(-20, -20)
+
+class Oculos():
+    def __init__(self, posicao, grupos):
+        super().__init__(grupos)
+        self.z = CAMADAS_MAPA['main']
+
+        self.nome = "oculos"
+
+        self.image = pygame.image.load('graficos/objetos/óculos.png').convert_alpha()
+
+        self.rect = self.image.get_frect(center = posicao)
+        self.y_ordenar = self.rect.centery +40
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
+
+        self.hitbox = self.rect.inflate(-20, -20)
