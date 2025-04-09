@@ -246,12 +246,12 @@ class Jogo:
             self.tela_inicial_obj = TelaInicial(self)
         self.tela_inicial_obj.desenhar()
 
-    def tela_final_feliz(self):
+    def final_feliz(self):
         if self.tela_final_feliz is None:  
             self.tela_final_feliz = TelaFeliz(self)
         self.tela_final_feliz.desenhar()
 
-    def tela_final_triste(self):
+    def final_triste(self):
         if self.tela_final_triste is None:  
             self.tela_final_triste = TelaTriste(self)
         self.tela_final_triste.desenhar()
