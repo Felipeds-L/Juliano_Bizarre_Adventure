@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from configuracoes import *
 from logica_jogo import *
+from sprites.dialogo import Dialogo
 
 class Batalha:
     def __init__(self, jogo, player, oponente):
@@ -28,6 +29,9 @@ class Batalha:
         self.oponente = oponente
         self.vida_player = self.player.getVida()
         self.vida_oponente = self.oponente.getVida()
+
+        ######### DIÁLOGO #############
+        self.dialogo_narcisa_mostrado = None
         
         self.desenhar()
 
@@ -57,6 +61,10 @@ class Batalha:
                 self.jogo.remover_npc(nome_oponente)
                 self.jogo.estado = 'jogando'
                 self.jogo.batalha = None
+        
+        if self.jogo.estado == 'escolha_narcisa':
+            self.jogo.dialogo.update()
+            return
 
 
     def desenhar(self):
@@ -106,18 +114,18 @@ class Batalha:
 
         ########################## ESCOLHA APÓS BATALHA #########################
         elif self.jogo.estado == 'escolha_narcisa':
-            caixa = pygame.Rect(JANELA_LARGURA / 2 - 250, JANELA_ALTURA / 2 + 200, 500, 200)
+            if not self.dialogo_narcisa_mostrado:
+                self.jogo.dialogo.mostrar(["1. Narcisa, paremos de brigar, você é linda!",
+                                           "2. Morra! Vou comer girassol sozinho!"], duracao=10000000)
+                self.dialogo_narcisa_mostrado = True
 
-            pygame.draw.rect(self.display, (50, 50, 50), caixa)           # fundo da caixa
-            pygame.draw.rect(self.display, (255, 255, 255), caixa, 3)     # borda branca
+            self.jogo.dialogo.update()
+            self.jogo.dialogo.desenhar()
 
-            opcao1 = self.font.render("1. Narcisa, até que você é bem gatinha.", True, (0, 255, 0))
-            opcao2 = self.font.render("2. Morra! Vou comer girassol sozinho!", True, (255, 0, 0))
-
-            self.display.blit(opcao1, (caixa.x + 20, caixa.y + 70))
-            self.display.blit(opcao2, (caixa.x + 20, caixa.y + 120))
 
     def tratar_eventos(self, evento):
+        self.jogo.dialogo.exibindo = False
+
         if self.iniciando:
             return
 
@@ -125,16 +133,18 @@ class Batalha:
             if evento.type == pygame.KEYDOWN:
                 if evento.key == pygame.K_1:
                     self.jogo.romance = True
+                    self.jogo.dialogo.exibindo = False 
                     self.jogo.remover_npc(self.oponente.getNome())
                     self.jogo.batalha = None
                     self.jogo.estado = 'jogando'
 
                 elif evento.key == pygame.K_2:
                     self.jogo.romance = False
+                    self.jogo.dialogo.exibindo = False  
                     self.jogo.remover_npc(self.oponente.getNome())
                     self.jogo.batalha = None
                     self.jogo.estado = 'jogando'
-            return 
+                    return 
 
         if evento.type == pygame.KEYDOWN:
             if self.cont_rodada % 2 == 0:  

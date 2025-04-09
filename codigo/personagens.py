@@ -45,7 +45,4 @@ class Personagem:
     def pegarPombaLaser(self): #pegar_pomba_laser
         self.pombaLaser = True
         self.listaAtaques.append('Pomba Laser')
-    #Será interessante por na tela quantas aveia coletamos, dentro dos colecionaveis
-    def pegar_aveia(self):
-        self.aveia += 1
     
