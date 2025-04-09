@@ -11,9 +11,18 @@ class Batalha:
         self.background = pygame.image.load('graficos/backgrounds_batalha/forest.png').convert_alpha()
         self.rect = self.background.get_rect()
 
+        ########## VARIÁVEIS DA TRANSIÇÃO DE TELA ###################
+        self.iniciando = True
+        self.tempo_inicio = pygame.time.get_ticks()
+        self.intervalo_flash = 130  # tempo entre piscadas
+        self.flash_mostrando = True
+        self.ultimo_flash = pygame.time.get_ticks()
+
+        ######### VARIÁVEIS DA BATALHA #############
         self.cont_rodada = 0
         self.opcao_selecionada = 0
 
+        ########## DADOS DO PLAYER E OPONENTE #############
         self.player = player
         self.oponente = oponente
         self.vida_player = self.player.getVida()
@@ -34,6 +43,28 @@ class Batalha:
             self.jogo.estado = 'jogando'
 
     def desenhar(self):
+        ########################## COMEÇANDO A TRANSIÇÃO #########################
+        if self.iniciando:
+            tempo_atual = pygame.time.get_ticks()
+
+            # Alterna entre preto e a tela piscando
+            if tempo_atual - self.ultimo_flash >= self.intervalo_flash:
+                self.flash_mostrando = not self.flash_mostrando
+                self.ultimo_flash = tempo_atual
+
+            if self.flash_mostrando:
+                self.jogo.display.fill(PRETO)
+                self.jogo.todas_sprites.desenhar(self.jogo.player.rect.center)
+            else:
+                self.jogo.display.fill(PRETO)
+
+            # Se passou o tempo da transição, sair do modo iniciando
+            if tempo_atual - self.tempo_inicio > 2700:
+                self.iniciando = False
+
+            return  # não desenha o resto da batalha ainda
+
+        ##################### BATALHA #########################################
         self.display.blit(self.background, self.rect)
 
         vida_player_texto = self.font.render(f"Vida Player: {self.vida_player}", True, (255, 255, 255))
@@ -44,7 +75,7 @@ class Batalha:
         if self.cont_rodada % 2 == 0:
             opcoes_ataque = self.player.listaAtaques
             opcoes_lista = list(opcoes_ataque.keys())
-            
+
             for i, opcao in enumerate(opcoes_lista):
                 cor = (255, 255, 0) if i == self.opcao_selecionada else (255, 255, 255)
                 texto = self.font.render(opcao, True, cor)
@@ -54,6 +85,8 @@ class Batalha:
             self.display.blit(vez_oponente_texto, (JANELA_LARGURA // 2 - vez_oponente_texto.get_width() // 2, JANELA_ALTURA // 2))
 
     def tratar_eventos(self, evento):
+        if self.iniciando:
+            return
         if evento.type == pygame.KEYDOWN:
             if self.cont_rodada % 2 == 0:  
                 opcoes_ataque = self.player.listaAtaques
