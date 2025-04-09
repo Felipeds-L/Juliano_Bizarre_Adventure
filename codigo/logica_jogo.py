@@ -16,6 +16,7 @@ from logica_batalha import Batalha
 from audios.musicas import Musica
 from sprites.grupos import TodasSprites
 from personagens import Personagem
+from sprites.dialogo import Dialogo
 
 import sys
 
@@ -40,6 +41,7 @@ class Jogo:
         self.todas_sprites = TodasSprites()
         self.npcs = pygame.sprite.Group()
         self.coletaveis_grupo = pygame.sprite.Group()
+        self.dialogo = Dialogo(self.display)
 
         self.musica = Musica('codigo/audios/jojo.ogg', 1, -1)
         self.musica_batalha = Musica('codigo/audios/jojo_epico.ogg', 1, -1)
@@ -137,6 +139,7 @@ class Jogo:
         self.teobaldo.setVida(self.teobaldo.vidaCheia)
         self.narcisa.setVida(self.narcisa.vidaCheia)
         self.carcara.setVida(self.carcara.vidaCheia)
+        self.juliano.listaAtaques = ['Bicada']
 
         self.todas_sprites.empty()
         self.npcs.empty()
@@ -147,7 +150,6 @@ class Jogo:
 
     def update(self):
         self.fps.tick(FPS)
-        print(self.romance)
 
         if self.estado != self.estado_anterior:
             self.tocar_musica()
@@ -158,9 +160,11 @@ class Jogo:
             
             if self.juliano.getVida() <= 0:
                 self.estado = 'game_over'
+
         elif self.estado == 'batalha' and self.batalha:
             self.batalha.update()
 
+        self.dialogo.update()
         self.verificar_colisao_npcs() 
         self.verificar_colisao_coletaveis()
 
@@ -175,16 +179,18 @@ class Jogo:
         if colisao_coletaveis and self.estado == 'jogando':
             coletou = colisao_coletaveis[-1]
             if isinstance(coletou, Aveia):
-                self.juliano.pegar_aveia()
+                self.dialogo.mostrar(["Você recuperou 1 ponto de vida!"])
                 self.juliano.curar()
                 self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
+                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto!"])
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
                 self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
+                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional!"])
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 
@@ -207,6 +213,7 @@ class Jogo:
         elif self.estado == 'jogando':
             self.display.fill(PRETO)
             self.todas_sprites.desenhar(self.player.rect.center)
+            self.dialogo.desenhar()
             
         elif self.estado == 'batalha' and self.batalha:
             self.batalha.desenhar()
@@ -275,6 +282,9 @@ class Jogo:
 
         coletavel.kill()
     
+    def desenhar_score(self):
+        pass
+
     def run(self):
         while True:
             teclas = pygame.key.get_pressed()
