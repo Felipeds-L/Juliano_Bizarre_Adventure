@@ -2,7 +2,7 @@ import pygame
 from configuracoes import *
 
 class Dialogo:
-    def __init__(self, display, fonte_path="graficos/fontes/Pixelate-Regular.ttf", tamanho=27, tempo_letra=30, duracao_total=5000):
+    def __init__(self, display, fonte_path="graficos/fontes/Pixelate-Regular.ttf", tamanho=27, tempo_letra=30, duracao_total=4000):
         self.display = display
         self.fonte = pygame.font.Font(fonte_path, tamanho)
         self.tempo_letra = tempo_letra

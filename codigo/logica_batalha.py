@@ -12,67 +12,52 @@ class Batalha:
         self.background = pygame.image.load('graficos/backgrounds_batalha/forest.png').convert_alpha()
         self.rect = self.background.get_rect()
 
-        ########## VARIÁVEIS DA TRANSIÇÃO DE TELA ###################
         self.iniciando = True
         self.tempo_inicio = pygame.time.get_ticks()
-        self.intervalo_flash = 130  # tempo entre piscadas
+        self.intervalo_flash = 130
         self.flash_mostrando = True
         self.ultimo_flash = pygame.time.get_ticks()
 
-        ######### VARIÁVEIS DA BATALHA #############
         self.cont_rodada = 0
         self.opcao_selecionada = 0
         self.contador_pomba = 0
 
-        ########## DADOS DO PLAYER E OPONENTE #############
         self.player = player
         self.oponente = oponente
         self.vida_player = self.player.getVida()
         self.vida_oponente = self.oponente.getVida()
 
-        ######### DIÁLOGO #############
         self.dialogo_narcisa_mostrado = None
         
         self.desenhar()
 
     def update(self):
-        # Atualiza as vidas
         self.vida_player = self.player.getVida()
         self.vida_oponente = self.oponente.getVida()
 
-        ########################### VERIFICAÇÕES DE FIM DE BATALHA ###########################
-        
-        # Caso o player morra
+        # Sempre atualiza o diálogo, se estiver sendo exibido
+        if self.jogo.dialogo.exibindo:
+            self.jogo.dialogo.update()
+
+        # Verificações de fim de batalha
         if self.vida_player <= 0:
             self.jogo.estado = 'game_over'
             self.jogo.batalha = None
             return
 
-        # Caso o oponente morra
         elif self.vida_oponente <= 0:
             nome_oponente = self.oponente.getNome()
-
             if nome_oponente == 'Narcisa':
-                # Se for a Narcisa, abre a tela de escolha
                 self.jogo.estado = 'escolha_narcisa'
-                self.jogo.batalha = self  # mantém a batalha ativa até que o jogador escolha
+                self.jogo.batalha = self
             else:
-                # Remove NPC normalmente e volta ao jogo
                 self.jogo.remover_npc(nome_oponente)
                 self.jogo.estado = 'jogando'
                 self.jogo.batalha = None
-        
-        if self.jogo.estado == 'escolha_narcisa':
-            self.jogo.dialogo.update()
-            return
-
 
     def desenhar(self):
-        ########################## TRANSIÇÃO INICIAL #########################
         if self.iniciando:
             tempo_atual = pygame.time.get_ticks()
-
-            # Alterna entre preto e tela piscando
             if tempo_atual - self.ultimo_flash >= self.intervalo_flash:
                 self.flash_mostrando = not self.flash_mostrando
                 self.ultimo_flash = tempo_atual
@@ -83,49 +68,39 @@ class Batalha:
             else:
                 self.jogo.display.fill(PRETO)
 
-            # Finaliza transição após um tempo
             if tempo_atual - self.tempo_inicio > 2700:
                 self.iniciando = False
+            return
 
-            return  # Não desenha mais nada por enquanto
-
-        ########################## ESTADO DE BATALHA #########################
         if self.jogo.estado == 'batalha':
             self.display.blit(self.background, self.rect)
 
-            # Exibir vida dos personagens
             vida_player_txt = self.font.render(f"Vida Player: {self.vida_player}", True, (255, 255, 255))
             vida_oponente_txt = self.font.render(f"Vida {self.oponente.getNome()}: {self.vida_oponente}", True, (255, 255, 255))
 
             self.display.blit(vida_player_txt, (10, 10))
             self.display.blit(vida_oponente_txt, (10, 40))
 
-            # Turno do jogador
             if self.cont_rodada % 2 == 0:
                 for i, opcao in enumerate(self.player.listaAtaques):
                     cor = (255, 255, 0) if i == self.opcao_selecionada else (255, 255, 255)
                     texto = self.font.render(opcao, True, cor)
                     self.display.blit(texto,(JANELA_LARGURA // 2 - texto.get_width() // 2, JANELA_ALTURA // 2 + i * 50))
-
-            # Turno do oponente
             else:
                 texto_oponente = self.font.render(f"Vez de {self.oponente.getNome()}",True,(255, 0, 0))
                 self.display.blit(texto_oponente,(JANELA_LARGURA // 2 - texto_oponente.get_width() // 2, JANELA_ALTURA // 2))
 
-        ########################## ESCOLHA APÓS BATALHA #########################
         elif self.jogo.estado == 'escolha_narcisa':
             if not self.dialogo_narcisa_mostrado:
-                self.jogo.dialogo.mostrar(["1. Narcisa, paremos de brigar, você é linda!",
-                                           "2. Morra! Vou comer girassol sozinho!"], duracao=10000000)
+                self.jogo.dialogo.mostrar(["1. Narcisa, até que você é gatinha!",
+                                           "2. Morra! Vou comer girassol sozinho!"], duracao=None)
                 self.dialogo_narcisa_mostrado = True
 
-            self.jogo.dialogo.update()
+        # Sempre desenha o diálogo, se estiver ativo
+        if self.jogo.dialogo.exibindo:
             self.jogo.dialogo.desenhar()
 
-
     def tratar_eventos(self, evento):
-        self.jogo.dialogo.exibindo = False
-
         if self.iniciando:
             return
 
@@ -144,7 +119,7 @@ class Batalha:
                     self.jogo.remover_npc(self.oponente.getNome())
                     self.jogo.batalha = None
                     self.jogo.estado = 'jogando'
-                    return 
+            return  # Evita processar outros eventos
 
         if evento.type == pygame.KEYDOWN:
             if self.cont_rodada % 2 == 0:  
