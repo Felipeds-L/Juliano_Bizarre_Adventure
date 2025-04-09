@@ -3,7 +3,7 @@ import pygame
 
 from configuracoes import *
 
-class Aveia():
+class Aveia(pygame.sprite.Sprite):
     def __init__(self, posicao, grupos):
         super().__init__(grupos)
         self.z = CAMADAS_MAPA['main']
@@ -19,7 +19,7 @@ class Aveia():
 
         self.hitbox = self.rect.inflate(-20, -20)
 
-class PombaLaser():
+class PombaLaser(pygame.sprite.Sprite):
     def __init__(self, posicao, grupos):
         super().__init__(grupos)
         self.z = CAMADAS_MAPA['main']
@@ -35,7 +35,7 @@ class PombaLaser():
 
         self.hitbox = self.rect.inflate(-20, -20)
 
-class Oculos():
+class Oculos(pygame.sprite.Sprite):
     def __init__(self, posicao, grupos):
         super().__init__(grupos)
         self.z = CAMADAS_MAPA['main']

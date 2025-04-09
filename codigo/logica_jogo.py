@@ -167,15 +167,15 @@ class Jogo:
             if isinstance(coletou, Aveia):
                 self.juliano.pegar_aveia()
                 self.juliano.curar()
-                #remover do mapa
+                self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
                 self.juliano.pegarOculos()
-                #remover do mapa
+                self.remover_coletavel(coletou)
             
             elif isinstance(coletou, PombaLaser):
                 self.juliano.pegarPombaLaser()
-                #remover do mapa
+                self.remover_coletavel(coletou)
 
     def comecar_batalha(self, npc):
         self.estado = 'batalha'
@@ -235,7 +235,16 @@ class Jogo:
 
                 npc.kill()
                 break
-    #Similarmente, haverá um remover_coletavel, que irá retirar do mapa a sprite
+    
+    def remover_coletavel(self, coletavel):
+        pos_x = int(coletavel.rect.x // TAMANHO_TILE)
+        pos_y = int(coletavel.rect.y // TAMANHO_TILE)
+
+        if 0 <= pos_x < len(self.mapa_colisao) and 0 <= pos_y < len(self.mapa_colisao[0]):
+            self.mapa_colisao[pos_x][pos_y] = False
+
+        coletavel.kill()
+    
     def run(self):
         while True:
             teclas = pygame.key.get_pressed()
