@@ -10,6 +10,8 @@ from coletaveis import *
 
 from tela_inicial.tela_introdução import TelaInicial
 from tela_gameover.tela_gameover import TelaGameover
+from tela_final_feliz.tela_final_feliz import TelaFeliz
+from tela_final_triste.tela_final_triste import TelaTriste
 from logica_batalha import Batalha
 from audios.musicas import Musica
 from sprites.grupos import TodasSprites
@@ -28,6 +30,8 @@ class Jogo:
         ############# VARIÁVEIS DE TELA ###################
         self.tela_inicial_obj = None
         self.tela_gameover = None
+        self.tela_final_triste = None
+        self.tela_final_feliz = None
         self.estado = 'tela_inicial'
         self.estado_anterior = None
         self.batalha = None
@@ -212,6 +216,12 @@ class Jogo:
             
         elif self.estado == 'game_over':
             self.tela_game_over()
+        
+        elif self.estado == 'final' and self.romance == True:
+            self.tela_final_feliz()
+        
+        elif self.estado == 'final' and self.romance == False:
+            self.tela_final_triste()
 
     def tocar_musica(self):
         if self.estado == 'jogando':
@@ -229,6 +239,16 @@ class Jogo:
             self.tela_inicial_obj = TelaInicial(self)
         self.tela_inicial_obj.desenhar()
 
+    def tela_final_feliz(self):
+        if self.tela_final_feliz is None:  
+            self.tela_final_feliz = TelaFeliz(self)
+        self.tela_final_feliz.desenhar()
+
+    def tela_final_triste(self):
+        if self.tela_final_triste is None:  
+            self.tela_final_triste = TelaTriste(self)
+        self.tela_final_triste.desenhar()
+    
     def tela_game_over(self):
         if self.tela_gameover is None:
             self.tela_gameover = TelaGameover(self)
