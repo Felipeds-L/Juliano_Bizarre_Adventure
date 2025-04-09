@@ -25,15 +25,15 @@ class Jogo:
         self.nome_display = pygame.display.set_caption(JANELA_NOME)
         self.fps = pygame.time.Clock()
 
-        self.todas_sprites = TodasSprites()
-
+        ############# VARIÁVEIS DE TELA ###################
         self.tela_inicial_obj = None
         self.tela_gameover = None
-
-        self.batalha = None
-        self.estado_anterior = None
         self.estado = 'tela_inicial'
+        self.estado_anterior = None
+        self.batalha = None
 
+        ############## VARIÁVEIS DE SPRITES E SONS ####################
+        self.todas_sprites = TodasSprites()
         self.npcs = pygame.sprite.Group()
         self.coletaveis_grupo = pygame.sprite.Group()
 
@@ -57,6 +57,7 @@ class Jogo:
         self.narcisa.setVida(5)
         self.narcisa.setDano(1)
         self.narcisa.setNome('Narcisa')
+        self.romance = None
 
         # Criar Zé Carcará
         self.carcara = Personagem()
@@ -142,6 +143,7 @@ class Jogo:
 
     def update(self):
         self.fps.tick(FPS)
+        print(self.romance)
 
         if self.estado != self.estado_anterior:
             self.tocar_musica()
@@ -203,6 +205,9 @@ class Jogo:
             self.todas_sprites.desenhar(self.player.rect.center)
             
         elif self.estado == 'batalha' and self.batalha:
+            self.batalha.desenhar()
+        
+        elif self.estado == 'escolha_narcisa' and self.batalha:
             self.batalha.desenhar()
             
         elif self.estado == 'game_over':
@@ -266,6 +271,9 @@ class Jogo:
                     self.tela_gameover.verificar_clique(evento)
 
                 elif self.estado == 'batalha' and self.batalha:
+                    self.batalha.tratar_eventos(evento)
+
+                elif self.estado == 'escolha_narcisa' and self.batalha:
                     self.batalha.tratar_eventos(evento)
 
             if self.estado == 'tela_inicial' and self.tela_inicial_obj:

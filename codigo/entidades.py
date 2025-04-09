@@ -103,12 +103,6 @@ class Player(pygame.sprite.Sprite):
                         [nova_spritesheet.subsurface(0, 0, LARGURA_PLAYER, ALTURA_PLAYER), nova_spritesheet.subsurface(LARGURA_PLAYER, 0, LARGURA_PLAYER, ALTURA_PLAYER)],
                         [nova_spritesheet.subsurface(0, ALTURA_PLAYER, LARGURA_PLAYER, ALTURA_PLAYER), nova_spritesheet.subsurface(LARGURA_PLAYER, ALTURA_PLAYER, LARGURA_PLAYER, ALTURA_PLAYER)]
                       ]
-        # self.spritesheet = [
-        #     [nova_spritesheet.subsurface(0, 0, LARGURA_PLAYER, ALTURA_PLAYER),
-        #     nova_spritesheet.subsurface(LARGURA_PLAYER, 0, LARGURA_PLAYER, ALTURA_PLAYER)],
-        #     [nova_spritesheet.subsurface(0, ALTURA_PLAYER, LARGURA_PLAYER, ALTURA_PLAYER),
-        #     nova_spritesheet.subsurface(LARGURA_PLAYER, ALTURA_PLAYER, LARGURA_PLAYER, ALTURA_PLAYER)]
-        # ]
 
 class Narcisa(pygame.sprite.Sprite):
     def __init__(self, posicao, grupos):
