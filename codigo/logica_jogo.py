@@ -292,24 +292,24 @@ class Jogo:
     
     def desenhar_score(self):
         # f{self.juliano.getVida / self.juliano.getVidaTotal}
-        imagem_score_aveia = pygame.image.load("graficos/scores/score_aveia.png")
-        self.display.blit(imagem_score_aveia(40,40))
+        imagem_score_aveia = pygame.image.load("graficos/scores/score_aveia.png.png")
+        self.display.blit(imagem_score_aveia, (40,40))
 
         if self.juliano.oculos:
-            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true")
-            self.display.blit(imagem_score_oculos(1400, 40))
+            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true.png")
+            self.display.blit(imagem_score_oculos, (1400, 40))
         
         else:
-            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false")
-            self.display.blit(imagem_score_oculos(1400, 40))
+            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false.png")
+            self.display.blit(imagem_score_oculos, (1400, 40))
         
         if self.juliano.pombaLaser:
-            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_true")
-            self.display.blit(imagem_score_pomba(1400, 40))
+            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_true.png")
+            self.display.blit(imagem_score_pomba, (1400, 40))
         
         else:
-            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_false")
-            self.display.blit(imagem_score_pomba(1400, 40))
+            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_false.png")
+            self.display.blit(imagem_score_pomba, (1400, 40))
         
         fonte_score = pygame.font.Font("graficos/fontes/Pixelate-Regular.ttf", 30)
         score_aveia = fonte_score.render(f"{self.juliano.getVida} / {self.juliano.getVidaTotal}", 1, (0, 0, 0))
