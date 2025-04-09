@@ -220,6 +220,7 @@ class Jogo:
         elif self.estado == 'jogando':
             self.display.fill(PRETO)
             self.todas_sprites.desenhar(self.player.rect.center)
+            self.desenhar_score()
             self.dialogo.desenhar()
             
         elif self.estado == 'batalha' and self.batalha:
@@ -290,7 +291,7 @@ class Jogo:
         coletavel.kill()
     
     def desenhar_score(self):
-        ############# VIDA, CHECK POMBA, CHECK OCULOS ##########
+        # f{self.juliano.getVida / self.juliano.getVidaTotal}
         pass
 
     def run(self):

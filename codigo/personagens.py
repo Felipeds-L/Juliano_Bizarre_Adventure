@@ -17,6 +17,9 @@ class Personagem:
     def getVida(self): #get_vida
         return self.vidaAtual
     
+    def getVidaTotal(self):
+        return self.vidaCheia
+    
     def curar(self): 
         if self.vidaAtual < self.vidaCheia:
             self.vidaAtual += 1
