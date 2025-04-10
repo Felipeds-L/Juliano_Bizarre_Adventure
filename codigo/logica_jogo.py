@@ -299,7 +299,7 @@ class Jogo:
 
         if self.juliano.oculos:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true.png")
-            self.display.blit(imagem_score_oculos, (1200, 500))
+            self.display.blit(imagem_score_oculos, (1200, 50))
         
         else:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false.png")
