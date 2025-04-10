@@ -8,6 +8,27 @@
   * Marcelo Barreiros (mhab@cin.ufpe.br)
 
 ## Arquitetura do Projeto:
+  * - Juliano_Bizzare_Adventure/ # Pasta do Repositório que engloba todo o nosso projeto.
+  *   -  codigo/ # Pasta direcionada a programação do jogo, todos os arquivos .py e afins são organizados nessa pasta.
+          -  audios/  
+          -  sprites/
+          -  tela_final_feliz/
+          -  tela_gameover/
+          -  tela_inicial/
+          -  coletaveis.py
+          -  configuracoes.py
+          -  entidades.py
+          -  logica_batalha.py
+          -  logica_jogo.py
+          -  main.py
+          -  personagens.py
+      -  graficos/ # Pasta que contem os arquivos de mídia utilizados, como as sprites dos personagens, modelo do mapa feito no tiled, fontes, etc.
+          -  background_batalha/
+          -  fontes/
+          -  mapa/
+          -  objetos/
+          -  personagens/
+          -  score/
 
 ## Ferramentas Utilizadas:
 
