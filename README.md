@@ -1,108 +1,48 @@
 # Juliano_Bizarre_Adventure
 
-*------------------------------------------------------------------------------ PERSONAGENS ------------------------------------------------------------------------------*
+*Membros da Equipe*
+  Eduarda Rodrigues (erms2@cin.ufpe.br)
+  Felipe Leite (fsl8@cin.ufpe.br)
+  Isaac Teixeira (imts2@cin.ufpe.br)
+  Isabelle Tenório (itvb@cin.ufpe.br)
+  Marcelo Barreiros (mhab@cin.ufpe.br)
 
-Juliano é o personagem principal de nosso game, ele é uma calopsita;
-Jeffinho é a calopsita figurante;
+*Arquitetura do Projeto:*
 
+*Ferramentas Utilizadas:*
 
-Theobaldo (gato) primeiro vilão (tapado);
-Narcisa é uma calopsita par romantico (ou não) de Juliano;
-Ze-carcará (gavião) boss poderoso;
+  * Utilizamos a biblioteca pygame-ce ao inves do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e * pela falicilidade de implementar sprites;
+  * Usamos o Tiled para fazer o mapa do jogo em formato .tmx;
+  * Piskel e Paint para fazer as sprites em forma de pixelart;
+  * Visual Studio Code para programar;
+  * Whatsapp como canal de comunicação;
+  * Trello para organização e divião de tarefas;
+  * Discord para nos reunirmos e alinharmos nossas ideias;
+  * Youtube como uma fonte de sons usados no jogo.
 
+*Divisão de trabalhos:*
+  Eduarda Rodrigues-
+  Felipe Leite-
+  Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
+  Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
+  Marcelo Barreiros- Criou as classes e funções usadas.
+  Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
-*------------------------------------------------------------------------------ OBJETOS ------------------------------------------------------------------------------*
-
-Aveia - Item de vida;
-Pomba Laser - Arma;
-*---- BUFFS ----*
-Óculos - nerf de força dos inimigos;
-
-*------------------------------------------------------------------------------ MAPAS------------------------------------------------------------------------------*
-
-Quadrante 1:
-  - Objetivo:
-     . Derrotar o Gato que guarda a saida da casa ruim;
-    
-Quadrante 2:
-  - Aveia;
-  - Pomba Laser;
-  - Objetivo:
-    . Derrotar Narcisa (Lutam por uma semente de girassol ao final do mapa 2)
-      . Opcional: Cativar Narcisa caso Juliano tenha pego o laço no Mapa 1;
-    
-Quadrante 3:
-  - Aveia;
-  - Oculos;
-  - Objetivo:
-    . Derrotar o gavião e chegar na casa;
-
-*------------------------------------------------------------------------------ FINAIS ------------------------------------------------------------------------------*
-Apenas um mapa com 3 quadrantes
-
-GAMEOVER: quando Juliano perder para algum adversário
-
-CONQUISTOU A FELICIDADE:
-Felicidade 1: Com Narcisa e Jeffinho
-Felicidade 2: Jeffinho casado com Narcisa e Juliano de vela;
-
-29/03 - 30/03,
-
-Criação das Classes e UseCases das Classes - Marcelo
-  . Juliano tem 2 ataques basicos;
- Orientação a Objetos;
- 
-Estudar Pygame - Duda, Marcelo, Isaac
-
- . Como funciona;
-   - Todos;
-     
- . Como movimentar personagens - Duda;
-   - Pegar um personagem e movimenta-lo por uma tela;
-     
- . Como funciona colisões - Isaac;
-   - Pegar um personagem e movimenta-lo por um objeto e fazer o personagem não atravessar ele;
-     
-Pixel Arts - Belle
- . Juliano - Frente, Trás, Perfil;
-Mapa - Milk
-
----------------------------------------------------------------------------------------------------------
-
-Título do projeto e membros da equipe;
-A descrição da arquitetura do projeto, explicando como o código foi organizado;
-As capturas de tela do sistema funcionando para compor a galeria de projetos
-As ferramentas, bibliotecas, frameworks utilizados com as respectivas justificativas para o uso;
-A divisão de trabalho dentro do grupo (quem fez o que);
-Os conceitos que foram apresentados durante a disciplina e utilizados no projeto (indicando onde foram usados);
-Os desafios e erros enfrentados no decorrer do projeto e as lições aprendidas. Para tanto, respondam às seguintes perguntas:
-Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
-Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
-Quais as lições aprendidas durante o projeto?
-
-Título do Projeto: 
-  Juliano Bizarre Adventure
-
-Arquitetura do projeto:
-
-Ferramentas utilizadas:
-
-  Utilizamos a biblioteca pygame-ce ao inves do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e pela falicilidade de implementar sprites;
-  Usamos o Tiled para fazer o mapa em formato .tmx;
-  Piskel e Paint para fazer as sprites em forma de pixelart;
-
-
-Divisão de trabalhos:
-Eduarda Rodrigues-
-Felipe Leite-
-Isaac Teixeira- Colisões com: npcs, coletaveis, e cenário.
-Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
-Marcelo Barreiros- Criou as classes e funções usadas. 
-
-Conceitos apresentados durante a disciplina que utilizamos:
+*Conceitos apresentados durante a disciplina que utilizamos:*
   Laços de repetição para rodar o jogo, carregar os objetos no mapa e verificar se ocorreram colisões;
   Condicionais;
   Matrizes para movimentação e para carregar colisões;
-  Listas ;
+  Listas para armazenar os ataques que podem ser utilizados;
   Classes e funções para fazer o código orientado à objeto;
-  Tuplas para algumas funções da biblioteca pygame-ce
+  Tuplas para algumas funções da biblioteca pygame-ce;
+  Git e GitHub para controle de versão.
+
+*Desafios e erros enfrentados e lições aprendidas*
+  * "Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?”:
+    Nosso maior erro foi subestimar o processo de criação do mapa, o que acabou nos atrasando um pouco, então priozamos o estudo sobre ele.
+  * “Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?”:
+    O maior desafio que enfrentamos foi com certeza o prazo para terminar o projeto, isso impactou fortemente nosso planejamento e nos forçou muitas vezes a abrir mão de implementar mecânicas mais complexas.
+  * Lições aprendidas:
+    * A importância da comunicação entre a equipe: A comunicação entre nós foi fundamental para conseguirmos terminar o projeto, pois nos garantiu um alinhamento de visão, o que nos evitou duplicamento de tarefas e uma maior organização.
+    * A importância de um bom planejamento: Subestimar algumas tarefas durante o projeto nos atrasou bastante, e esse atraso nos forçou a simplificar algumas coisas no projeto. Isso evidenciou a importância de um bom planejamento que leve em conta possíveis imprevistos
+
