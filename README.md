@@ -21,7 +21,7 @@
   * Youtube como uma fonte de sons usados no jogo.
 
 ## Divisão de trabalhos:
-  * Eduarda Rodrigues-
+  * Eduarda Rodrigues- Implementou as telas e criou a base do sistema de combate, e slide.
   * Felipe Leite- Criação do mapa usando o tiled e seus objetos, realizei ajustes gráficos nas interações durante as batalhas.
   * Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
   * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
@@ -44,5 +44,4 @@
     O maior desafio que enfrentamos foi com certeza o prazo para terminar o projeto, isso impactou fortemente nosso planejamento e nos forçou muitas vezes a abrir mão de implementar mecânicas mais complexas.
   * Lições aprendidas:
     * A importância da comunicação entre a equipe: A comunicação entre nós foi fundamental para conseguirmos terminar o projeto, pois nos garantiu um alinhamento de visão, o que nos evitou duplicamento de tarefas e uma maior organização.
-    * A importância de um bom planejamento: Subestimar algumas tarefas durante o projeto nos atrasou bastante, e esse atraso nos forçou a simplificar algumas coisas no projeto. Isso evidenciou a importância de um bom planejamento que leve em conta possíveis imprevistos
-
+    * A importância de um bom planejamento: Subestimar algumas tarefas durante o projeto nos atrasou bastante, e esse atraso nos forçou a simplificar algumas coisas no projeto. Isso evidenciou a importância de um bom planejamento que leve em conta possíveis imprevistos.
