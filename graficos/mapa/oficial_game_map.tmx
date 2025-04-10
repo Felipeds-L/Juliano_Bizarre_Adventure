@@ -795,7 +795,7 @@
   <object id="909" name="Colisão" x="1064" y="4650" width="350" height="220"/>
   <object id="910" name="Colisão" x="1086" y="4838" width="266" height="1130"/>
   <object id="911" name="Colisão" x="1351" y="5776" width="875" height="230"/>
-  <object id="912" name="Colisão" x="1267.27" y="594.667" width="419.273" height="248.607"/>
+  <object id="912" name="Colisão" x="1267.27" y="594.667" width="229.273" height="248.607"/>
   <object id="944" name="Colisão" x="970" y="2878" width="196" height="428"/>
   <object id="945" name="Colisão" x="890" y="2518" width="308.667" height="408"/>
   <object id="946" name="Colisão" x="948" y="3498" width="109" height="306"/>
@@ -839,9 +839,6 @@
   <object id="1074" name="Aveia" x="1166" y="1890">
    <point/>
   </object>
-  <object id="1075" name="Aveia" x="2828" y="1750">
-   <point/>
-  </object>
   <object id="1076" name="Aveia" x="1102" y="1428">
    <point/>
   </object>
@@ -851,7 +848,7 @@
   <object id="1078" name="Aveia" x="2792" y="740">
    <point/>
   </object>
-  <object id="1082" name="Final" x="1208.5" y="603.5">
+  <object id="1082" name="Final" x="1214.5" y="488.5">
    <point/>
   </object>
  </objectgroup>

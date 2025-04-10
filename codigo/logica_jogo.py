@@ -143,7 +143,10 @@ class Jogo:
         self.teobaldo.setVida(self.teobaldo.vidaCheia)
         self.narcisa.setVida(self.narcisa.vidaCheia)
         self.carcara.setVida(self.carcara.vidaCheia)
+
         self.juliano.listaAtaques = ['Bicada']
+        self.juliano.oculos = False
+        self.juliano.pombaLaser = False
 
         self.todas_sprites.empty()
         self.npcs.empty()
@@ -291,10 +294,6 @@ class Jogo:
         coletavel.kill()
     
     def desenhar_score(self):
-<<<<<<< HEAD
-        pass
-=======
-        # f{self.juliano.getVida / self.juliano.getVidaTotal}
         imagem_score_aveia = pygame.image.load("graficos/scores/score_aveia.png.png")
         self.display.blit(imagem_score_aveia, (140,140))
 
@@ -319,7 +318,6 @@ class Jogo:
         qtd_aveia_total = self.juliano.getVidaTotal()
         score_aveia = fonte_score.render(f"{qtd_aveia_atual} | {qtd_aveia_total}", 1, (255, 255, 255))
         self.display.blit(score_aveia, (205, 153))
->>>>>>> 131e0c43370e2bc4e225db5be945a0299751f87a
 
     def run(self):
         while True:
