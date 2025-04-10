@@ -9,16 +9,13 @@
 
 ## Imagens do Jogo
 
-### Tela Inicial
+
 ![Tela Inicial](graficos/screenshots/tela_inicial.jpg)
 
-### Tela do Jogo
 ![Tela do Jogo](graficos/screenshots/tela_jogo.jpg)
 
-### Tela do Coletável
 ![Tela Coletável](graficos/screenshots/tela_coletavel.jpg)
 
-### Mudança de Sprite
 ![Mudança de Sprite](graficos/screenshots/mudança_sprite.jpg)
 
 ## Arquitetura do Projeto:
