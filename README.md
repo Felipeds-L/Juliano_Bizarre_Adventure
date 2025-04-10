@@ -18,6 +18,8 @@
 
 ![Mudança de Sprite](graficos/screenshots/mudança_sprite.jpg)
 
+![Tela de Combate](graficos/screenshots/tela_combate.jpg)
+
 ## Arquitetura do Projeto:
   * - Juliano_Bizzare_Adventure/ # Pasta do Repositório que engloba todo o nosso projeto.
   *   -  codigo/ # Pasta direcionada a programação do jogo, todos os arquivos .py e afins são organizados nessa pasta.
