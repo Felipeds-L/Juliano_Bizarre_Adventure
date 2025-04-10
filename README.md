@@ -11,7 +11,7 @@
 
 ## Ferramentas Utilizadas:
 
-  * Utilizamos a biblioteca pygame-ce ao inves do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e * pela falicilidade de implementar sprites;
+  * Utilizamos a biblioteca pygame-ce ao inves do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e pela falicilidade de implementar sprites;
   * Usamos o Tiled para fazer o mapa do jogo em formato .tmx;
   * Piskel e Paint para fazer as sprites em forma de pixelart;
   * Visual Studio Code para programar;
@@ -26,7 +26,7 @@
   * Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
   * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
   * Marcelo Barreiros- Criou as classes e funções usadas.
-  Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
+  * Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
 ## Conceitos apresentados durante a disciplina que utilizamos:
   * Laços de repetição para rodar o jogo, carregar os objetos no mapa e verificar se ocorreram colisões;
