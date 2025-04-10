@@ -291,7 +291,6 @@ class Jogo:
         coletavel.kill()
     
     def desenhar_score(self):
-        # f{self.juliano.getVida / self.juliano.getVidaTotal}
         pass
 
     def run(self):
