@@ -2,7 +2,7 @@ import pygame
 from configuracoes import *
 
 class Dialogo:
-    def __init__(self, display, fonte_path="graficos/fontes/Pixelate-Regular.ttf", tamanho=27, tempo_letra=30, duracao_total=4000):
+    def __init__(self, display, fonte_path="graficos/fontes/Pixelate-Regular.ttf", tamanho=27, tempo_letra=30, duracao_total=5000):
         self.display = display
         self.fonte = pygame.font.Font(fonte_path, tamanho)
         self.tempo_letra = tempo_letra
@@ -29,8 +29,10 @@ class Dialogo:
         if duracao is not None:
             self.tempo_fim = agora + duracao
         else:
-            self.tempo_fim = agora + self.duracao_total
-            self.exibindo = True
+            self.tempo_fim = None  # <- importante: deixa como None se quer duração infinita
+
+        self.exibindo = True  # <- isso precisa estar fora do if, sempre deve ativar o modo de exibir
+
 
     def update(self):
         if not self.exibindo:

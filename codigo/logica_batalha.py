@@ -88,7 +88,7 @@ class Batalha:
             else:
                 if not hasattr(self, "mensagem_vitoria_mostrada") or not self.mensagem_vitoria_mostrada:
                     self.jogo.dialogo.mostrar(["Juliano ta saindo da jaula, birl"], duracao=3000)
-                    pygame.time.set_timer(pygame.USEREVENT + 2, 3000)
+                    pygame.time.set_timer(pygame.USEREVENT + 2, 2500)
                     self.mensagem_vitoria_mostrada = True
                     self.turno_em_andamento = False
                     return
@@ -188,16 +188,16 @@ class Batalha:
                     if evento.type == pygame.KEYDOWN:
                         if evento.key == pygame.K_1:
                             self.jogo.romance = True
-                            self.jogo.dialogo.mostrar(["Você cativou essa xuxuzinha ❤️"], duracao=2000)
+                            self.jogo.dialogo.mostrar(["Você cativou essa xuxuzinha ❤️"], duracao=3000)
 
                             # Adia a saída da batalha em 2 segundos
-                            pygame.time.set_timer(pygame.USEREVENT + 1, 2000)
+                            pygame.time.set_timer(pygame.USEREVENT + 1, 2500)
 
                         elif evento.key == pygame.K_2:
                             self.jogo.romance = False
-                            self.jogo.dialogo.mostrar(["Juliano é implacável, e Narcisa foi assassinada 💀"], duracao=2000)
+                            self.jogo.dialogo.mostrar(["Juliano é implacável, e Narcisa foi assassinada 💀"], duracao=3000)
                             
-                            pygame.time.set_timer(pygame.USEREVENT + 1, 2000)
+                            pygame.time.set_timer(pygame.USEREVENT + 1, 2500)
                     return
                 
         if evento.type == pygame.USEREVENT + 1:
@@ -243,10 +243,12 @@ class Batalha:
                         self.animando_ataque_juliano = True
                         self.tempo_ataque_juliano = pygame.time.get_ticks()
                         self.cont_rodada += 1
+                        self.contador_pomba += 1
                         self.mostrar_turno_como_dialogo()
 
                     elif ataque_selecionado == 'Pomba Laser' and self.contador_pomba >= 2:
                         self.oponente.sofrerDano(0)
+                        self.jogo.dialogo.mostrar(['O pombo tá com o butico esgotado!'], duracao=3000)
 
                     elif ataque_selecionado == 'Intimidar':
                         if self.oponente.dano > 1:

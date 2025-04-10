@@ -186,18 +186,18 @@ class Jogo:
         if colisao_coletaveis and self.estado == 'jogando':
             coletou = colisao_coletaveis[-1]
             if isinstance(coletou, Aveia):
-                self.dialogo.mostrar(["Você recuperou 1 ponto de vida!"])
+                self.dialogo.mostrar(["Você recuperou 1 ponto de vida!"], duracao=3000)
                 self.juliano.curar()
                 self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
-                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto!"])
+                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto!"], duracao=3000)
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
                 self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
-                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional!"])
+                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional!"], duracao=3000)
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 
@@ -299,7 +299,7 @@ class Jogo:
 
         if self.juliano.oculos:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true.png")
-            self.display.blit(imagem_score_oculos, (1200, 500))
+            self.display.blit(imagem_score_oculos, (1200, 50))
         
         else:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false.png")
