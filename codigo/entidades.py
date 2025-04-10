@@ -151,4 +151,4 @@ class Carcara(pygame.sprite.Sprite):
         self.rect.x = posicao[0]
         self.rect.y = posicao[1]
 
-        self.hitbox = self.rect.inflate(-20, -20)
+        self.hitbox = self.rect.inflate(0, 0)

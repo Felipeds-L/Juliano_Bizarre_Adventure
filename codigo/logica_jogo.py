@@ -143,7 +143,10 @@ class Jogo:
         self.teobaldo.setVida(self.teobaldo.vidaCheia)
         self.narcisa.setVida(self.narcisa.vidaCheia)
         self.carcara.setVida(self.carcara.vidaCheia)
+
         self.juliano.listaAtaques = ['Bicada']
+        self.juliano.oculos = False
+        self.juliano.pombaLaser = False
 
         self.todas_sprites.empty()
         self.npcs.empty()
@@ -220,6 +223,7 @@ class Jogo:
         elif self.estado == 'jogando':
             self.display.fill(PRETO)
             self.todas_sprites.desenhar(self.player.rect.center)
+            self.desenhar_score()
             self.dialogo.desenhar()
             
         elif self.estado == 'batalha' and self.batalha:
@@ -290,8 +294,30 @@ class Jogo:
         coletavel.kill()
     
     def desenhar_score(self):
-        ############# VIDA, CHECK POMBA, CHECK OCULOS ##########
-        pass
+        imagem_score_aveia = pygame.image.load("graficos/scores/score_aveia.png.png")
+        self.display.blit(imagem_score_aveia, (140, 50))
+
+        if self.juliano.oculos:
+            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true.png")
+            self.display.blit(imagem_score_oculos, (1200, 500))
+        
+        else:
+            imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false.png")
+            self.display.blit(imagem_score_oculos, (1200, 50))
+        
+        if self.juliano.pombaLaser:
+            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_true.png")
+            self.display.blit(imagem_score_pomba, (1060, 50))
+        
+        else:
+            imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_false.png")
+            self.display.blit(imagem_score_pomba, (1060, 50))
+        
+        fonte_score = pygame.font.Font("graficos/fontes/Pixelate-Regular.ttf", 20)
+        qtd_aveia_atual = self.juliano.getVida()
+        qtd_aveia_total = self.juliano.getVidaTotal()
+        score_aveia = fonte_score.render(f"{qtd_aveia_atual} | {qtd_aveia_total}", 1, (255, 255, 255))
+        self.display.blit(score_aveia, (205, 65))
 
     def run(self):
         while True:
