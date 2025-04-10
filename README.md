@@ -1,11 +1,11 @@
 # Juliano_Bizarre_Adventure
 
 *Membros da Equipe*
-  Eduarda Rodrigues (erms2@cin.ufpe.br)
-  Felipe Leite (fsl8@cin.ufpe.br)
-  Isaac Teixeira (imts2@cin.ufpe.br)
-  Isabelle Tenório (itvb@cin.ufpe.br)
-  Marcelo Barreiros (mhab@cin.ufpe.br)
+  * Eduarda Rodrigues (erms2@cin.ufpe.br)
+  * Felipe Leite (fsl8@cin.ufpe.br)
+  * Isaac Teixeira (imts2@cin.ufpe.br)
+  * Isabelle Tenório (itvb@cin.ufpe.br)
+  * Marcelo Barreiros (mhab@cin.ufpe.br)
 
 *Arquitetura do Projeto:*
 
@@ -21,21 +21,21 @@
   * Youtube como uma fonte de sons usados no jogo.
 
 *Divisão de trabalhos:*
-  Eduarda Rodrigues-
-  Felipe Leite-
-  Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
-  Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
-  Marcelo Barreiros- Criou as classes e funções usadas.
+  * Eduarda Rodrigues-
+  * Felipe Leite-
+  * Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
+  * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, as telas do final e do game over e as classes dos coletáveis.
+  * Marcelo Barreiros- Criou as classes e funções usadas.
   Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
 *Conceitos apresentados durante a disciplina que utilizamos:*
-  Laços de repetição para rodar o jogo, carregar os objetos no mapa e verificar se ocorreram colisões;
-  Condicionais;
-  Matrizes para movimentação e para carregar colisões;
-  Listas para armazenar os ataques que podem ser utilizados;
-  Classes e funções para fazer o código orientado à objeto;
-  Tuplas para algumas funções da biblioteca pygame-ce;
-  Git e GitHub para controle de versão.
+  * Laços de repetição para rodar o jogo, carregar os objetos no mapa e verificar se ocorreram colisões;
+  * Condicionais;
+  * Matrizes para movimentação e para carregar colisões;
+  * Listas para armazenar os ataques que podem ser utilizados;
+  * Classes e funções para fazer o código orientado à objeto;
+  * Tuplas para algumas funções da biblioteca pygame-ce;
+  * Git e GitHub para controle de versão.
 
 *Desafios e erros enfrentados e lições aprendidas*
   * "Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?”:
