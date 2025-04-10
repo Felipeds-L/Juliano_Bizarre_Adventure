@@ -39,17 +39,17 @@ class Batalha:
 
         # Sprites dos personagens
         tamanho_sprite = (240, 240)
+        if self.player.oculos == False:
+            self.sprite_juliano = pygame.transform.smoothscale(pygame.image.load('graficos/personagens/juliano.png').convert_alpha(),tamanho_sprite)
+        else:
+            self.sprite_juliano = pygame.image.load('graficos/personagens/juliano_oculos_redimensionado.png').convert_alpha()
+            self.sprite_juliano = pygame.transform.smoothscale(self.sprite_juliano.subsurface(0, 0, LARGURA_PLAYER, ALTURA_PLAYER), tamanho_sprite)
 
-        self.sprite_juliano = pygame.transform.smoothscale(
-            pygame.image.load('graficos/personagens/juliano.png').convert_alpha(),
-            tamanho_sprite
-        )
-
-        self.sprite_oponente = pygame.transform.smoothscale(
-            pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(),
-            tamanho_sprite
-        )
-
+        if self.oponente.nome == 'Narcisa':
+            self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
+            self.sprite_oponente = pygame.transform.flip(self.sprite_oponente, True, False)
+        else:
+            self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
 
         self.pos_juliano = (100, 960 - tamanho_sprite[1] - 50)
         self.pos_oponente = (1440 - tamanho_sprite[0] - 100, 960 - tamanho_sprite[1] - 50)
@@ -159,14 +159,14 @@ class Batalha:
             self.display.blit(self.sprite_juliano, self.pos_juliano)
             self.display.blit(self.sprite_oponente, self.pos_oponente)
 
-            texto_vida_player = self.font.render("Vida Juliano:", True, (255, 255, 255))
-            self.display.blit(texto_vida_player, (10, 10))
-            self.desenhar_barra_vida(200, 10, self.vida_player, self.player.vidaCheia)
+            texto_vida_player = self.font.render("Juliano", True, (255, 255, 255))
+            self.display.blit(texto_vida_player, (200, 600))
+            self.desenhar_barra_vida(150, 625, self.vida_player, self.player.vidaCheia)
 
             nome_oponente = self.oponente.getNome()
-            texto_vida_oponente = self.font.render(f"Vida {nome_oponente}:", True, (255, 255, 255))
-            self.display.blit(texto_vida_oponente, (10, 40))
-            self.desenhar_barra_vida(200, 40, self.vida_oponente, self.oponente.vidaCheia)
+            texto_vida_oponente = self.font.render(f"{nome_oponente}", True, (255, 255, 255))
+            self.display.blit(texto_vida_oponente, (1150, 600))
+            self.desenhar_barra_vida(1100, 625, self.vida_oponente, self.oponente.vidaCheia)
 
         if self.jogo.estado == 'escolha_narcisa' and not self.dialogo_narcisa_mostrado:
             self.jogo.dialogo.mostrar(["1. Narcisa, até que você é gatinha!",
@@ -248,7 +248,7 @@ class Batalha:
 
                     elif ataque_selecionado == 'Pomba Laser' and self.contador_pomba >= 2:
                         self.oponente.sofrerDano(0)
-                        self.jogo.dialogo.mostrar(['O pombo tá com o butico esgotado!'], duracao=3000)
+                        self.jogo.dialogo.mostrar(['O pombo tá com o butico esgotado!'])
 
                     elif ataque_selecionado == 'Intimidar':
                         if self.oponente.dano > 1:
