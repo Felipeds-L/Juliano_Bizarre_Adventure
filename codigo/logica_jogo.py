@@ -191,13 +191,13 @@ class Jogo:
                 self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
-                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto!"], duracao=3000)
+                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto! (Novo movimento adquirido!)"], duracao=7000)
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
                 self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
-                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional!"], duracao=3000)
+                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional! (Novo movimento adquirido!)"], duracao=7000)
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 
@@ -260,12 +260,12 @@ class Jogo:
     def final_feliz(self):
         if self.tela_final_feliz is None:  
             self.tela_final_feliz = TelaFeliz(self)
-        self.tela_final_feliz.desenhar()
+        self.tela_final_feliz.executar_transicao(self.todas_sprites)
 
     def final_triste(self):
         if self.tela_final_triste is None:  
             self.tela_final_triste = TelaTriste(self)
-        self.tela_final_triste.desenhar()
+        self.tela_final_triste.executar_transicao(self.todas_sprites)
     
     def tela_game_over(self):
         if self.tela_gameover is None:

@@ -23,6 +23,7 @@ class TelaInicial:
         if evento.type == pygame.MOUSEBUTTONDOWN:
             if self.botao_jogar.esta_pressionado(pygame.mouse.get_pos(), pygame.mouse.get_pressed()):
                 self.jogo.estado = 'jogando'
+                self.jogo.dialogo.mostrar(["Juliano precisa fugir de sua antiga casa e dos maus tratos e encontrar um novo lar!"], duracao=10000)
 
     def mouse_sobre_botao(self):
         pos_mouse = pygame.mouse.get_pos()

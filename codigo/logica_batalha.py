@@ -188,14 +188,14 @@ class Batalha:
                     if evento.type == pygame.KEYDOWN:
                         if evento.key == pygame.K_1:
                             self.jogo.romance = True
-                            self.jogo.dialogo.mostrar(["Você cativou essa xuxuzinha ❤️"], duracao=3000)
+                            self.jogo.dialogo.mostrar(["Você cativou essa xuxuzinha!"], duracao=3000)
 
                             # Adia a saída da batalha em 2 segundos
                             pygame.time.set_timer(pygame.USEREVENT + 1, 2500)
 
                         elif evento.key == pygame.K_2:
                             self.jogo.romance = False
-                            self.jogo.dialogo.mostrar(["Juliano é implacável, e Narcisa foi assassinada 💀"], duracao=3000)
+                            self.jogo.dialogo.mostrar(["Juliano é implacável, e Narcisa foi assassinada!"], duracao=3000)
                             
                             pygame.time.set_timer(pygame.USEREVENT + 1, 2500)
                     return
@@ -259,7 +259,7 @@ class Batalha:
     def mostrar_opcoes_batalha(self):
         opcoes = []
         for i, opcao in enumerate(self.player.listaAtaques):
-            prefixo = "→ " if i == self.opcao_selecionada else "   "
+            prefixo = ">> " if i == self.opcao_selecionada else "   "
             opcoes.append(f"{prefixo}{opcao}")
 
         self.jogo.dialogo.mostrar(opcoes, duracao=None)
