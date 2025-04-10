@@ -1,15 +1,15 @@
 # Juliano_Bizarre_Adventure
 
-*Membros da Equipe*
+## Membros da Equipe
   * Eduarda Rodrigues (erms2@cin.ufpe.br)
   * Felipe Leite (fsl8@cin.ufpe.br)
   * Isaac Teixeira (imts2@cin.ufpe.br)
   * Isabelle Tenório (itvb@cin.ufpe.br)
   * Marcelo Barreiros (mhab@cin.ufpe.br)
 
-*Arquitetura do Projeto:*
+## Arquitetura do Projeto:
 
-*Ferramentas Utilizadas:*
+## Ferramentas Utilizadas:
 
   * Utilizamos a biblioteca pygame-ce ao inves do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e * pela falicilidade de implementar sprites;
   * Usamos o Tiled para fazer o mapa do jogo em formato .tmx;
@@ -20,7 +20,7 @@
   * Discord para nos reunirmos e alinharmos nossas ideias;
   * Youtube como uma fonte de sons usados no jogo.
 
-*Divisão de trabalhos:*
+## Divisão de trabalhos:
   * Eduarda Rodrigues-
   * Felipe Leite-
   * Isaac Teixeira- Colisões com npcs, com coletaveis, e com o cenário. E relatório.
@@ -28,7 +28,7 @@
   * Marcelo Barreiros- Criou as classes e funções usadas.
   Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
-*Conceitos apresentados durante a disciplina que utilizamos:*
+## Conceitos apresentados durante a disciplina que utilizamos:
   * Laços de repetição para rodar o jogo, carregar os objetos no mapa e verificar se ocorreram colisões;
   * Condicionais;
   * Matrizes para movimentação e para carregar colisões;
@@ -37,7 +37,7 @@
   * Tuplas para algumas funções da biblioteca pygame-ce;
   * Git e GitHub para controle de versão.
 
-*Desafios e erros enfrentados e lições aprendidas*
+## Desafios e erros enfrentados e lições aprendidas
   * "Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?”:
     Nosso maior erro foi subestimar o processo de criação do mapa, o que acabou nos atrasando um pouco, então priozamos o estudo sobre ele.
   * “Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?”:
