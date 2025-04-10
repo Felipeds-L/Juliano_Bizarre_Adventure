@@ -56,7 +56,7 @@
 
 ## Divisão de trabalhos:
   * Eduarda Rodrigues- Implementou as telas e criou a base do sistema de combate, e slide.
-  * Felipe Leite- Criação do mapa usando o tiled e seus objetos, realizei ajustes gráficos nas interações durante as batalhas.
+  * Felipe Leite- Criação do mapa usando o tiled e seus objetos, realizou ajustes gráficos nas interações durante as batalhas.
   * Isaac Teixeira- Colisões com npcs, com coletáveis, e com o cenário, e relatório.
   * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, das telas do final e do game over e as classes dos coletáveis.
   * Marcelo Barreiros- Criou as classes e funções usadas.
