@@ -295,29 +295,29 @@ class Jogo:
     
     def desenhar_score(self):
         imagem_score_aveia = pygame.image.load("graficos/scores/score_aveia.png.png")
-        self.display.blit(imagem_score_aveia, (140,140))
+        self.display.blit(imagem_score_aveia, (140, 50))
 
         if self.juliano.oculos:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_true.png")
-            self.display.blit(imagem_score_oculos, (1200, 140))
+            self.display.blit(imagem_score_oculos, (1200, 500))
         
         else:
             imagem_score_oculos = pygame.image.load("graficos/scores/score_oculos_false.png")
-            self.display.blit(imagem_score_oculos, (1200, 140))
+            self.display.blit(imagem_score_oculos, (1200, 50))
         
         if self.juliano.pombaLaser:
             imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_true.png")
-            self.display.blit(imagem_score_pomba, (1060, 140))
+            self.display.blit(imagem_score_pomba, (1060, 50))
         
         else:
             imagem_score_pomba = pygame.image.load("graficos/scores/score_pomba_false.png")
-            self.display.blit(imagem_score_pomba, (1060, 140))
+            self.display.blit(imagem_score_pomba, (1060, 50))
         
         fonte_score = pygame.font.Font("graficos/fontes/Pixelate-Regular.ttf", 20)
         qtd_aveia_atual = self.juliano.getVida()
         qtd_aveia_total = self.juliano.getVidaTotal()
         score_aveia = fonte_score.render(f"{qtd_aveia_atual} | {qtd_aveia_total}", 1, (255, 255, 255))
-        self.display.blit(score_aveia, (205, 153))
+        self.display.blit(score_aveia, (205, 65))
 
     def run(self):
         while True:
