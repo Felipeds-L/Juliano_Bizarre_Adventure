@@ -4,9 +4,9 @@ from configuracoes import *
 class TelaFeliz:
     def __init__(self, jogo):
         self.jogo = jogo
-        self.fundo_intro = pygame.Surface((JANELA_LARGURA, JANELA_ALTURA))
-        
-        self.fundo_intro.fill(VERDE)
+        self.fundo = pygame.Surface((JANELA_LARGURA, JANELA_ALTURA))
+        self.fundo = pygame.image.load('codigo/tela_final_feliz/tela_final_feliz.png').convert_alpha()
+        self.fundo_rect = self.fundo.get_rect()
 
     def desenhar(self):
-        self.jogo.display.blit(self.fundo_intro, (0, 0))
+        self.jogo.display.blit(self.fundo,  self.fundo_rect)
