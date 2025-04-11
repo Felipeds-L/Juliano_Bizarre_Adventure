@@ -32,12 +32,12 @@
           -  tela_final_feliz/
           -  tela_gameover/
           -  tela_inicial/
-          -  coletaveis.py
-          -  configuracoes.py
-          -  entidades.py
-          -  logica_batalha.py
-          -  logica_jogo.py
-          -  main.py
+          -  coletaveis.py # Contem as classes dos coletáveis;
+          -  configuracoes.py # Arquivo contendo as configurações que serão importadas na classe Jogo
+          -  entidades.py # Arquivo contendo todos as classes dos personagens do jogo;
+          -  logica_batalha.py # Responsável por realizar a lógica das batalhas; 
+          -  logica_jogo.py # Responsável por organizar todo o funcionamento do jogo, importando entidades, configurações, coletaveis e demais arquivos necessários;
+          -  main.py # Responsável unicamente por instanciar a classe Jogo do arquivo logica_jogo.py e inicializar o game;
           -  personagens.py
       -  graficos/ # Pasta que contem os arquivos de mídia utilizados, como as sprites dos personagens, modelo do mapa feito no tiled, fontes, etc.
           -  background_batalha/
@@ -46,6 +46,8 @@
           -  objetos/
           -  personagens/
           -  score/
+       
+        Codigos organizados em arquivos separados, de modo a organizar a leitura. Foi aplicado conceito de modularização, onde cada arquivo era responsável por uma determinada funcionalidade dentro da lógica aplicada no jogo.
 
 ## Ferramentas Utilizadas:
 
