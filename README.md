@@ -76,7 +76,6 @@
   * Listas para armazenar os ataques que podem ser utilizados;
   * Classes e funções para fazer o código orientado à objeto;
   * Tuplas para algumas funções da biblioteca pygame-ce;
-  * Git e GitHub para controle de versão.
 
 ## Desafios e erros enfrentados e lições aprendidas
   * "Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?”:
