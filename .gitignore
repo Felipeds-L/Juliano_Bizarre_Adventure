@@ -1,1 +1,53 @@
-_pycache__/
+# Ignorar bytecode Python
+__pycache__/
+*.py[cod]
+
+# Ignorar ambientes virtuais
+venv/
+.venv/
+env/
+.env/
+.env.bak/
+
+# Ignorar arquivos de configuração local
+*.env
+*.local
+*.secret
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos temporários
+*.tmp
+*.swp
+*.bak
+
+# Ignorar pastas de editores/IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar configurações do PyInstaller
+build/
+dist/
+*.spec
+
+# Ignorar arquivos de cache do pytest
+.pytest_cache/
+
+# Ignorar arquivos de coverage
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# Ignorar banco de dados local
+*.sqlite3
+
+# Ignorar arquivos do Jupyter
+.ipynb_checkpoints/
