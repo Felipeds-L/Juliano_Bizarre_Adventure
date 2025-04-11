@@ -45,11 +45,7 @@ class Batalha:
             self.sprite_juliano = pygame.image.load('graficos/personagens/juliano_oculos_batalha.png').convert_alpha()
             self.sprite_juliano = pygame.transform.smoothscale(self.sprite_juliano, tamanho_sprite)
 
-        if self.oponente.nome == 'Narcisa':
-            self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
-            self.sprite_oponente = pygame.transform.flip(self.sprite_oponente, True, False)
-        else:
-            self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
+        self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
 
         self.pos_juliano = (100, 960 - tamanho_sprite[1] - 50)
         self.pos_oponente = (1440 - tamanho_sprite[0] - 100, 960 - tamanho_sprite[1] - 50)
@@ -170,7 +166,7 @@ class Batalha:
 
         if self.jogo.estado == 'escolha_narcisa' and not self.dialogo_narcisa_mostrado:
             self.jogo.dialogo.mostrar(["1. Narcisa, até que você é gatinha!",
-                                       "2. Morra! Você ficou no meu caminho!"], duracao=None)
+                                       "2. Morra! Vou comer girassol sozinho!"], duracao=None)
             self.dialogo_narcisa_mostrado = True
 
         if self.jogo.dialogo.exibindo:
