@@ -159,12 +159,12 @@ class Batalha:
             self.display.blit(self.sprite_juliano, self.pos_juliano)
             self.display.blit(self.sprite_oponente, self.pos_oponente)
 
-            texto_vida_player = self.font.render("Juliano", True, (255, 255, 255))
+            texto_vida_player = self.font.render("Juliano", True, (PRETO))
             self.display.blit(texto_vida_player, (200, 600))
             self.desenhar_barra_vida(150, 625, self.vida_player, self.player.vidaCheia)
 
             nome_oponente = self.oponente.getNome()
-            texto_vida_oponente = self.font.render(f"{nome_oponente}", True, (255, 255, 255))
+            texto_vida_oponente = self.font.render(f"{nome_oponente}", True, (PRETO))
             self.display.blit(texto_vida_oponente, (1150, 600))
             self.desenhar_barra_vida(1100, 625, self.vida_oponente, self.oponente.vidaCheia)
 
