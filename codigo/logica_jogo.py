@@ -199,13 +199,13 @@ class Jogo:
                 self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
-                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto, possibilitando reduzir o dano do inimigo em 1 ponto!"], duracao=12000)
+                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto, possibilitando reduzir o dano do inimigo em 1 ponto!"], duracao=9000)
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
                 self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
-                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional, mas ele só tem munição para dois tiros certeiros!"], duracao=12000)
+                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional, mas ele só tem munição para dois tiros certeiros!"], duracao=9000)
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 

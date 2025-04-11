@@ -15,7 +15,7 @@ class TelaFeliz:
         self.jogo.display.blit(self.fundo, self.fundo_rect)
 
         if self.transicao_concluida and not self.dialogo_mostrado: 
-            self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa e um novo amor, mas parece que a casa já tinha um dono, agora serão três!"])
+            self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa e um novo amor, mas parece que a casa já tinha um dono, agora serão três!"], duracao=10000)
             self.dialogo_mostrado = True
         
         if self.dialogo_mostrado:

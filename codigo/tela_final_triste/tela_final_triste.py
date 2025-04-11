@@ -15,7 +15,7 @@ class TelaTriste:
         self.jogo.display.blit(self.fundo, self.fundo_rect)
 
         if self.transicao_concluida and not self.dialogo_mostrado: 
-            self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa, mas parece que ela já tinha um dono, agora serão dois grandes amigos!"])
+            self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa, mas parece que ela já tinha um dono, agora serão dois grandes amigos!"], duracao=10000)
             self.dialogo_mostrado = True
 
         if self.dialogo_mostrado:

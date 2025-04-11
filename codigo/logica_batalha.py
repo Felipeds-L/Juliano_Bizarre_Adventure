@@ -170,7 +170,7 @@ class Batalha:
 
         if self.jogo.estado == 'escolha_narcisa' and not self.dialogo_narcisa_mostrado:
             self.jogo.dialogo.mostrar(["1. Narcisa, até que você é gatinha!",
-                                       "2. Morra! Vou comer girassol sozinho!"], duracao=None)
+                                       "2. Morra! Você ficou no meu caminho!"], duracao=None)
             self.dialogo_narcisa_mostrado = True
 
         if self.jogo.dialogo.exibindo:
