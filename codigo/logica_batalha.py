@@ -159,14 +159,14 @@ class Batalha:
             self.display.blit(self.sprite_juliano, self.pos_juliano)
             self.display.blit(self.sprite_oponente, self.pos_oponente)
 
-            texto_vida_player = self.font.render("Juliano", True, (PRETO))
-            self.display.blit(texto_vida_player, (200, 600))
+            texto_vida_player = self.font.render("Juliano", True, (255, 255, 255))
             self.desenhar_barra_vida(150, 625, self.vida_player, self.player.vidaCheia)
+            self.display.blit(texto_vida_player, (200, 600))
 
             nome_oponente = self.oponente.getNome()
-            texto_vida_oponente = self.font.render(f"{nome_oponente}", True, (PRETO))
-            self.display.blit(texto_vida_oponente, (1150, 600))
+            texto_vida_oponente = self.font.render(f"{nome_oponente}", True, (255, 255, 255))
             self.desenhar_barra_vida(1100, 625, self.vida_oponente, self.oponente.vidaCheia)
+            self.display.blit(texto_vida_oponente, (1150, 600))
 
         if self.jogo.estado == 'escolha_narcisa' and not self.dialogo_narcisa_mostrado:
             self.jogo.dialogo.mostrar(["1. Narcisa, até que você é gatinha!",
@@ -273,6 +273,7 @@ class Batalha:
         proporcao = vida_atual / vida_maxima
         largura_preenchida = int(largura * proporcao)
 
+        pygame.draw.rect(self.display, (29, 55, 89), (x-10, y-35, 220, 70))
         pygame.draw.rect(self.display, (255, 0, 0), (x, y, largura, altura))
         pygame.draw.rect(self.display, (0, 255, 0), (x, y, largura_preenchida, altura))
         pygame.draw.rect(self.display, (255, 255, 255), (x, y, largura, altura), 2)
