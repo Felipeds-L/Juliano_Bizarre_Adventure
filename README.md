@@ -65,7 +65,7 @@
   * Felipe Leite- Criação do mapa usando o tiled e seus objetos, realizou ajustes gráficos nas interações durante as batalhas.
   * Isaac Teixeira- Colisões com npcs, com coletáveis, e com o cenário, e relatório.
   * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, das telas do final e do game over e as classes dos coletáveis.
-  * Marcelo Barreiros- Criou as classes e funções usadas.
+  * Marcelo Barreiros- Implementou os gráficos no jogo e criou as classes e funções usadas.
   * Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
 ## Conceitos apresentados durante a disciplina que utilizamos:
