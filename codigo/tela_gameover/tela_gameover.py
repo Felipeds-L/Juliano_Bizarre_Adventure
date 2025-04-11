@@ -19,7 +19,6 @@ class TelaGameover:
     def verificar_clique(self, evento):
         if evento.type == pygame.MOUSEBUTTONDOWN:
             if self.botao_jogar.esta_pressionado(pygame.mouse.get_pos(), pygame.mouse.get_pressed()):
-                self.jogo.estado = 'tela_inicial'
                 self.jogo.tela_inicial_obj = None
                 self.jogo.tela_gameover = None 
                 self.jogo.resetar_jogo()  

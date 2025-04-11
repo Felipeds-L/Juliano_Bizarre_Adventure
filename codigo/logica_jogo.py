@@ -152,8 +152,16 @@ class Jogo:
         self.npcs.empty()
         self.coletaveis_grupo.empty()
 
+        self.musica.parar_musica()
+        self.musica_batalha.parar_musica()
+
         self.batalha = None
+
         self.iniciar('casa')
+
+        self.estado = 'tela_inicial'
+        self.estado_anterior = None  
+        self.tocar_musica()
 
     def update(self):
         self.fps.tick(FPS)
