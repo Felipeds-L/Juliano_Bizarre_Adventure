@@ -7,6 +7,10 @@
   * Isabelle Tenório (itvb@cin.ufpe.br)
   * Marcelo Barreiros (mhab@cin.ufpe.br)
 
+## Descrição Breve
+  Nosso jogo é protagonizado por Juliano, uma calopsita com um passado triste, e enfrentará uma árdua jornada em busca de um lar.
+  (Baseado em fatos reais) 
+  
 ## Imagens do Jogo
 
 
