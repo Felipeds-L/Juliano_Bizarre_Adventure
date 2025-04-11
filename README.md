@@ -52,6 +52,7 @@
 ## Ferramentas Utilizadas:
 
   * Utilizamos a biblioteca pygame-ce ao invés do pygame, pois o pygame padrão é um pouco mais limitado em relação ao que usamos, e pela facilidade de implementar sprites;
+  * Usamos o GitHub para o repositório do código e o Git para todos do grupo conseguirem fazer alterações no código do repositório;
   * Usamos o Tiled para fazer o mapa do jogo em formato .tmx;
   * Piskel e Paint para fazer as sprites em forma de pixelart;
   * Visual Studio Code para programar;
@@ -85,3 +86,9 @@
   * Lições aprendidas:
     * A importância da comunicação entre a equipe: A comunicação entre nós foi fundamental para conseguirmos terminar o projeto, pois nos garantiu um alinhamento de visão, o que nos evitou duplicamento de tarefas e uma maior organização.
     * A importância de um bom planejamento: Subestimar algumas tarefas durante o projeto nos atrasou bastante, e esse atraso nos forçou a simplificar algumas coisas no projeto. Isso evidenciou a importância de um bom planejamento que leve em conta possíveis imprevistos.
+
+## Instruções para rodar o jogo
+  * 1º passo: Baixe os arquivos e abra a pasta (folder) "Juliano_Bizarre_Adventure" no Visual Studio Code;
+  * 2º passo: Abra a pasta "codigo";
+  * 3º passo: Abra o arquivo "main.py";
+  * 4º passo: Clique em "Run python file" no Visual Studio Code.
