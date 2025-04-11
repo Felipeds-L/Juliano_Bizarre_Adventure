@@ -64,7 +64,7 @@
   * Eduarda Rodrigues- Implementou as telas e criou a base do sistema de combate, e slide.
   * Felipe Leite- Criação do mapa usando o tiled e seus objetos, realizou ajustes gráficos nas interações durante as batalhas.
   * Isaac Teixeira- Colisões com npcs, com coletáveis, e com o cenário, e relatório.
-  * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, das telas do final e do game over e as classes dos coletáveis.
+  * Isabelle Tenório- Criou as sprites dos personagens e dos coletáveis, das telas do final e do game over, as classes dos coletáveis e os scores (contadores) dos coletáveis.
   * Marcelo Barreiros- Implementou os gráficos no jogo e criou as classes e funções usadas.
   * Apesar dessa divisão de trabalhos, nós ajudamos uns aos outros quando algum de nós encontrava alguma dificuldade 
 
