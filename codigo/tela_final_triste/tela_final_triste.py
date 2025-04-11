@@ -7,12 +7,20 @@ class TelaTriste:
         self.fundo = pygame.image.load('codigo/tela_final_triste/tela_final_triste.png').convert_alpha()
         self.fundo_rect = self.fundo.get_rect()
         self.alpha = 0  
-        self.transicao_concluida = False  # Adiciona um controle para evitar loop infinito
+        self.transicao_concluida = False
+        self.dialogo_mostrado = False
 
     def desenhar(self):
         self.fundo.set_alpha(self.alpha)
         self.jogo.display.blit(self.fundo, self.fundo_rect)
-        self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa, mas parece que a casa já tinha um dono, agora serão dois grandes amigos!"])
+
+        if self.transicao_concluida and not self.dialogo_mostrado: 
+            self.jogo.dialogo.mostrar(["Juliano agora tem uma nova casa, mas parece que ela já tinha um dono, agora serão dois grandes amigos!"])
+            self.dialogo_mostrado = True
+
+        if self.dialogo_mostrado:
+            self.jogo.dialogo.update()
+            self.jogo.dialogo.desenhar()
 
     def executar_transicao(self, tela_atual):
         if self.transicao_concluida:

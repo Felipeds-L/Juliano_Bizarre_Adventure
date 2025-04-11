@@ -186,18 +186,18 @@ class Jogo:
         if colisao_coletaveis and self.estado == 'jogando':
             coletou = colisao_coletaveis[-1]
             if isinstance(coletou, Aveia):
-                self.dialogo.mostrar(["Você recuperou 1 ponto de vida!"], duracao=3000)
+                self.dialogo.mostrar(["Você comeu aveia e recuperou 1 ponto de vida!"], duracao=3000)
                 self.juliano.curar()
                 self.remover_coletavel(coletou)
 
             elif isinstance(coletou, Oculos):
-                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto! (Novo movimento adquirido!)"], duracao=7000)
+                self.dialogo.mostrar(["Agora Juliano está intimidador e discreto, possibilitando reduzir o dano do inimigo em 1 ponto!"], duracao=12000)
                 self.juliano.pegarOculos()
                 self.remover_coletavel(coletou)
                 self.player.mudar_spritesheet("graficos/personagens/juliano_oculos_redimensionado.png")
             
             elif isinstance(coletou, PombaLaser):
-                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional! (Novo movimento adquirido!)"], duracao=7000)
+                self.dialogo.mostrar(["A cagada desse pombo vai causar o dobro do dano convencional, mas ele só tem munição para dois tiros certeiros!"], duracao=12000)
                 self.juliano.pegarPombaLaser()
                 self.remover_coletavel(coletou)
 
@@ -237,9 +237,11 @@ class Jogo:
         
         elif self.estado == 'final' and self.romance == True:
             self.final_feliz()
+            self.dialogo.desenhar()
         
         elif self.estado == 'final' and self.romance == False:
             self.final_triste()
+            self.dialogo.desenhar()
 
     def tocar_musica(self):
         if self.estado == 'jogando':
@@ -260,12 +262,20 @@ class Jogo:
     def final_feliz(self):
         if self.tela_final_feliz is None:  
             self.tela_final_feliz = TelaFeliz(self)
-        self.tela_final_feliz.executar_transicao(self.todas_sprites)
+
+        if not self.tela_final_feliz.transicao_concluida:
+            self.tela_final_feliz.executar_transicao(self.todas_sprites)
+        else:
+            self.tela_final_feliz.desenhar()
 
     def final_triste(self):
         if self.tela_final_triste is None:  
             self.tela_final_triste = TelaTriste(self)
-        self.tela_final_triste.executar_transicao(self.todas_sprites)
+
+        if not self.tela_final_triste.transicao_concluida:
+            self.tela_final_triste.executar_transicao(self.todas_sprites)
+        else:
+            self.tela_final_triste.desenhar()
     
     def tela_game_over(self):
         if self.tela_gameover is None:

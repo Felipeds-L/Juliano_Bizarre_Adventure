@@ -87,8 +87,8 @@ class Batalha:
                     self.jogo.batalha = self
             else:
                 if not hasattr(self, "mensagem_vitoria_mostrada") or not self.mensagem_vitoria_mostrada:
-                    self.jogo.dialogo.mostrar(["Juliano ta saindo da jaula, birl"], duracao=3000)
-                    pygame.time.set_timer(pygame.USEREVENT + 2, 2500)
+                    self.jogo.dialogo.mostrar(["ORA ORA ORA ORA ORA ORA ORA ORA ORA ORA ORA ORA!!!!"], duracao=3500)
+                    pygame.time.set_timer(pygame.USEREVENT + 2, 3500)
                     self.mensagem_vitoria_mostrada = True
                     self.turno_em_andamento = False
                     return
@@ -182,8 +182,6 @@ class Batalha:
 
         if self.jogo.estado == 'escolha_narcisa':
             if evento.type == pygame.KEYDOWN:
-                print("Evento de tecla detectado no estado escolha_narcisa")
-
                 if self.jogo.estado == 'escolha_narcisa':
                     if evento.type == pygame.KEYDOWN:
                         if evento.key == pygame.K_1:
@@ -195,7 +193,7 @@ class Batalha:
 
                         elif evento.key == pygame.K_2:
                             self.jogo.romance = False
-                            self.jogo.dialogo.mostrar(["Juliano é implacável, e Narcisa foi assassinada!"], duracao=3000)
+                            self.jogo.dialogo.mostrar(["Juliano é poucas ideias e Narcisa foi assassinada!"], duracao=3000)
                             
                             pygame.time.set_timer(pygame.USEREVENT + 1, 2500)
                     return
@@ -248,7 +246,7 @@ class Batalha:
 
                     elif ataque_selecionado == 'Pomba Laser' and self.contador_pomba >= 2:
                         self.oponente.sofrerDano(0)
-                        self.jogo.dialogo.mostrar(['O pombo tá com o butico esgotado!'])
+                        self.jogo.dialogo.mostrar(['O pombo tá com o butico esgotado, deixe-o descansar para a próxima batalha!'])
 
                     elif ataque_selecionado == 'Intimidar':
                         if self.oponente.dano > 1:
