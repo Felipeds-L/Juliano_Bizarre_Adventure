@@ -40,10 +40,10 @@ class Batalha:
         # Sprites dos personagens
         tamanho_sprite = (240, 240)
         if self.player.oculos == False:
-            self.sprite_juliano = pygame.transform.smoothscale(pygame.image.load('graficos/personagens/juliano.png').convert_alpha(),tamanho_sprite)
+            self.sprite_juliano = pygame.transform.smoothscale(pygame.image.load('graficos/personagens/juliano_batalha.png').convert_alpha(),tamanho_sprite)
         else:
-            self.sprite_juliano = pygame.image.load('graficos/personagens/juliano_oculos_redimensionado.png').convert_alpha()
-            self.sprite_juliano = pygame.transform.smoothscale(self.sprite_juliano.subsurface(0, 0, LARGURA_PLAYER, ALTURA_PLAYER), tamanho_sprite)
+            self.sprite_juliano = pygame.image.load('graficos/personagens/juliano_oculos_batalha.png').convert_alpha()
+            self.sprite_juliano = pygame.transform.smoothscale(self.sprite_juliano, tamanho_sprite)
 
         if self.oponente.nome == 'Narcisa':
             self.sprite_oponente = pygame.transform.smoothscale(pygame.image.load(f'graficos/personagens/{self.oponente.getNome().lower()}_batalha.png').convert_alpha(), tamanho_sprite)
